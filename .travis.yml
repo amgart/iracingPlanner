@@ -1,0 +1,5 @@
+language: objective-c
+osx_image: xcode10.2
+xcode_project: PlanetStrike.xcodeproj
+xcode_scheme: PlanetStrike
+xcode_sdk: iphonesimulator12.2
