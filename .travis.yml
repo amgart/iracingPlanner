@@ -2,4 +2,4 @@ language: objective-c
 osx_image: xcode12.2
 xcode_project: iRacingPlanner.xcodeproj
 xcode_scheme: iRacingPlanner (iOS)
-xcode_sdk: iphonesimulator12.2
+xcode_sdk: iphonesimulator14.2
