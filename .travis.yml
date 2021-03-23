@@ -2,5 +2,5 @@ language: swift
 osx_image: xcode12.2
 xcode_project: iRacingPlanner.xcodeproj
 xcode_scheme: iRacingPlanner (iOS)
-xcode_sdk: iphoneos14.4
-xcode_destination: platform=iOS Simulator,OS=14.4,name=iPhone 12 mini
+xcode_sdk: iphoneos14.2
+xcode_destination: platform=iOS Simulator,OS=14.2,name=iPhone 12 mini
