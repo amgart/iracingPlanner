@@ -6,6 +6,8 @@
 	<dict>
 		<key>iRacingPlanner (iOS).xcscheme_^#shared#^_</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
@@ -13,6 +15,19 @@
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>1169ACD62608F0D700A65CE2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1169ACE62608F0D700A65CE2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
