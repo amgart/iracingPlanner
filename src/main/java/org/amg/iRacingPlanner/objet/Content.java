@@ -2,7 +2,7 @@ package org.amg.iRacingPlanner.objet;
 
 import java.util.Objects;
 
-public class Car {
+public class Content {
 
     // Attributes
     private String id;
@@ -48,7 +48,7 @@ public class Car {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Car car = (Car) o;
+        Content car = (Content) o;
         return Objects.equals(id, car.id);
     }
 

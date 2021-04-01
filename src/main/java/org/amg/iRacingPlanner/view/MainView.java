@@ -18,16 +18,18 @@ public class MainView extends JFrame {
         // Window title
         this.setTitle("iRacing Season Planner");
 
+
+
         // Add the upper menu
         JTabbedPane mainPanel = new JTabbedPane();
 
         JComponent dashBoardPanel = new DashboardView();
         mainPanel.addTab("Dashboard", dashBoardPanel);
 
-        JComponent carsPanel = new CarsView();
+        JComponent carsPanel = new ContentView("conf/cars.txt");
         mainPanel.addTab("My Cars", carsPanel);
 
-        JComponent tracksPanel = new CarsView();
+        JComponent tracksPanel = new ContentView("conf/tracks.txt");
         mainPanel.addTab("My Tracks", tracksPanel);
 
         this.add(mainPanel, BorderLayout.CENTER);
@@ -41,7 +43,7 @@ public class MainView extends JFrame {
 
     // This is the main method for the app
     public static void main(String[] args) {
-        MainView mainView = new MainView();
+        new MainView();
     }
 
 
