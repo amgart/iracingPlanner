@@ -140,7 +140,7 @@ public class ContentDAO {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(this.contentFile));
         bufferedWriter.write(data);
         bufferedWriter.close();
-        System.out.println("[iRacingPlanner].[saveToFile] - Car properly saved!");
+        System.out.println("[iRacingPlanner].[saveToFile] - Content properly saved!");
         return true;
     }
 }

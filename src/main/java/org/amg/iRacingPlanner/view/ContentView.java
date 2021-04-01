@@ -30,9 +30,9 @@ public class ContentView extends JPanel {
     // Create the JPanel for each content
     private JPanel print(Content content, ContentDAO contentDAO) {
         JPanel contentPanel = new JPanel();
-        JLabel carLabel = getContentLabel(content);
+        JLabel contentLabel = getContentLabel(content);
         contentPanel.add(createCheckBoxFor(content, contentDAO));
-        contentPanel.add(carLabel);
+        contentPanel.add(contentLabel);
         return contentPanel;
     }
 

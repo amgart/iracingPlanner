@@ -48,8 +48,8 @@ public class Content {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Content car = (Content) o;
-        return Objects.equals(id, car.id);
+        Content content = (Content) o;
+        return Objects.equals(id, content.id);
     }
 
     @Override
