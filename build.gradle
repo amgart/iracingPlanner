@@ -1,0 +1,22 @@
+group 'org.amg'
+version '1.0-SNAPSHOT'
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+task(runMain, dependsOn: 'classes', type: JavaExec) {
+    main = 'org.amg.iRacingPlanner.view.MainView'
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'org.amg.iRacingPlanner.view.MainView'
+    }
+}
