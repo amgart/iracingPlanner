@@ -13,12 +13,12 @@ public class ContentView extends JPanel {
     // Constructor
     ContentView(String contentFile, String ownedContentFile) {
         ContentDAO contentDAO = new ContentDAO(contentFile, ownedContentFile);
-        JPanel contentPanel = new JPanel(new GridLayout(0,3));
         List<Content> contentList = contentDAO.findAll();
+        JPanel contentPanel = new JPanel(new GridLayout(contentList.size()/5,5));
         for (Content content : contentList) {
             contentPanel.add(print(content, contentDAO));
         }
-        contentPanel.setPreferredSize(new Dimension(1400, 800));
+        contentPanel.setPreferredSize(new Dimension(1920, 1080));
         JScrollPane scrollPane = new JScrollPane(contentPanel,
                 ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
                 ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);

@@ -42,6 +42,20 @@ public class ContentDAO {
     }
 
 
+    // Method to find Content by Id
+    public Content findById(String id) throws FileNotFoundException {
+        String data = read(this.contentFile);
+        String[] contentList = data.split("\n");
+        for (String content : contentList) {
+            String[] attrs = content.split(",");
+            if (attrs[0].equals(id)) {
+                return convert(content);
+            }
+        }
+        return null;
+    }
+
+
     // Method that saves the content into file
     public boolean save(Content content) {
         ensureFileExists(this.ownedContentFile);

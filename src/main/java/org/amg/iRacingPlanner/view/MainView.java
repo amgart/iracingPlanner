@@ -8,8 +8,12 @@ import java.awt.BorderLayout;
 public class MainView extends JFrame {
 
     // Constants
-    private static final int HEIGHT = 900;
-    private static final int WIDTH = 1400;
+    private static final int HEIGHT = 1080;
+    private static final int WIDTH = 1920;
+    private static final String CONTENT_CARS_FILE = "content/cars.txt";
+    private static final String OWNED_CARS_FILE = "owned/ownedCars.txt";
+    private static final String CONTENT_TRACK_FILE = "content/tracks.txt";
+    private static final String OWNED_TRACK_FILE = "owned/ownedTracks.txt";
 
 
     // Constructor
@@ -18,18 +22,16 @@ public class MainView extends JFrame {
         // Window title
         this.setTitle("iRacing Season Planner");
 
-
-
         // Add the upper menu
         JTabbedPane mainPanel = new JTabbedPane();
 
-        JComponent dashBoardPanel = new DashboardView();
+        JComponent dashBoardPanel = new DashboardView(CONTENT_CARS_FILE, OWNED_CARS_FILE, CONTENT_TRACK_FILE, OWNED_TRACK_FILE);
         mainPanel.addTab("Dashboard", dashBoardPanel);
 
-        JComponent carsPanel = new ContentView("content/cars.txt", "owned/ownedCars.txt");
+        JComponent carsPanel = new ContentView(CONTENT_CARS_FILE, OWNED_CARS_FILE);
         mainPanel.addTab("My Cars", carsPanel);
 
-        JComponent tracksPanel = new ContentView("content/tracks.txt", "owned/ownedTracks.txt");
+        JComponent tracksPanel = new ContentView(CONTENT_TRACK_FILE, OWNED_TRACK_FILE);
         mainPanel.addTab("My Tracks", tracksPanel);
 
         this.add(mainPanel, BorderLayout.CENTER);
