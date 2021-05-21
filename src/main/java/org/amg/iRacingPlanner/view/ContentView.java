@@ -3,8 +3,14 @@ package org.amg.iRacingPlanner.view;
 import org.amg.iRacingPlanner.dao.ContentDAO;
 import org.amg.iRacingPlanner.objet.Content;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JCheckBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.util.List;
 
 public class ContentView extends JPanel {
@@ -13,12 +19,12 @@ public class ContentView extends JPanel {
     // Constructor
     ContentView(String contentFile, String ownedContentFile) {
         ContentDAO contentDAO = new ContentDAO(contentFile, ownedContentFile);
-        JPanel contentPanel = new JPanel(new GridLayout(0,3));
         List<Content> contentList = contentDAO.findAll();
+        JPanel contentPanel = new JPanel(new GridLayout(contentList.size()/5,5));
         for (Content content : contentList) {
             contentPanel.add(print(content, contentDAO));
         }
-        contentPanel.setPreferredSize(new Dimension(1400, 800));
+        contentPanel.setPreferredSize(new Dimension(1920, 1080));
         JScrollPane scrollPane = new JScrollPane(contentPanel,
                 ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
                 ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
