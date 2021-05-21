@@ -11,8 +11,8 @@ public class ContentView extends JPanel {
 
 
     // Constructor
-    ContentView(String file) {
-        ContentDAO contentDAO = new ContentDAO(file);
+    ContentView(String contentFile, String ownedContentFile) {
+        ContentDAO contentDAO = new ContentDAO(contentFile, ownedContentFile);
         JPanel contentPanel = new JPanel(new GridLayout(0,3));
         List<Content> contentList = contentDAO.findAll();
         for (Content content : contentList) {
@@ -61,6 +61,8 @@ public class ContentView extends JPanel {
         checkbox.addActionListener(e -> {
             if (checkbox.isSelected()) {
                 content.setOwned(true);
+            } else {
+                content.setOwned(false);
             }
             contentDAO.save(content);
         });

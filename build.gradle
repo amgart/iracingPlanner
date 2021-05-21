@@ -21,8 +21,9 @@ jar {
     }
 }
 
-tasks.register('deploy') {
-    mkdir layout.buildDirectory.dir("\\libs\\conf\\")
-    ant.copy file: "$buildDir\\..\\src\\main\\resources\\cars.txt", todir: "$buildDir\\libs\\conf\\"
-    ant.copy file: "$buildDir\\..\\src\\main\\resources\\tracks.txt", todir: "$buildDir\\libs\\conf\\"
+task(deploy, dependsOn: 'assemble'){
+    assemble
+    mkdir layout.buildDirectory.dir("\\libs\\owned\\")
+    ant.copy file: "$buildDir\\..\\src\\main\\resources\\cars.txt", todir: "$buildDir\\libs\\content\\"
+    ant.copy file: "$buildDir\\..\\src\\main\\resources\\tracks.txt", todir: "$buildDir\\libs\\content\\"
 }

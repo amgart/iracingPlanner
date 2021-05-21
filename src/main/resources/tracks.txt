@@ -1,111 +1,111 @@
-1,Atlanta Motor Speedway,0,0
-2,Auto Club Speedway,0,0
-3,Autodromo Internazionale Enzo e Dino Ferrari,0,0
-4,Autódromo José Carlos Pace,0,0
-5,Autodromo Nazionale Monza,0,0
-6,Barber Motorsports Park,0,0
-7,Bark River International Raceway,0,0
-8,Brands Hatch Circuit,0,0
-9,Bristol Motor Speedway,0,0
-10,Canadian Tire Motorsports Park,0,0
-11,Cedar Lake Speedway,0,0
-12,Centripetal Circuit,1,0
-13,Charlotte Motor Speedway,1,0
-14,Chicagoland Speedway,0,0
-15,Chili Bowl,0,0
-16,Circuit de Barcelona Catalunya,0,0
-17,Circuit de Spa-Francorchamps,0,0
-18,Circuit des 24 Heures du Mans,0,0
-19,Circuit Gilles Villeneuve,0,0
-20,Circuit of the Americas,0,0
-21,Circuit Park Zandvoort,0,0
-22,Circuit Zolder,0,0
-23,Concord Speedway,1,0
-24,Crandon International Raceway,0,0
-25,Darlington Raceway,0,0
-26,Daytona International Speedway,0,0
-27,Detroit Grand Prix at Belle Isle,0,0
-28,Donington Park Racing Circuit,0,0
-29,Dover International Speedway,0,0
-30,Eldora Speedway,0,0
-31,Fairbury Speedway,0,0
-32,Five Flags Speedway,0,0
-33,Hockenheimring Baden-Württemberg,0,0
-34,Homestead Miami Speedway,0,0
-35,Indianapolis Motor Speedway,0,0
-36,Iowa Speedway,0,0
-37,IRacing Superspeedway,0,0
-38,Irwindale Speedway,0,0
-39,Kansas Speedway,0,0
-40,Kentucky Speedway,0,0
-41,Knoxville Raceway,0,0
-42,Kokomo Speedway,0,0
-43,Langley Speedway,1,0
-44,Lanier National Speedway,1,0
-45,Lånkebanen (Hell RX),0,0
-46,Las Vegas Motor Speedway,0,0
-47,Lernerville Speedway,0,0
-48,Limaland Motorsports Park,1,0
-49,Lime Rock Park,1,0
-50,Long Beach Street Circuit,0,0
-51,Lucas Oil Raceway,0,0
-52,Martinsville Speedway,0,0
-53,Michigan International Speedway,0,0
-54,Mid-Ohio Sports Car Course,0,0
-55,Mount Panorama Circuit,0,0
-56,Myrtle Beach Speedway,0,0
-57,Nashville Fairgrounds Speedway,0,0
-58,New Hampshire Motor Speedway,0,0
-59,New Jersey Motorsports Park,0,0
-60,New Smyrna Speedway,0,0
-61,North Wilkesboro Speedway,0,0
-62,Nürburgring Combined,0,0
-63,Nürburgring Grand-Prix,0,0
-64,Nürburgring Nordschleife,0,0
-65,Okayama International Circuit,1,0
-66,Oulton Park Circuit,1,0
-67,Oran Park Raceway,0,0
-68,Oxford Plains Speedway,1,0
-69,Phillip Island Circuit,0,0
-70,Phoenix Raceway,0,0
-71,Pocono Raceway,0,0
-72,Richmond Raceway,0,0
-73,Road America,0,0
-74,Road Atlanta,0,0
-75,Rockingham Speedway,0,0
-76,Sebring International Raceway,0,0
-77,Silverstone Circuit,0,0
-78,Snetterton Circuit,0,0
-79,Sonoma Raceway,0,0
-80,South Boston Speedway,1,0
-81,Southern National Motorsports Park,1,0
-82,Stafford Motor Speedway,0,0
-83,Summit Point Raceway,1,0
-84,Suzuka International Racing Circuit,0,0
-85,Talladega Superspeedway,0,0
-86,Texas Motor Speedway,0,0
-87,The Bullring,0,0
-88,The Dirt Track at Charlotte,0,0
-89,The Milwaukee Mile,0,0
-90,Thompson Speedway Motorsports Park,1,0
-91,Tsukuba Circuit,1,0
-92,Twin Ring Motegi,0,0
-93,USA International Speedway,1,0
-94,Virginia International Raceway,0,0
-95,Volusia Speedway Park,0,0
-96,Watkins Glen International,0,0
-97,WeatherTech Raceway Laguna Seca,1,0
-98,Weedsport Speedway,0,0
-99,Wild Horse Motorsports Park,0,0
-100,Wild West Motorsports Park,0,0
-101,Williams Grove Speedway,0,0
-102,World Wide Technology Raceway,0,0
-103,[Legacy] Charlotte Motor Speedway - 2008,1,0
+1,Atlanta Motor Speedway,0
+2,Auto Club Speedway,0
+3,Autodromo Internazionale Enzo e Dino Ferrari,0
+4,Autódromo José Carlos Pace,0
+5,Autodromo Nazionale Monza,0
+6,Barber Motorsports Park,0
+7,Bark River International Raceway,0
+8,Brands Hatch Circuit,0
+9,Bristol Motor Speedway,0
+10,Canadian Tire Motorsports Park,0
+11,Cedar Lake Speedway,0
+12,Centripetal Circuit,1
+13,Charlotte Motor Speedway,1
+14,Chicagoland Speedway,0
+15,Chili Bowl,0
+16,Circuit de Barcelona Catalunya,0
+17,Circuit de Spa-Francorchamps,0
+18,Circuit des 24 Heures du Mans,0
+19,Circuit Gilles Villeneuve,0
+20,Circuit of the Americas,0
+21,Circuit Park Zandvoort,0
+22,Circuit Zolder,0
+23,Concord Speedway,1
+24,Crandon International Raceway,0
+25,Darlington Raceway,0
+26,Daytona International Speedway,0
+27,Detroit Grand Prix at Belle Isle,0
+28,Donington Park Racing Circuit,0
+29,Dover International Speedway,0
+30,Eldora Speedway,0
+31,Fairbury Speedway,0
+32,Five Flags Speedway,0
+33,Hockenheimring Baden-Württemberg,0
+34,Homestead Miami Speedway,0
+35,Indianapolis Motor Speedway,0
+36,Iowa Speedway,0
+37,IRacing Superspeedway,0
+38,Irwindale Speedway,0
+39,Kansas Speedway,0
+40,Kentucky Speedway,0
+41,Knoxville Raceway,0
+42,Kokomo Speedway,0
+43,Langley Speedway,1
+44,Lanier National Speedway,1
+45,Lånkebanen (Hell RX),0
+46,Las Vegas Motor Speedway,0
+47,Lernerville Speedway,0
+48,Limaland Motorsports Park,1
+49,Lime Rock Park,1
+50,Long Beach Street Circuit,0
+51,Lucas Oil Raceway,0
+52,Martinsville Speedway,0
+53,Michigan International Speedway,0
+54,Mid-Ohio Sports Car Course,0
+55,Mount Panorama Circuit,0
+56,Myrtle Beach Speedway,0
+57,Nashville Fairgrounds Speedway,0
+58,New Hampshire Motor Speedway,0
+59,New Jersey Motorsports Park,0
+60,New Smyrna Speedway,0
+61,North Wilkesboro Speedway,0
+62,Nürburgring Combined,0
+63,Nürburgring Grand-Prix,0
+64,Nürburgring Nordschleife,0
+65,Okayama International Circuit,1
+66,Oulton Park Circuit,1
+67,Oran Park Raceway,0
+68,Oxford Plains Speedway,1
+69,Phillip Island Circuit,0
+70,Phoenix Raceway,0
+71,Pocono Raceway,0
+72,Richmond Raceway,0
+73,Road America,0
+74,Road Atlanta,0
+75,Rockingham Speedway,0
+76,Sebring International Raceway,0
+77,Silverstone Circuit,0
+78,Snetterton Circuit,0
+79,Sonoma Raceway,0
+80,South Boston Speedway,1
+81,Southern National Motorsports Park,1
+82,Stafford Motor Speedway,0
+83,Summit Point Raceway,1
+84,Suzuka International Racing Circuit,0
+85,Talladega Superspeedway,0
+86,Texas Motor Speedway,0
+87,The Bullring,0
+88,The Dirt Track at Charlotte,0
+89,The Milwaukee Mile,0
+90,Thompson Speedway Motorsports Park,1
+91,Tsukuba Circuit,1
+92,Twin Ring Motegi,0
+93,USA International Speedway,1
+94,Virginia International Raceway,0
+95,Volusia Speedway Park,0
+96,Watkins Glen International,0
+97,WeatherTech Raceway Laguna Seca,1
+98,Weedsport Speedway,0
+99,Wild Horse Motorsports Park,0
+100,Wild West Motorsports Park,0
+101,Williams Grove Speedway,0
+102,World Wide Technology Raceway,0
+103,[Legacy] Charlotte Motor Speedway - 2008,1
 104,[Legacy] Daytona International Speedway - 2008,1,0kentuck
-105,[Legacy] Kentucky Speedway - 2011,0,0
-106,[Legacy] Lime Rock Park - 2008,1,0
-107,[Legacy] Michigan International Speedway,1,0
-108,[Legacy] Phoenix Raceway - 2008,1,0
-109,[Legacy] Pocono Raceway - 2009,1,0
-110,[Legacy] Silverstone Circuit - 2008,1,0
-111,[Legacy] Texas Motor Speedway - 2009,1,0
+105,[Legacy] Kentucky Speedway - 2011,0
+106,[Legacy] Lime Rock Park - 2008,1
+107,[Legacy] Michigan International Speedway,1
+108,[Legacy] Phoenix Raceway - 2008,1
+109,[Legacy] Pocono Raceway - 2009,1
+110,[Legacy] Silverstone Circuit - 2008,1
+111,[Legacy] Texas Motor Speedway - 2009,1
