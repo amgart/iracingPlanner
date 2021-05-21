@@ -4,7 +4,11 @@ import org.amg.iRacingPlanner.objet.Content;
 import org.amg.iRacingPlanner.objet.Event;
 import org.amg.iRacingPlanner.objet.Serie;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -13,8 +17,8 @@ import java.util.stream.Stream;
 public class SerieDAO {
 
     // Attributes
-    private ContentDAO carContentDao;
-    private ContentDAO trackContentDao;
+    private final ContentDAO carContentDao;
+    private final ContentDAO trackContentDao;
 
 
     // Constructor
@@ -28,11 +32,14 @@ public class SerieDAO {
     public List<Serie> findAll() {
         List<Serie> seriesList = new ArrayList<>();
         File directory = new File("series");
-        for (File file : directory.listFiles()) {
-            try {
-                seriesList.add(parse(file));
-            } catch (FileNotFoundException e) {
-                System.out.println("[iRacingPlanner].[findAll] - Cannot parse series file" + file.getName());
+        File[] fileList = directory.listFiles();
+        if (fileList != null) {
+            for (File file : fileList) {
+                try {
+                    seriesList.add(parse(file));
+                } catch (FileNotFoundException e) {
+                    System.out.println("[iRacingPlanner].[findAll] - Cannot parse series file" + file.getName());
+                }
             }
         }
         return seriesList;

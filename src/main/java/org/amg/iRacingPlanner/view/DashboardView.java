@@ -6,8 +6,13 @@ import org.amg.iRacingPlanner.objet.Content;
 import org.amg.iRacingPlanner.objet.Event;
 import org.amg.iRacingPlanner.objet.Serie;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
+import java.awt.Dimension;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 import java.util.List;
 
 public class DashboardView extends JPanel {

@@ -3,8 +3,14 @@ package org.amg.iRacingPlanner.view;
 import org.amg.iRacingPlanner.dao.ContentDAO;
 import org.amg.iRacingPlanner.objet.Content;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JCheckBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.util.List;
 
 public class ContentView extends JPanel {
