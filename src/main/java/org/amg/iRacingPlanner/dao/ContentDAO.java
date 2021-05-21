@@ -19,18 +19,22 @@ public class ContentDAO {
 
     // Constants
     private final String contentFile;
+    private final String ownedContentFile;
 
 
     // Constructor
-    public ContentDAO(String file) {
-        this.contentFile = file;
+    public ContentDAO(String contentFile, String ownedContentFile) {
+        this.contentFile = contentFile;
+        this.ownedContentFile = ownedContentFile;
     }
 
     // Method that gets all from file
     public List<Content> findAll() {
         try {
-            String data = read();
-            return parse(data);
+            ensureFileExists(this.ownedContentFile);
+            String content = read(this.contentFile);
+            String ownedContent = read(this.ownedContentFile);
+            return parse(content, ownedContent);
         } catch (FileNotFoundException e) {
             System.out.println("[iRacingPlanner].[findAll] - Cannot find content");
         }
@@ -40,19 +44,40 @@ public class ContentDAO {
 
     // Method that saves the content into file
     public boolean save(Content content) {
+        ensureFileExists(this.ownedContentFile);
         try {
-            String data = read();
-            return replaceContentInFile(content, data);
-        } catch (FileNotFoundException e) {
-            System.out.println("[iRacingPlanner].[save] - Cannot save content");
+            if (!content.isOwned()) {
+                return removeContentFromFile(this.ownedContentFile, content);
+            } else{
+                return addContentToFile(this.ownedContentFile, content);
+            }
+        } catch (IOException e) {
+            System.out.println("[iRacingPlanner].[save] - Cannot save content!");
+            return false;
         }
-        return false;
+    }
+
+
+    // Method to remove content from file
+    private boolean removeContentFromFile(String file, Content content) throws IOException {
+        String data = read(file);
+        data = data.replace(toString(content), "");
+        System.out.println(data);
+        return saveToFile(file, data);
+    }
+
+
+    // Method to add content into file
+    private boolean addContentToFile(String file, Content content) throws IOException {
+        String data = read(file);
+        data += toString(content);
+        return saveToFile(file, data);
     }
 
 
     // Read file
-    private String read() throws FileNotFoundException {
-        File contentFile = new File(this.contentFile);
+    private String read(String file) throws FileNotFoundException {
+        File contentFile = new File(file);
         BufferedReader reader =  new BufferedReader(new InputStreamReader(new FileInputStream(contentFile)));
         Stream<String> lines = reader.lines();
         String data = lines.collect(Collectors.joining("\n"));
@@ -62,11 +87,15 @@ public class ContentDAO {
 
 
     // Parse data to content object
-    private List<Content> parse(String data) {
+    private List<Content> parse(String allContent, String ownedContent) {
         List<Content> contentList = new ArrayList<>();
-        String[] lines = data.split("\n");
+        String[] lines = allContent.split("\n");
         for(String line : lines) {
-            contentList.add(convert(line));
+            Content content = convert(line);
+            if (ownedContent.contains(toString(content))) {
+                content.setOwned(true);
+            }
+            contentList.add(content);
         }
         return contentList;
     }
@@ -81,66 +110,39 @@ public class ContentDAO {
         if ("1".equals(columns[2])) {
             content.setDefaultContent(true);
         }
-        if ("1".equals(columns[3])) {
-            content.setOwned(true);
-        }
         return content;
     }
 
 
-    // Method to replace the old content with the new content in file
-    private boolean replaceContentInFile(Content newContent, String data) {
-        try {
-            String oldContent = findContent(newContent, data);
-            String newContentString = buildNewContentString(newContent);
-            String newData = data.replace(oldContent, newContentString);
-            return saveToFile(newData);
-        } catch (IOException e) {
-            System.out.println("[iRacingPlanner].[replaceContentInFile] - Cannot open file");
-        }
-        return false;
-    }
-
-
-    // Method to find a content in the file and returns the string line
-    private String findContent(Content content, String data) {
-        String[] lines = data.split("\n");
-        for(String line : lines) {
-            if (convert(line).getId().equals(content.getId())) {
-                return line;
-            }
-        }
-        return "";
-    }
-
-
-    // Method that builds the string to save for the given content
-    private String buildNewContentString(Content newContent) {
-        String line = newContent.getId() + ","+ newContent.getName() + ",";
-        if (newContent.isDefaultContent()) {
-            line += "1,";
-        } else {
-            line += "0,";
-        }
-        if (newContent.isOwned()) {
-            line += "1";
-        } else {
-            line += "0";
-        }
-        return line;
+    // Method that builds a string from a Content
+    private String toString(Content newContent) {
+        return newContent.getId() + ","+ newContent.getName();
     }
 
 
     // Method that writes the data into file
-    private boolean saveToFile(String data) throws IOException {
-        File contentFile = new File(this.contentFile);
+    private boolean saveToFile(String file, String data) throws IOException {
+        File contentFile = new File(file);
         if (contentFile.exists()) {
             contentFile.delete();
         }
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(this.contentFile));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
         bufferedWriter.write(data);
         bufferedWriter.close();
-        System.out.println("[iRacingPlanner].[saveToFile] - Content properly saved!");
         return true;
     }
+
+
+    // Method to verify if the file exists. If not, create it.
+    private void ensureFileExists(String file) {
+        File f = new File(file);
+        if (!f.exists()) {
+            try {
+                f.createNewFile();
+            } catch (IOException e) {
+                System.out.println("[iRacingPlanner].[ensureContentFileExists] - Cannot create file!");
+            }
+        }
+    }
+
 }

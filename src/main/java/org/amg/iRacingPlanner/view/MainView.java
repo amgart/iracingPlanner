@@ -26,10 +26,10 @@ public class MainView extends JFrame {
         JComponent dashBoardPanel = new DashboardView();
         mainPanel.addTab("Dashboard", dashBoardPanel);
 
-        JComponent carsPanel = new ContentView("conf/cars.txt");
+        JComponent carsPanel = new ContentView("content/cars.txt", "owned/ownedCars.txt");
         mainPanel.addTab("My Cars", carsPanel);
 
-        JComponent tracksPanel = new ContentView("conf/tracks.txt");
+        JComponent tracksPanel = new ContentView("content/tracks.txt", "owned/ownedTracks.txt");
         mainPanel.addTab("My Tracks", tracksPanel);
 
         this.add(mainPanel, BorderLayout.CENTER);
