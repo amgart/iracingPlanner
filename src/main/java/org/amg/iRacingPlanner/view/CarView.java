@@ -1,34 +1,24 @@
 package org.amg.iRacingPlanner.view;
 
+import java.awt.*;
+import java.util.List;
+import javax.swing.*;
+import org.amg.iRacingPlanner.dao.CarDAO;
 import org.amg.iRacingPlanner.dao.ContentDAO;
 import org.amg.iRacingPlanner.objet.Content;
 
-import javax.swing.JCheckBox;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.ScrollPaneConstants;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.GridLayout;
-import java.util.List;
+public class CarView extends JPanel {
 
-public class ContentView extends JPanel {
+    // Constants
+    private static final String OWNED_CARS_FILE = "build\\libs\\owned\\ownedCars.txt";
 
 
-    // Constructor
-    ContentView(String contentFile, String ownedContentFile) {
-        ContentDAO contentDAO = new ContentDAO(contentFile, ownedContentFile);
-        List<Content> contentList = contentDAO.findAll();
+    // Constructor (cars)
+    CarView(List<Content> contentList) {
         JPanel contentPanel = new JPanel(new GridLayout(contentList.size()/5,5));
-        for (Content content : contentList) {
-            contentPanel.add(print(content, contentDAO));
-        }
+        contentList.forEach(content -> contentPanel.add(print(content, new CarDAO(OWNED_CARS_FILE))));
         contentPanel.setPreferredSize(new Dimension(1920, 1080));
-        JScrollPane scrollPane = new JScrollPane(contentPanel,
-                ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
-                ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        this.add(scrollPane);
+        this.add(contentPanel);
         this.setVisible(true);
     }
 
@@ -65,11 +55,7 @@ public class ContentView extends JPanel {
             checkbox.setSelected(true);
         }
         checkbox.addActionListener(e -> {
-            if (checkbox.isSelected()) {
-                content.setOwned(true);
-            } else {
-                content.setOwned(false);
-            }
+            content.setOwned(checkbox.isSelected());
             contentDAO.save(content);
         });
         return checkbox;

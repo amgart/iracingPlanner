@@ -5,17 +5,27 @@ import java.util.Objects;
 public class Content {
 
     // Attributes
-    private String id;
+    private int id;
     private String name;
     private boolean defaultContent;
     private boolean owned;
 
+
+    // Constructor
+    public Content(int id, String name, boolean defaultContent, boolean owned) {
+        this.id = id;
+        this.name = name;
+        this.defaultContent = defaultContent;
+        this.owned = owned;
+    }
+
+
     // Getters && Setters
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -55,5 +65,11 @@ public class Content {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+
+    @Override
+    public String toString() {
+        return id + "," + name;
     }
 }

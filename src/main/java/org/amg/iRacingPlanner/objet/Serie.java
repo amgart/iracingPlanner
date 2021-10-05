@@ -1,51 +1,74 @@
 package org.amg.iRacingPlanner.objet;
 
 import java.util.List;
-import java.util.Objects;
 
 public class Serie {
 
     // Attributes
-    private String name;
-    private List<Content> cars;
-    private List<Event> events;
+    private String minsr;
+    private String seriesname;
+    private int seriesid;
+    private List<Car> cars;
+    private boolean isFixedSetup;
+    private List<Track> tracks;
+    private boolean multiclass;
+
 
     // Getters && Setters
-    public String getName() {
-        return name;
+    public String getMinsr() {
+        return minsr;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setMinsr(String minsr) {
+        this.minsr = minsr;
     }
 
-    public List<Content> getCars() {
+    public String getSeriesname() {
+        return seriesname;
+    }
+
+    public void setSeriesname(String seriesname) {
+        this.seriesname = seriesname;
+    }
+
+    public int getSeriesid() {
+        return seriesid;
+    }
+
+    public void setSeriesid(int seriesid) {
+        this.seriesid = seriesid;
+    }
+
+    public List<Car> getCars() {
         return cars;
     }
 
-    public void setCars(List<Content> cars) {
+    public void setCars(List<Car> cars) {
         this.cars = cars;
     }
 
-    public List<Event> getEvents() {
-        return events;
+    public boolean isFixedSetup() {
+        return isFixedSetup;
     }
 
-    public void setEvents(List<Event> events) {
-        this.events = events;
+    public void setFixedSetup(boolean fixedSetup) {
+        isFixedSetup = fixedSetup;
     }
 
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Serie serie = (Serie) o;
-        return name.equals(serie.name);
+    public List<Track> getTracks() {
+        return tracks;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(name);
+    public void setTracks(List<Track> tracks) {
+        this.tracks = tracks;
     }
+
+    public boolean isMulticlass() {
+        return multiclass;
+    }
+
+    public void setMulticlass(boolean multiclass) {
+        this.multiclass = multiclass;
+    }
+
 }
