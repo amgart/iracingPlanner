@@ -4,7 +4,6 @@ import java.awt.*;
 import java.util.List;
 import javax.swing.*;
 import org.amg.iRacingPlanner.dao.CarDAO;
-import org.amg.iRacingPlanner.dao.ContentDAO;
 import org.amg.iRacingPlanner.objet.Content;
 
 public class CarView extends JPanel {
@@ -16,7 +15,7 @@ public class CarView extends JPanel {
     // Constructor (cars)
     CarView(List<Content> contentList) {
         JPanel contentPanel = new JPanel(new GridLayout(contentList.size()/5,5));
-        contentList.forEach(content -> contentPanel.add(print(content, new CarDAO(OWNED_CARS_FILE))));
+        contentList.forEach(content -> contentPanel.add(print(content)));
         contentPanel.setPreferredSize(new Dimension(1920, 1080));
         this.add(contentPanel);
         this.setVisible(true);
@@ -24,10 +23,10 @@ public class CarView extends JPanel {
 
 
     // Create the JPanel for each content
-    private JPanel print(Content content, ContentDAO contentDAO) {
+    private JPanel print(Content content) {
         JPanel contentPanel = new JPanel();
         JLabel contentLabel = getContentLabel(content);
-        contentPanel.add(createCheckBoxFor(content, contentDAO));
+        contentPanel.add(createCheckBoxFor(content, contentPanel));
         contentPanel.add(contentLabel);
         return contentPanel;
     }
@@ -46,7 +45,7 @@ public class CarView extends JPanel {
 
 
     // Create checkbox
-    private JCheckBox createCheckBoxFor(Content content, ContentDAO contentDAO) {
+    private JCheckBox createCheckBoxFor(Content content, JPanel panel) {
         JCheckBox checkbox = new JCheckBox();
         if (content.isDefaultContent()) {
             checkbox.setSelected(true);
@@ -56,9 +55,21 @@ public class CarView extends JPanel {
         }
         checkbox.addActionListener(e -> {
             content.setOwned(checkbox.isSelected());
-            contentDAO.save(content);
+            if (new CarDAO(OWNED_CARS_FILE).save(content)) {
+                refreshPanel(panel, content);
+            }
         });
         return checkbox;
+    }
+
+
+    // Method to refresh the panel
+    private void refreshPanel(JPanel panel, Content content) {
+        JLabel contentLabel = getContentLabel(content);
+        panel.removeAll();
+        panel.add(createCheckBoxFor(content, panel));
+        panel.add(contentLabel);
+        panel.repaint();
     }
 
 }

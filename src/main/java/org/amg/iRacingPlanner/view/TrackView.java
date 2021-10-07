@@ -5,7 +5,6 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import javax.swing.*;
-import org.amg.iRacingPlanner.dao.ContentDAO;
 import org.amg.iRacingPlanner.dao.TrackDAO;
 import org.amg.iRacingPlanner.objet.Content;
 
@@ -20,8 +19,7 @@ public class TrackView extends JPanel {
         JPanel contentPanel = new JPanel(new GridLayout(trackMap.keySet().size()/5,5));
         trackMap.keySet().stream()
                 .sorted(Comparator.naturalOrder())
-                .forEach(trackName -> contentPanel.add(print(trackMap.get(trackName),
-                new TrackDAO(OWNED_TRACK_FILE))));
+                .forEach(trackName -> contentPanel.add(print(trackMap.get(trackName))));
         contentPanel.setPreferredSize(new Dimension(1920, 1080));
         this.add(contentPanel);
         this.setVisible(true);
@@ -29,10 +27,10 @@ public class TrackView extends JPanel {
 
 
     // Create the JPanel for each content
-    private JPanel print(List<Content> relatedContent, ContentDAO contentDAO) {
+    private JPanel print(List<Content> relatedContent) {
         JPanel contentPanel = new JPanel();
         JLabel contentLabel = getContentLabel(relatedContent.get(0));
-        contentPanel.add(createCheckBoxFor(relatedContent.get(0), contentDAO));
+        contentPanel.add(createCheckBoxFor(relatedContent.get(0), contentPanel));
         contentPanel.add(contentLabel);
         return contentPanel;
     }
@@ -51,7 +49,7 @@ public class TrackView extends JPanel {
 
 
     // Create checkbox
-    private JCheckBox createCheckBoxFor(Content content, ContentDAO contentDAO) {
+    private JCheckBox createCheckBoxFor(Content content, JPanel panel) {
         JCheckBox checkbox = new JCheckBox();
         if (content.isDefaultContent()) {
             checkbox.setSelected(true);
@@ -61,9 +59,21 @@ public class TrackView extends JPanel {
         }
         checkbox.addActionListener(e -> {
             content.setOwned(checkbox.isSelected());
-            contentDAO.save(content);
+            if (new TrackDAO(OWNED_TRACK_FILE).save(content)) {
+                refreshPanel(panel, content);
+            }
         });
         return checkbox;
+    }
+
+
+    // Method to refresh the panel
+    private void refreshPanel(JPanel panel, Content content) {
+        JLabel contentLabel = getContentLabel(content);
+        panel.removeAll();
+        panel.add(createCheckBoxFor(content, panel));
+        panel.add(contentLabel);
+        panel.repaint();
     }
 
 }

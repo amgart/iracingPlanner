@@ -25,15 +25,29 @@ public class DashboardView extends JPanel {
     private static final int EVENTS_WIDTH = 13*EVENT_WIDTH;
     private static final int FULL_WIDTH = SERIE_WIDTH + CARS_WIDTH + EVENTS_WIDTH;
 
+    // Attributes
+    private List<Serie> seriesList;
+    private List<Content> carContentList;
+    private Map<String, List<Content>> trackMap;
+
 
     // Constructor
     DashboardView(List<Serie> seriesList, List<Content> carContentList, Map<String, List<Content>> trackMap) {
+        this.seriesList = seriesList;
+        this.carContentList = carContentList;
+        this.trackMap = trackMap;
+        init();
+    }
+
+    public void init() {
+
+        this.removeAll();
 
         // Create panel
         JPanel dashboardPanel = new JPanel();
         dashboardPanel.add(createHeaderPanel());
-        dashboardPanel.add(createSeriesPanel(seriesList, carContentList, trackMap));
-        dashboardPanel.setPreferredSize(new Dimension(FULL_WIDTH, calculateSeriesHeight(seriesList)));
+        dashboardPanel.add(createSeriesPanel());
+        dashboardPanel.setPreferredSize(new Dimension(FULL_WIDTH, calculateSeriesHeight()));
 
         // Config panel
         JScrollPane scrollPane = new JScrollPane(dashboardPanel);
@@ -44,17 +58,16 @@ public class DashboardView extends JPanel {
 
 
     // Method to create the series panel
-    private JPanel createSeriesPanel(List<Serie> seriesList, List<Content> carContentList,
-                                     Map<String, List<Content>> trackMap) {
+    private JPanel createSeriesPanel() {
         JPanel seriesPanel = new JPanel();
-        seriesList.forEach(serie -> seriesPanel.add(print(serie, carContentList, trackMap)));
-        seriesPanel.setPreferredSize(new Dimension(FULL_WIDTH, calculateSeriesHeight(seriesList)));
+        this.seriesList.forEach(serie -> seriesPanel.add(print(serie)));
+        seriesPanel.setPreferredSize(new Dimension(FULL_WIDTH, calculateSeriesHeight()));
         return seriesPanel;
     }
 
 
-    private int calculateSeriesHeight(List<Serie> seriesList) {
-        return LINE_HEIGHT*seriesList.stream().flatMap(item -> item.getCars().stream()).collect(Collectors.toList()).size();
+    private int calculateSeriesHeight() {
+        return LINE_HEIGHT*this.seriesList.stream().flatMap(item -> item.getCars().stream()).collect(Collectors.toList()).size();
     }
 
 
@@ -96,7 +109,7 @@ public class DashboardView extends JPanel {
 
 
     // Create the JPanel for each serie
-    private JPanel print(Serie serie, List<Content> carContentList, Map<String, List<Content>> trackMap) {
+    private JPanel print(Serie serie) {
         JPanel seriePanel = new JPanel(new GridBagLayout());
         int panelHeight = LINE_HEIGHT*serie.getCars().size();
 
@@ -109,7 +122,7 @@ public class DashboardView extends JPanel {
         seriePanel.add(serieNamePanel);
 
         // Allowed cars panel
-        boolean allowedCarOwned = ownedCarInSerie(serie, carContentList);
+        boolean allowedCarOwned = ownedCarInSerie(serie, this.carContentList);
         JPanel carsPanel = new JPanel(new BorderLayout());
         carsPanel.add(createCarsPanel(serie.getCars(), allowedCarOwned), BorderLayout.LINE_START);
         carsPanel.setPreferredSize(new Dimension(CARS_WIDTH, panelHeight));
@@ -122,7 +135,7 @@ public class DashboardView extends JPanel {
         // Events panel
         serie.getTracks().forEach(track -> {
             track.setName(java.net.URLDecoder.decode(track.getName(), StandardCharsets.UTF_8));
-            boolean ownedTrack = trackMap.get(track.getName()).stream()
+            boolean ownedTrack = this.trackMap.get(track.getName()).stream()
                     .filter(item -> item.getId() == track.getId())
                     .findFirst()
                     .get().isOwned();
@@ -170,5 +183,31 @@ public class DashboardView extends JPanel {
             panel.setBackground(Color.GREEN);
         }
         return panel;
+    }
+
+
+    // Getters & Setters
+    public List<Serie> getSeriesList() {
+        return seriesList;
+    }
+
+    public void setSeriesList(List<Serie> seriesList) {
+        this.seriesList = seriesList;
+    }
+
+    public List<Content> getCarContentList() {
+        return carContentList;
+    }
+
+    public void setCarContentList(List<Content> carContentList) {
+        this.carContentList = carContentList;
+    }
+
+    public Map<String, List<Content>> getTrackMap() {
+        return trackMap;
+    }
+
+    public void setTrackMap(Map<String, List<Content>> trackMap) {
+        this.trackMap = trackMap;
     }
 }
