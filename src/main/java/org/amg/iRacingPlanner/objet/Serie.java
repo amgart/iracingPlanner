@@ -12,6 +12,8 @@ public class Serie {
     private boolean isFixedSetup;
     private List<Track> tracks;
     private boolean multiclass;
+    private int category;
+    private int minlicenselevel;
 
 
     // Getters && Setters
@@ -71,4 +73,19 @@ public class Serie {
         this.multiclass = multiclass;
     }
 
+    public int getCategory() {
+        return category;
+    }
+
+    public void setCategory(int category) {
+        this.category = category;
+    }
+
+    public int getMinlicenselevel() {
+        return minlicenselevel;
+    }
+
+    public void setMinlicenselevel(int minlicenselevel) {
+        this.minlicenselevel = minlicenselevel;
+    }
 }
