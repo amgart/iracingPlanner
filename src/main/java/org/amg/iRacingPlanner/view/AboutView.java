@@ -138,7 +138,7 @@ public class AboutView extends JPanel {
         innerPanel.add(instagram);
 
         // iRacing refid
-        JLabel iracing = new JLabel("If you want to register into iRacing you can use this link");
+        JLabel iracing = new JLabel("If you want to register into iRacing, click here");
         iracing.setForeground(Color.BLUE.darker());
         iracing.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         iracing.addMouseListener(new MouseAdapter() {
@@ -154,6 +154,24 @@ public class AboutView extends JPanel {
             }
         });
         innerPanel.add(iracing);
+
+        // Paypal
+        JLabel paypal = new JLabel("If you want to make a donation, click here");
+        paypal.setForeground(Color.BLUE.darker());
+        paypal.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        paypal.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                try {
+                    Desktop.getDesktop().browse(new URI("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WBC5FZRDZHMSE"));
+                } catch (IOException ex) {
+                    System.out.println("IOException while accessing paypal");
+                } catch (URISyntaxException ex) {
+                    System.out.println("URISyntaxException while accessing paypal");
+                }
+            }
+        });
+        innerPanel.add(paypal);
 
         innerPanel.add(new JLabel(" "));
         innerPanel.add(new JLabel(" "));
