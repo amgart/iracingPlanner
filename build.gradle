@@ -15,6 +15,15 @@ task(runMain, dependsOn: 'classes', type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
 }
 
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'org.amg.iRacingPlanner.view.MainView'
+    }
+    archiveBaseName = "${rootProject.name}"
+    from { configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
 jar {
     manifest {
         attributes 'Main-Class': 'org.amg.iRacingPlanner.view.MainView'
