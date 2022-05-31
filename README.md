@@ -7,8 +7,15 @@ This was quite a pain, so I decided to code this little tool that builds a table
 tracks for the current season.
 
 ## How to install
-*In progress*
+Before running the app you need to make sure that you have Java installed. If you have not installed it, please
+follow these steps (https://www.java.com/en/download/help/windows_manual_download.html).
+If you already have at least Java 16 installed, then download latest release 
+(https://github.com/amgart/iracingPlanner/releases), unzip it and put it in your favourite folder.
+Open a commandPrompt, navigate to the folder and execute it with the following command:
 
+*java -jar iRacingPlanner-1.0.jar* 
+
+Note: I know that this can be a bit complicated, in future releases I will improve this.
 
 ## How to use
 With the tool up and running, just go to *My cars* tab and select the cars you own on *iRacing*. 
