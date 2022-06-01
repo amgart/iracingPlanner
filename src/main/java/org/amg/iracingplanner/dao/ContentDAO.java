@@ -1,4 +1,4 @@
-package org.amg.iRacingPlanner.dao;
+package org.amg.iracingplanner.dao;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -8,7 +8,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.stream.Collectors;
-import org.amg.iRacingPlanner.objet.Content;
+import org.amg.iracingplanner.objet.Content;
 
 public class ContentDAO {
 

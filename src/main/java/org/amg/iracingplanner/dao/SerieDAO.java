@@ -1,11 +1,11 @@
-package org.amg.iRacingPlanner.dao;
+package org.amg.iracingplanner.dao;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.ArrayList;
 import java.util.List;
-import org.amg.iRacingPlanner.objet.Serie;
-import org.amg.iRacingPlanner.objet.Series;
+import org.amg.iracingplanner.objet.Serie;
+import org.amg.iracingplanner.objet.Series;
 
 public class SerieDAO {
 

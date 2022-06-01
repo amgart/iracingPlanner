@@ -1,18 +1,21 @@
-package org.amg.iRacingPlanner.objet;
+package org.amg.iracingplanner.objet;
 
 import java.util.Objects;
 
-public class Car {
+public class Track {
 
     // Attributes
     private String name;
     private int id;
+    private int raceweek;
+    private String config;
 
 
-    // Constructor
-    public Car(String name, int id) {
+    public Track(String name, int id, int raceweek, String config) {
         this.name = name;
         this.id = id;
+        this.raceweek = raceweek;
+        this.config = config;
     }
 
 
@@ -33,13 +36,29 @@ public class Car {
         this.id = id;
     }
 
+    public int getRaceweek() {
+        return raceweek;
+    }
+
+    public void setRaceweek(int raceweek) {
+        this.raceweek = raceweek;
+    }
+
+    public String getConfig() {
+        return config;
+    }
+
+    public void setConfig(String config) {
+        this.config = config;
+    }
+
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Car car = (Car) o;
-        return id == car.id;
+        Track track = (Track) o;
+        return id == track.id;
     }
 
     @Override

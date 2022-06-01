@@ -1,4 +1,4 @@
-package org.amg.iRacingPlanner.dao;
+package org.amg.iracingplanner.dao;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -8,8 +8,8 @@ import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import org.amg.iRacingPlanner.objet.Content;
-import org.amg.iRacingPlanner.objet.Track;
+import org.amg.iracingplanner.objet.Content;
+import org.amg.iracingplanner.objet.Track;
 
 public class TrackDAO extends ContentDAO {
 

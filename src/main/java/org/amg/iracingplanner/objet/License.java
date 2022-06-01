@@ -1,20 +1,21 @@
-package org.amg.iRacingPlanner.objet;
+package org.amg.iracingplanner.objet;
 
-public enum Category {
+public enum License {
 
-    OVAL(1),
-    ROAD(2),
-    DIRT_OVAL(3),
-    DIRT_ROAD(4);
+    R(1),
+    D(4),
+    C(8),
+    B(12),
+    A(16);
 
     private final int value;
 
-    Category(int i) {
+    License(int i) {
         this.value = i;
     }
 
     public static String valueOf(int value) {
-        for (Category category : values()) {
+        for (License category : values()) {
             if (category.value == value) {
                 return category.name();
             }

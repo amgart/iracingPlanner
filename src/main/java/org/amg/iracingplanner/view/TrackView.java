@@ -1,21 +1,25 @@
-package org.amg.iRacingPlanner.view;
+package org.amg.iracingplanner.view;
 
 import java.awt.*;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import javax.swing.*;
-import org.amg.iRacingPlanner.dao.CarDAO;
-import org.amg.iRacingPlanner.objet.Content;
+import org.amg.iracingplanner.dao.TrackDAO;
+import org.amg.iracingplanner.objet.Content;
 
-public class CarView extends JPanel {
+public class TrackView extends JPanel {
 
     // Constants
-    private static final String OWNED_CARS_FILE = "build\\libs\\owned\\ownedCars.txt";
+    private static final String OWNED_TRACK_FILE = "build\\libs\\owned\\ownedTracks.txt";
 
 
-    // Constructor (cars)
-    CarView(List<Content> contentList) {
-        JPanel contentPanel = new JPanel(new GridLayout(contentList.size()/5,5));
-        contentList.forEach(content -> contentPanel.add(print(content)));
+    // Constructor (tracks)
+    TrackView(Map<String, List<Content>> trackMap) {
+        JPanel contentPanel = new JPanel(new GridLayout(trackMap.keySet().size()/5,5));
+        trackMap.keySet().stream()
+                .sorted(Comparator.naturalOrder())
+                .forEach(trackName -> contentPanel.add(print(trackMap.get(trackName))));
         contentPanel.setPreferredSize(new Dimension(1920, 1080));
         this.add(contentPanel);
         this.setVisible(true);
@@ -23,10 +27,10 @@ public class CarView extends JPanel {
 
 
     // Create the JPanel for each content
-    private JPanel print(Content content) {
+    private JPanel print(List<Content> relatedContent) {
         JPanel contentPanel = new JPanel();
-        JLabel contentLabel = getContentLabel(content);
-        contentPanel.add(createCheckBoxFor(content, contentPanel));
+        JLabel contentLabel = getContentLabel(relatedContent.get(0));
+        contentPanel.add(createCheckBoxFor(relatedContent.get(0), contentPanel));
         contentPanel.add(contentLabel);
         return contentPanel;
     }
@@ -55,7 +59,7 @@ public class CarView extends JPanel {
         }
         checkbox.addActionListener(e -> {
             content.setOwned(checkbox.isSelected());
-            if (new CarDAO(OWNED_CARS_FILE).save(content)) {
+            if (new TrackDAO(OWNED_TRACK_FILE).save(content)) {
                 refreshPanel(panel, content);
             }
         });
