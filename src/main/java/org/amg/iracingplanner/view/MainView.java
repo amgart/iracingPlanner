@@ -1,15 +1,15 @@
-package org.amg.iRacingPlanner.view;
+package org.amg.iracingplanner.view;
 
 
 import java.awt.*;
 import java.util.List;
 import java.util.Map;
 import javax.swing.*;
-import org.amg.iRacingPlanner.dao.CarDAO;
-import org.amg.iRacingPlanner.dao.SerieDAO;
-import org.amg.iRacingPlanner.dao.TrackDAO;
-import org.amg.iRacingPlanner.objet.Content;
-import org.amg.iRacingPlanner.objet.Serie;
+import org.amg.iracingplanner.dao.CarDAO;
+import org.amg.iracingplanner.dao.SerieDAO;
+import org.amg.iracingplanner.dao.TrackDAO;
+import org.amg.iracingplanner.objet.Content;
+import org.amg.iracingplanner.objet.Serie;
 
 public class MainView extends JFrame {
 

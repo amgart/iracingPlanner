@@ -1,4 +1,4 @@
-package org.amg.iRacingPlanner.view;
+package org.amg.iracingplanner.view;
 
 import java.awt.*;
 import java.nio.charset.StandardCharsets;
@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.Collectors;
 import javax.swing.*;
-import org.amg.iRacingPlanner.objet.*;
+import org.amg.iracingplanner.objet.*;
 
 public class DashboardView extends JPanel {
 

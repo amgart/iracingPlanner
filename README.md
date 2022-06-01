@@ -76,4 +76,5 @@ really helps.
 ## Build Status
 [![Build Status](https://travis-ci.com/amgart/iracingPlanner.svg?token=fxGz683x8EKy5r4BMBoM&branch=develop)](https://travis-ci.com/amgart/iracingPlanner)
 
-
+## Code quality
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/c2a6545e7f60442baca49e0d551d29a1)](https://www.codacy.com/gh/amgart/iracingPlanner/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=amgart/iracingPlanner&amp;utm_campaign=Badge_Grade)

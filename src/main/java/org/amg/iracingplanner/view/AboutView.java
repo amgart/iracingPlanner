@@ -1,4 +1,4 @@
-package org.amg.iRacingPlanner.view;
+package org.amg.iracingplanner.view;
 
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -6,13 +6,7 @@ import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.nio.charset.StandardCharsets;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
 import javax.swing.*;
-import org.amg.iRacingPlanner.dao.TrackDAO;
-import org.amg.iRacingPlanner.objet.Content;
 
 public class AboutView extends JPanel {
 

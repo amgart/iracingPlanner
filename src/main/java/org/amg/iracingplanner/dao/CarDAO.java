@@ -1,4 +1,4 @@
-package org.amg.iRacingPlanner.dao;
+package org.amg.iracingplanner.dao;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -7,8 +7,8 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import org.amg.iRacingPlanner.objet.Car;
-import org.amg.iRacingPlanner.objet.Content;
+import org.amg.iracingplanner.objet.Car;
+import org.amg.iracingplanner.objet.Content;
 
 public class CarDAO extends ContentDAO {
 

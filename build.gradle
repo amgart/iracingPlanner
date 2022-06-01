@@ -1,15 +1,19 @@
 group 'org.amg'
 version '1.0'
 apply plugin: 'java'
+apply plugin: 'jacoco'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
+
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.13.3'
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.13.3'
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.13.3'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
 }
 
 task(runMain, dependsOn: 'classes', type: JavaExec) {
@@ -42,3 +46,12 @@ tasks.register('copySeries', Copy) {
 task(deploy, dependsOn: ['assemble', 'copySeries']){
     mkdir layout.buildDirectory.dir("\\libs\\owned\\")
 }
+
+test {
+    useJUnitPlatform()
+}
+
+jacocoTestReport {
+    dependsOn test
+}
+
