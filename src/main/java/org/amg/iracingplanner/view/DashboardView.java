@@ -1,14 +1,25 @@
 package org.amg.iracingplanner.view;
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.stream.Collectors;
-import javax.swing.*;
-import org.amg.iracingplanner.objet.*;
+import javax.swing.BorderFactory;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import org.amg.iracingplanner.objet.Car;
+import org.amg.iracingplanner.objet.Category;
+import org.amg.iracingplanner.objet.Content;
+import org.amg.iracingplanner.objet.License;
+import org.amg.iracingplanner.objet.Serie;
+import org.amg.iracingplanner.objet.Track;
 
 public class DashboardView extends JPanel {
 
