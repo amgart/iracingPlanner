@@ -278,24 +278,12 @@ public class DashboardView extends JPanel {
 
 
     // Getters & Setters
-    public List<Serie> getSeriesList() {
-        return seriesList;
-    }
-
     public void setSeriesList(List<Serie> seriesList) {
         this.seriesList = seriesList;
     }
 
-    public List<Content> getCarContentList() {
-        return carContentList;
-    }
-
     public void setCarContentList(List<Content> carContentList) {
         this.carContentList = carContentList;
-    }
-
-    public Map<String, List<Content>> getTrackMap() {
-        return trackMap;
     }
 
     public void setTrackMap(Map<String, List<Content>> trackMap) {
