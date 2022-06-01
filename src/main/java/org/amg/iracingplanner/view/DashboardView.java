@@ -67,7 +67,7 @@ public class DashboardView extends JPanel {
 
 
     private int calculateSeriesHeight() {
-        return (LINE_HEIGHT + 4)*this.seriesList.stream().flatMap(item -> item.getCars().stream()).collect(Collectors.toList()).size();
+        return (LINE_HEIGHT + 4)* (int) this.seriesList.stream().mapToLong(item -> item.getCars().size()).sum();
     }
 
 

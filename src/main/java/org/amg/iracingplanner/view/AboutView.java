@@ -15,11 +15,34 @@ import javax.swing.JPanel;
 
 public class AboutView extends JPanel {
 
+    private static String PAYPAL_TEXT = "If you want to make a donation, click here";
+    private static String PAYPAL_URL = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WBC5FZRDZHMSE";
+    private static String REFID_TEXT = "If you want to register into iRacing, click here";
+    private static String REFID_URL = "https://www.iracing.com/membership/?refid=366160";
+    private static String INSTAGRAM_TEXT = "My Instagram";
+    private static String INSTAGRAM_URL = "https://www.instagram.com/amg.art/";
+    private static String TWITCH_TEXT = "My Twitch channel";
+    private static String TWITCH_URL = "https://www.twitch.tv/amgart88";
+    private static String YOUTUBE_TEXT = "My YouTube channel";
+    private static String YOUTUBE_URL = "https://www.youtube.com/channel/UC5TSGSOsf1KE2zjnFFJTSfw";
+    private static String GITHUB_TEXT = "My Github repository";
+    private static String GITHUB_URL = "https://github.com/amgart/iracingPlanner";
 
-    // Constructor (tracks)
+
+    // Constructor
     AboutView() {
         JPanel contentPanel = new JPanel();
+        contentPanel.add(buildInnerPanel());
+        contentPanel.setPreferredSize(new Dimension(1920, 1080));
+        this.add(contentPanel);
+        this.setVisible(true);
+    }
 
+    /**
+     * Build inner panel for the view.
+     * @return panel
+     */
+    private JPanel buildInnerPanel() {
         // Intro panel
         JPanel innerPanel = new JPanel();
         innerPanel.setLayout(new BoxLayout(innerPanel, BoxLayout.PAGE_AXIS));
@@ -29,7 +52,6 @@ public class AboutView extends JPanel {
         innerPanel.add(new JLabel("My name is Albert and I am an enthusiast of simracing."));
         innerPanel.add(new JLabel("Some years ago I started with this hobby, registered into iRacing and " +
                 "after some seasons I decided to create this simple tool to help simracers planning their season."));
-
 
         // About this tool
         innerPanel.add(new JLabel(" "));
@@ -56,7 +78,6 @@ public class AboutView extends JPanel {
         innerPanel.add(new JLabel( "New features planned includes: series filtering, adding favorites series, cars and tracks, a price" +
                 "calculator (if you want to plan what to buy), and for sure visual enhancements."));
 
-
         // Social media links and final info
         innerPanel.add(new JLabel(" "));
         innerPanel.add(new JLabel("Useful info and links:"));
@@ -65,122 +86,54 @@ public class AboutView extends JPanel {
         innerPanel.add(new JLabel(" "));
 
         // Github
-        JLabel github = new JLabel("My Github repository");
-        github.setForeground(Color.BLUE.darker());
-        github.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        github.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                try {
-                    Desktop.getDesktop().browse(new URI("https://github.com/amgart/iracingPlanner"));
-                } catch (IOException ex) {
-                    System.out.println("IOException while accessing Github");
-                } catch (URISyntaxException ex) {
-                    System.out.println("URISyntaxException while accessing Github");
-                }
-            }
-        });
-        innerPanel.add(github);
+        innerPanel.add(buildLinkLabel(GITHUB_TEXT, GITHUB_URL));
 
         // YouTube
-        JLabel youtube = new JLabel("My YouTube channel");
-        youtube.setForeground(Color.BLUE.darker());
-        youtube.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        youtube.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                try {
-                    Desktop.getDesktop().browse(new URI("https://www.youtube.com/channel/UC5TSGSOsf1KE2zjnFFJTSfw"));
-                } catch (IOException ex) {
-                    System.out.println("IOException while accessing YouTube");
-                } catch (URISyntaxException ex) {
-                    System.out.println("URISyntaxException while accessing YouTube");
-                }
-            }
-        });
-        innerPanel.add(youtube);
+        innerPanel.add(buildLinkLabel(YOUTUBE_TEXT, YOUTUBE_URL));
 
         // Twitch
-        JLabel twitch = new JLabel("My Twitch channel");
-        twitch.setForeground(Color.BLUE.darker());
-        twitch.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        twitch.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                try {
-                    Desktop.getDesktop().browse(new URI("https://www.twitch.tv/amgart88"));
-                } catch (IOException ex) {
-                    System.out.println("IOException while accessing Twitch");
-                } catch (URISyntaxException ex) {
-                    System.out.println("URISyntaxException while accessing Twitch");
-                }
-            }
-        });
-        innerPanel.add(twitch);
+        innerPanel.add(buildLinkLabel(TWITCH_TEXT,  TWITCH_URL));
 
         // Instagram
-        JLabel instagram = new JLabel("My Instagram");
-        instagram.setForeground(Color.BLUE.darker());
-        instagram.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        instagram.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                try {
-                    Desktop.getDesktop().browse(new URI("https://www.instagram.com/amg.art/"));
-                } catch (IOException ex) {
-                    System.out.println("IOException while accessing Instagram");
-                } catch (URISyntaxException ex) {
-                    System.out.println("URISyntaxException while accessing Instagram");
-                }
-            }
-        });
-        innerPanel.add(instagram);
+        innerPanel.add(buildLinkLabel(INSTAGRAM_TEXT, INSTAGRAM_URL));
 
         // iRacing refid
-        JLabel iracing = new JLabel("If you want to register into iRacing, click here");
-        iracing.setForeground(Color.BLUE.darker());
-        iracing.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        iracing.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                try {
-                    Desktop.getDesktop().browse(new URI("https://www.iracing.com/membership/?refid=366160"));
-                } catch (IOException ex) {
-                    System.out.println("IOException while accessing iRacing");
-                } catch (URISyntaxException ex) {
-                    System.out.println("URISyntaxException while accessing iRacing");
-                }
-            }
-        });
-        innerPanel.add(iracing);
+        innerPanel.add(buildLinkLabel(REFID_TEXT, REFID_URL));
 
         // Paypal
-        JLabel paypal = new JLabel("If you want to make a donation, click here");
-        paypal.setForeground(Color.BLUE.darker());
-        paypal.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        paypal.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                try {
-                    Desktop.getDesktop().browse(new URI("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WBC5FZRDZHMSE"));
-                } catch (IOException ex) {
-                    System.out.println("IOException while accessing paypal");
-                } catch (URISyntaxException ex) {
-                    System.out.println("URISyntaxException while accessing paypal");
-                }
-            }
-        });
-        innerPanel.add(paypal);
+        innerPanel.add(buildLinkLabel(PAYPAL_TEXT, PAYPAL_URL));
 
         innerPanel.add(new JLabel(" "));
         innerPanel.add(new JLabel(" "));
         innerPanel.add(new JLabel(" "));
         innerPanel.add(new JLabel("Thank you so much!! :)"));
 
-        contentPanel.add(innerPanel);
-        contentPanel.setPreferredSize(new Dimension(1920, 1080));
-        this.add(contentPanel);
-        this.setVisible(true);
+        return innerPanel;
+    }
+
+    /**
+     * Build link label with the given @text and @url
+     * @param text text shown.
+     * @param url url
+     * @return build label
+     */
+    private JLabel buildLinkLabel(String text, String url) {
+        JLabel paypal = new JLabel(text);
+        paypal.setForeground(Color.BLUE.darker());
+        paypal.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        paypal.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                try {
+                    Desktop.getDesktop().browse(new URI(url));
+                } catch (IOException ex) {
+                    System.out.println("IOException while accessing link");
+                } catch (URISyntaxException ex) {
+                    System.out.println("URISyntaxException while accessing link");
+                }
+            }
+        });
+        return paypal;
     }
 
 }
