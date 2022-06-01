@@ -15,18 +15,18 @@ import javax.swing.JPanel;
 
 public class AboutView extends JPanel {
 
-    private static String PAYPAL_TEXT = "If you want to make a donation, click here";
-    private static String PAYPAL_URL = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WBC5FZRDZHMSE";
-    private static String REFID_TEXT = "If you want to register into iRacing, click here";
-    private static String REFID_URL = "https://www.iracing.com/membership/?refid=366160";
-    private static String INSTAGRAM_TEXT = "My Instagram";
-    private static String INSTAGRAM_URL = "https://www.instagram.com/amg.art/";
-    private static String TWITCH_TEXT = "My Twitch channel";
-    private static String TWITCH_URL = "https://www.twitch.tv/amgart88";
-    private static String YOUTUBE_TEXT = "My YouTube channel";
-    private static String YOUTUBE_URL = "https://www.youtube.com/channel/UC5TSGSOsf1KE2zjnFFJTSfw";
-    private static String GITHUB_TEXT = "My Github repository";
-    private static String GITHUB_URL = "https://github.com/amgart/iracingPlanner";
+    private static final String PAYPAL_TEXT = "If you want to make a donation, click here";
+    private static final String PAYPAL_URL = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WBC5FZRDZHMSE";
+    private static final String REFID_TEXT = "If you want to register into iRacing, click here";
+    private static final String REFID_URL = "https://www.iracing.com/membership/?refid=366160";
+    private static final String INSTAGRAM_TEXT = "My Instagram";
+    private static final String INSTAGRAM_URL = "https://www.instagram.com/amg.art/";
+    private static final String TWITCH_TEXT = "My Twitch channel";
+    private static final String TWITCH_URL = "https://www.twitch.tv/amgart88";
+    private static final String YOUTUBE_TEXT = "My YouTube channel";
+    private static final String YOUTUBE_URL = "https://www.youtube.com/channel/UC5TSGSOsf1KE2zjnFFJTSfw";
+    private static final String GITHUB_TEXT = "My Github repository";
+    private static final String GITHUB_URL = "https://github.com/amgart/iracingPlanner";
 
 
     // Constructor
