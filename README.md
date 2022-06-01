@@ -55,6 +55,7 @@ Github or you can reach me by social media:
 * If you want to add me as a friend, my iRacing name is: Albert Martínez
 * If you want to make a donation:
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2c6b043b20b4408eb4181f71a58411da)](https://app.codacy.com/gh/amgart/iracingPlanner?utm_source=github.com&utm_medium=referral&utm_content=amgart/iracingPlanner&utm_campaign=Badge_Grade_Settings)
 [![](https://www.paypalobjects.com/es_ES/ES/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WBC5FZRDZHMSE)
 
 
