@@ -27,6 +27,8 @@ public class AboutView extends JPanel {
     private static final String YOUTUBE_URL = "https://www.youtube.com/channel/UC5TSGSOsf1KE2zjnFFJTSfw";
     private static final String GITHUB_TEXT = "My Github repository";
     private static final String GITHUB_URL = "https://github.com/amgart/iracingPlanner";
+    private static final String PATREON_TEXT = "If you want to become a patron";
+    private static final String PATREON_URL = "https://www.patreon.com/amgart";
 
 
     // Constructor
@@ -99,6 +101,9 @@ public class AboutView extends JPanel {
 
         // iRacing refid
         innerPanel.add(buildLinkLabel(REFID_TEXT, REFID_URL));
+
+        // Patreon
+        innerPanel.add(buildLinkLabel(PATREON_TEXT, PATREON_URL));
 
         // Paypal
         innerPanel.add(buildLinkLabel(PAYPAL_TEXT, PAYPAL_URL));
