@@ -4,6 +4,7 @@ package org.amg.iracingplanner.view;
 import java.awt.*;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 import javax.swing.*;
 import org.amg.iracingplanner.dao.CarDAO;
 import org.amg.iracingplanner.dao.SerieDAO;
@@ -80,7 +81,7 @@ public class MainView extends JFrame {
     // Method to get series
     private List<Serie> getSeriesList() {
         return new SerieDAO().findAll().stream()
-                .filter(item -> item.getTracks().size() == 12).toList();
+                .filter(item -> item.getTracks().size() == 12).collect(Collectors.toList());
     }
 
 

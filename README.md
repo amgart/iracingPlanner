@@ -9,7 +9,7 @@ tracks for the current season.
 ## How to install
 Before running the app you need to make sure that you have Java installed. If you have not installed it, please
 follow these steps (https://www.java.com/en/download/help/windows_manual_download.html).
-If you already have at least Java 16 installed, then download latest release 
+If you already have at least Java 11 installed, then download latest release 
 (https://github.com/amgart/iracingPlanner/releases), unzip it and put it in your favourite folder.
 Open a commandPrompt, navigate to the folder and execute it with the following command:
 
