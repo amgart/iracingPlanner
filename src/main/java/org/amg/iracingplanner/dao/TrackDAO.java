@@ -70,7 +70,7 @@ public class TrackDAO extends ContentDAO {
         Path path = Paths.get(file);
         Stream<String> lines = Files.lines(path, StandardCharsets.ISO_8859_1);
         Stream<Track> tracks = lines.map(this::convertToTrack);
-        return tracks.toList();
+        return tracks.collect(Collectors.toList());
     }
 
 

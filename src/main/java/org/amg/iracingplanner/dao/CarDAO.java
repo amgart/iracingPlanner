@@ -7,6 +7,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 import org.amg.iracingplanner.objet.Car;
 import org.amg.iracingplanner.objet.Content;
 
@@ -28,7 +29,7 @@ public class CarDAO extends ContentDAO {
                     .peek(car -> car.setName(java.net.URLDecoder.decode(car.getName(), StandardCharsets.UTF_8)))
                     .distinct()
                     .sorted(Comparator.comparing(Car::getName))
-                    .toList();
+                    .collect(Collectors.toList());
             List<Car> ownedCarList = read(this.ownedContentFile);
             return parse(carList, ownedCarList);
         } catch (IOException e) {
