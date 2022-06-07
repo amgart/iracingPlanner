@@ -4,10 +4,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.ArrayList;
 import java.util.List;
-import org.amg.iracingplanner.objet.Serie;
 import org.amg.iracingplanner.objet.Series;
+import org.amg.iracingplanner.objet.SeriesList;
 
-public class SerieDAO {
+public class SeriesDAO {
 
     // URL : https://members.iracing.com/membersite/member/GetSeasons
 
@@ -16,9 +16,9 @@ public class SerieDAO {
 
 
     // Method to get all series
-    public List<Serie> findAll() {
+    public List<Series> findAll() {
         try {
-            Series series = new ObjectMapper().readValue(SERIES_FILE, Series.class);
+            SeriesList series = new ObjectMapper().readValue(SERIES_FILE, SeriesList.class);
             return series.getSeries();
         } catch (JsonProcessingException e) {
             System.out.println("[iRacingPlanner].[findAll] - Cannot parse series file" + SERIES_FILE + " - " + e);
