@@ -24,7 +24,7 @@ public class TrackDAO extends ContentDAO {
     public Map<String, List<Content>> findAll() {
         try {
             ensureFileExists(this.ownedContentFile);
-            Map<String, List<Track>> trackMap = new SerieDAO().findAll().stream()
+            Map<String, List<Track>> trackMap = new SeriesDAO().findAll().stream()
                     .flatMap(item -> item.getTracks().stream())
                     .distinct()
                     .peek(track -> track.setName(java.net.URLDecoder.decode(track.getName(), StandardCharsets.UTF_8)))

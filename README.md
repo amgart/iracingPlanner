@@ -21,15 +21,15 @@ Note: I know that this can be a bit complicated, in future releases I will impro
 With the tool up and running, just go to *My cars* tab and select the cars you own on *iRacing*. 
 Select too your owned tracks on *My tracks* tab.
 
-Once you have done this, you can return to the main *Dashboard* tab and you will see the table of series 
+Once you have done this, you can return to the main *Dashboard* tab, and you will see the table of series 
 as you configured it.
 
 In the *Dashboard* tab will you find the following columns:
-*   Serie name
+*   Series name
 *   License needed for racing the series (R, D, C, B or A)
-*   Category of the serie (Road, Oval, Dirt Oval or RX)
-*   Cars allowed for the serie (if the cell paints green means that you own at least one car)
-*   Number of tracks missing for the series (if the cell paints green means that you have at least 8 tracks and you can obtain *iDollars* with the serie)
+*   Category of the series (Road, Oval, Dirt Oval or RX)
+*   Cars allowed for the series (if the cell paints green means that you own at least one car)
+*   Number of tracks missing for the series (if the cell paints green means that you have at least 8 tracks, and you can obtain *iDollars* with the series)
 *   Weeks: the list of tracks per week (if the cell paints green means that you own the track)
 
 ## How the data is obtained
@@ -53,7 +53,7 @@ cars, and other information. This json needs to be updated each season. Please r
 
 ## About the author
 If you want to report issues, give me some feedback or recommend some new features, you can do it here in
-Github or you can reach me by social media:
+GitHub or you can reach me by social media:
 
 *   My YouTube channel: https://www.youtube.com/channel/UC5TSGSOsf1KE2zjnFFJTSfw
 *   My Twitch channel: https://www.twitch.tv/amgart88

@@ -17,8 +17,8 @@ public class AboutView extends JPanel {
 
     private static final String PAYPAL_TEXT = "If you want to make a donation, click here";
     private static final String PAYPAL_URL = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WBC5FZRDZHMSE";
-    private static final String REFID_TEXT = "If you want to register into iRacing, click here";
-    private static final String REFID_URL = "https://www.iracing.com/membership/?refid=366160";
+    private static final String REF_ID_TEXT = "If you want to register into iRacing, click here";
+    private static final String REF_ID_URL = "https://www.iracing.com/membership/?refid=366160";
     private static final String INSTAGRAM_TEXT = "My Instagram";
     private static final String INSTAGRAM_URL = "https://www.instagram.com/amg.art/";
     private static final String TWITCH_TEXT = "My Twitch channel";
@@ -51,9 +51,9 @@ public class AboutView extends JPanel {
         innerPanel.add(new JLabel(" "));
         innerPanel.add(new JLabel(" "));
         innerPanel.add(new JLabel("About me:"));
-        innerPanel.add(new JLabel("My name is Albert and I am an enthusiast of simracing."));
+        innerPanel.add(new JLabel("My name is Albert and I am an enthusiast of simRacing."));
         innerPanel.add(new JLabel("Some years ago I started with this hobby, registered into iRacing and " +
-                "after some seasons I decided to create this simple tool to help simracers planning their season."));
+                "after some seasons I decided to create this simple tool to help simRacers planning their season."));
 
         // About this tool
         innerPanel.add(new JLabel(" "));
@@ -75,7 +75,7 @@ public class AboutView extends JPanel {
         innerPanel.add(new JLabel("Future steps:"));
         innerPanel.add(new JLabel("I know that this tool needs a lot of new features, fixes and improvements, but please, understand" +
                 "that I do not have a lot of time."));
-        innerPanel.add(new JLabel("You can provide me some feedback or recoment new features in my Github repository or " +
+        innerPanel.add(new JLabel("You can provide me some feedback or comment new features in my Github repository or " +
                 "leave me a comment somewhere in the social media."));
         innerPanel.add(new JLabel( "New features planned includes: series filtering, adding favorites series, cars and tracks, a price" +
                 "calculator (if you want to plan what to buy), and for sure visual enhancements."));
@@ -99,8 +99,8 @@ public class AboutView extends JPanel {
         // Instagram
         innerPanel.add(buildLinkLabel(INSTAGRAM_TEXT, INSTAGRAM_URL));
 
-        // iRacing refid
-        innerPanel.add(buildLinkLabel(REFID_TEXT, REFID_URL));
+        // iRacing ref id
+        innerPanel.add(buildLinkLabel(REF_ID_TEXT, REF_ID_URL));
 
         // Patreon
         innerPanel.add(buildLinkLabel(PATREON_TEXT, PATREON_URL));

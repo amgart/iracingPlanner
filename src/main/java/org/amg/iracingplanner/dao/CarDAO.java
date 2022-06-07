@@ -24,7 +24,7 @@ public class CarDAO extends ContentDAO {
     public List<Content> findAll() {
         try {
             ensureFileExists(this.ownedContentFile);
-            List<Car> carList = new SerieDAO().findAll().stream()
+            List<Car> carList = new SeriesDAO().findAll().stream()
                     .flatMap(item -> item.getCars().stream())
                     .peek(car -> car.setName(java.net.URLDecoder.decode(car.getName(), StandardCharsets.UTF_8)))
                     .distinct()

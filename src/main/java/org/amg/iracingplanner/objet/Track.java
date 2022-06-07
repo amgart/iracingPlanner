@@ -7,14 +7,14 @@ public class Track {
     // Attributes
     private String name;
     private int id;
-    private int raceweek;
+    private int raceWeek;
     private String config;
 
 
-    public Track(String name, int id, int raceweek, String config) {
+    public Track(String name, int id, int raceWeek, String config) {
         this.name = name;
         this.id = id;
-        this.raceweek = raceweek;
+        this.raceWeek = raceWeek;
         this.config = config;
     }
 
@@ -36,12 +36,12 @@ public class Track {
         this.id = id;
     }
 
-    public int getRaceweek() {
-        return raceweek;
+    public int getRaceWeek() {
+        return raceWeek;
     }
 
-    public void setRaceweek(int raceweek) {
-        this.raceweek = raceweek;
+    public void setRaceWeek(int raceWeek) {
+        this.raceWeek = raceWeek;
     }
 
     public String getConfig() {
