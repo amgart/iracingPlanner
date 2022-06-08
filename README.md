@@ -60,11 +60,11 @@ GitHub or you can reach me by social media:
 *   My Instagram: https://www.instagram.com/amg.art/
 *   If you want to register in iRacing and use me as a referred: https://www.iracing.com/membership/?refid=366160
 *   If you want to add me as a friend, my iRacing name is: Albert Martínez
-*   If you want to become a patron: https://www.patreon.com/amgart
+*   If you want to become a patron: https://www.patreon.com/bePatron?u=74912691
 *   If you want to make a donation:
 
 [![](https://www.paypalobjects.com/es_ES/ES/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WBC5FZRDZHMSE)
-[![]()](https://www.patreon.com/amgart)
+<a href="https://www.patreon.com/bePatron?u=74912691" data-patreon-widget-type="become-patron-button">Become a Patron!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
 
 
 ## Final notes
