@@ -5,40 +5,41 @@ import java.util.List;
 public class Series {
 
     // Attributes
-    private String minSr;
-    private String seriesName;
-    private int seriesId;
+    private String minsr;
+    private String seriesname;
+    private int seriesid;
     private List<Car> cars;
     private boolean isFixedSetup;
     private List<Track> tracks;
     private boolean multiclass;
     private int category;
-    private int minLicenseLevel;
+    private int minlicenselevel;
+
 
 
     // Getters && Setters
-    public String getMinSr() {
-        return minSr;
+    public String getMinsr() {
+        return minsr;
     }
 
-    public void setMinSr(String minSr) {
-        this.minSr = minSr;
+    public void setMinsr(String minsr) {
+        this.minsr = minsr;
     }
 
-    public String getSeriesName() {
-        return seriesName;
+    public String getSeriesname() {
+        return seriesname;
     }
 
-    public void setSeriesName(String seriesName) {
-        this.seriesName = seriesName;
+    public void setSeriesname(String seriesname) {
+        this.seriesname = seriesname;
     }
 
-    public int getSeriesId() {
-        return seriesId;
+    public int getSeriesid() {
+        return seriesid;
     }
 
-    public void setSeriesId(int seriesId) {
-        this.seriesId = seriesId;
+    public void setSeriesid(int seriesid) {
+        this.seriesid = seriesid;
     }
 
     public List<Car> getCars() {
@@ -81,11 +82,11 @@ public class Series {
         this.category = category;
     }
 
-    public int getMinLicenseLevel() {
-        return minLicenseLevel;
+    public int getMinlicenselevel() {
+        return minlicenselevel;
     }
 
-    public void setMinLicenseLevel(int minLicenseLevel) {
-        this.minLicenseLevel = minLicenseLevel;
+    public void setMinlicenselevel(int minlicenselevel) {
+        this.minlicenselevel = minlicenselevel;
     }
 }

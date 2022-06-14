@@ -9,22 +9,20 @@ repositories {
 
 dependencies {
 
-    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.13.3'
-    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.13.3'
-    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.13.3'
+    implementation group: 'com.google.code.gson', name: 'gson', version: '2.8.8'
 
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
 }
 
 task(runMain, dependsOn: 'classes', type: JavaExec) {
-    main = 'org.amg.iRacingPlanner.view.MainView'
+    main = 'org.amg.iracingplanner.view.MainView'
     classpath = sourceSets.main.runtimeClasspath
 }
 
 task fatJar(type: Jar) {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     manifest {
-        attributes 'Main-Class': 'org.amg.iRacingPlanner.view.MainView'
+        attributes 'Main-Class': 'org.amg.iracingplanner.view.MainView'
     }
     archiveBaseName = "${rootProject.name}"
     from { configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
@@ -33,7 +31,7 @@ task fatJar(type: Jar) {
 
 jar {
     manifest {
-        attributes 'Main-Class': 'org.amg.iRacingPlanner.view.MainView'
+        attributes 'Main-Class': 'org.amg.iracingplanner.view.MainView'
     }
 }
 
