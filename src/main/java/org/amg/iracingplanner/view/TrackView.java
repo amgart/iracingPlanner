@@ -11,7 +11,7 @@ import org.amg.iracingplanner.objet.Content;
 public class TrackView extends JPanel {
 
     // Constants
-    private static final String OWNED_TRACK_FILE = "build\\libs\\owned\\ownedTracks.txt";
+    private static final String OWNED_TRACK_FILE = "owned\\ownedTracks.txt";
 
 
     // Constructor (tracks)
