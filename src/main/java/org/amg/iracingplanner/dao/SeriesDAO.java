@@ -13,7 +13,7 @@ public class SeriesDAO {
     // URL : https://members.iracing.com/membersite/member/GetSeasons
 
     // Constants
-    private static final String SERIES_FILE = "build\\libs\\series\\series.json";
+    private static final String SERIES_FILE = "series\\series.json";
 
 
     // Method to get all series

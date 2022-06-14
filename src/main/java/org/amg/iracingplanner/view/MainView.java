@@ -19,8 +19,8 @@ public class MainView extends JFrame {
     private static final String CARS_TITLE = "My Cars";
     private static final String TRACKS_TITLE = "My Tracks";
     private static final String ABOUT_TITLE = "About";
-    private static final String OWNED_CARS_FILE = "build\\libs\\owned\\ownedCars.txt";
-    private static final String OWNED_TRACK_FILE = "build\\libs\\owned\\ownedTracks.txt";
+    private static final String OWNED_CARS_FILE = "owned\\ownedCars.txt";
+    private static final String OWNED_TRACK_FILE = "owned\\ownedTracks.txt";
     private static final int SCREEN_HEIGHT = 1050;
     private static final int SCREEN_WIDTH = 1920;
 
