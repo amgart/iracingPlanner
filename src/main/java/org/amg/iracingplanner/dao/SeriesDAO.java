@@ -1,7 +1,8 @@
 package org.amg.iracingplanner.dao;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 import org.amg.iracingplanner.objet.Series;
@@ -18,9 +19,9 @@ public class SeriesDAO {
     // Method to get all series
     public List<Series> findAll() {
         try {
-            SeriesList series = new ObjectMapper().readValue(SERIES_FILE, SeriesList.class);
+            SeriesList series = new Gson().fromJson(new FileReader(SERIES_FILE), SeriesList.class);
             return series.getSeries();
-        } catch (JsonProcessingException e) {
+        } catch (FileNotFoundException e) {
             System.out.println("[iRacingPlanner].[findAll] - Cannot parse series file" + SERIES_FILE + " - " + e);
         }
         return new ArrayList<>();

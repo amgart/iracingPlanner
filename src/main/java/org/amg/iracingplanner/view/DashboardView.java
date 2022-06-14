@@ -147,7 +147,7 @@ public class DashboardView extends JPanel {
 
         // Series name panel
         JPanel seriesNamePanel = new JPanel(new BorderLayout());
-        JLabel seriesNameLabel = new JLabel(java.net.URLDecoder.decode(series.getSeriesName(), StandardCharsets.UTF_8));
+        JLabel seriesNameLabel = new JLabel(java.net.URLDecoder.decode(series.getSeriesname(), StandardCharsets.UTF_8));
         seriesNamePanel.add(seriesNameLabel, BorderLayout.LINE_START);
         seriesNamePanel.setPreferredSize(new Dimension(SERIES_WIDTH, panelHeight));
         seriesNamePanel.setBorder(BorderFactory.createRaisedSoftBevelBorder());
@@ -155,7 +155,7 @@ public class DashboardView extends JPanel {
 
         // License type panel
         JPanel licensePanel = new JPanel(new BorderLayout());
-        JLabel licenseLabel = new JLabel(License.valueOf(series.getMinLicenseLevel()));
+        JLabel licenseLabel = new JLabel(License.valueOf(series.getMinlicenselevel()));
         licensePanel.add(licenseLabel, BorderLayout.LINE_START);
         licensePanel.setPreferredSize(new Dimension(LICENSE_WIDTH, panelHeight));
         licensePanel.setBorder(BorderFactory.createRaisedSoftBevelBorder());
