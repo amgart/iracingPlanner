@@ -9,7 +9,7 @@ import org.amg.iracingplanner.objet.Content;
 public class CarView extends JPanel {
 
     // Constants
-    private static final String OWNED_CARS_FILE = "build\\libs\\owned\\ownedCars.txt";
+    private static final String OWNED_CARS_FILE = "owned\\ownedCars.txt";
 
 
     // Constructor (cars)
