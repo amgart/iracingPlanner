@@ -1,4 +1,4 @@
-package org.amg.iRacingPlanner.dao;
+package org.amg.iracingplanner.dao;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -7,8 +7,9 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import org.amg.iRacingPlanner.objet.Car;
-import org.amg.iRacingPlanner.objet.Content;
+import java.util.stream.Collectors;
+import org.amg.iracingplanner.objet.Car;
+import org.amg.iracingplanner.objet.Content;
 
 public class CarDAO extends ContentDAO {
 
@@ -23,12 +24,12 @@ public class CarDAO extends ContentDAO {
     public List<Content> findAll() {
         try {
             ensureFileExists(this.ownedContentFile);
-            List<Car> carList = new SerieDAO().findAll().stream()
+            List<Car> carList = new SeriesDAO().findAll().stream()
                     .flatMap(item -> item.getCars().stream())
                     .peek(car -> car.setName(java.net.URLDecoder.decode(car.getName(), StandardCharsets.UTF_8)))
                     .distinct()
                     .sorted(Comparator.comparing(Car::getName))
-                    .toList();
+                    .collect(Collectors.toList());
             List<Car> ownedCarList = read(this.ownedContentFile);
             return parse(carList, ownedCarList);
         } catch (IOException e) {

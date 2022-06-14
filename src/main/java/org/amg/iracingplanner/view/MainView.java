@@ -1,15 +1,16 @@
-package org.amg.iRacingPlanner.view;
+package org.amg.iracingplanner.view;
 
 
 import java.awt.*;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 import javax.swing.*;
-import org.amg.iRacingPlanner.dao.CarDAO;
-import org.amg.iRacingPlanner.dao.SerieDAO;
-import org.amg.iRacingPlanner.dao.TrackDAO;
-import org.amg.iRacingPlanner.objet.Content;
-import org.amg.iRacingPlanner.objet.Serie;
+import org.amg.iracingplanner.dao.CarDAO;
+import org.amg.iracingplanner.dao.SeriesDAO;
+import org.amg.iracingplanner.dao.TrackDAO;
+import org.amg.iracingplanner.objet.Content;
+import org.amg.iracingplanner.objet.Series;
 
 public class MainView extends JFrame {
 
@@ -29,7 +30,7 @@ public class MainView extends JFrame {
 
         // Get all data (filtering for now the championships that does not have 12 weeks)
         // TODO fix visualization issues to make the championships different than 12 weeks look good
-        List<Serie> seriesList = getSeriesList();
+        List<Series> seriesList = getSeriesList();
         List<Content> carContentList = getCarsContent();
         Map<String, List<Content>> trackMap = getTracksContent();
 
@@ -78,9 +79,9 @@ public class MainView extends JFrame {
 
 
     // Method to get series
-    private List<Serie> getSeriesList() {
-        return new SerieDAO().findAll().stream()
-                .filter(item -> item.getTracks().size() == 12).toList();
+    private List<Series> getSeriesList() {
+        return new SeriesDAO().findAll().stream()
+                .filter(item -> item.getTracks().size() == 12).collect(Collectors.toList());
     }
 
 

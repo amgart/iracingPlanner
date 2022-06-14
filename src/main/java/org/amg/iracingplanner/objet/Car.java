@@ -1,4 +1,4 @@
-package org.amg.iRacingPlanner.objet;
+package org.amg.iracingplanner.objet;
 
 import java.util.Objects;
 

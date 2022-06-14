@@ -1,14 +1,14 @@
-package org.amg.iRacingPlanner.dao;
+package org.amg.iracingplanner.dao;
 
 import com.google.gson.Gson;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
-import org.amg.iRacingPlanner.objet.Serie;
-import org.amg.iRacingPlanner.objet.Series;
+import org.amg.iracingplanner.objet.Series;
+import org.amg.iracingplanner.objet.SeriesList;
 
-public class SerieDAO {
+public class SeriesDAO {
 
     // URL : https://members.iracing.com/membersite/member/GetSeasons
 
@@ -17,9 +17,9 @@ public class SerieDAO {
 
 
     // Method to get all series
-    public List<Serie> findAll() {
+    public List<Series> findAll() {
         try {
-            Series series = new Gson().fromJson(new FileReader(SERIES_FILE), Series.class);
+            SeriesList series = new Gson().fromJson(new FileReader(SERIES_FILE), SeriesList.class);
             return series.getSeries();
         } catch (FileNotFoundException e) {
             System.out.println("[iRacingPlanner].[findAll] - Cannot parse series file" + SERIES_FILE + " - " + e);

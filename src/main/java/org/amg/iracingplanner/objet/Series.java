@@ -1,8 +1,8 @@
-package org.amg.iRacingPlanner.objet;
+package org.amg.iracingplanner.objet;
 
 import java.util.List;
 
-public class Serie {
+public class Series {
 
     // Attributes
     private String minsr;
@@ -14,6 +14,7 @@ public class Serie {
     private boolean multiclass;
     private int category;
     private int minlicenselevel;
+
 
 
     // Getters && Setters

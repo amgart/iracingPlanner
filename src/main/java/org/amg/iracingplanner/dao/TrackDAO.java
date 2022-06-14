@@ -1,4 +1,4 @@
-package org.amg.iRacingPlanner.dao;
+package org.amg.iracingplanner.dao;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -8,8 +8,8 @@ import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import org.amg.iRacingPlanner.objet.Content;
-import org.amg.iRacingPlanner.objet.Track;
+import org.amg.iracingplanner.objet.Content;
+import org.amg.iracingplanner.objet.Track;
 
 public class TrackDAO extends ContentDAO {
 
@@ -24,7 +24,7 @@ public class TrackDAO extends ContentDAO {
     public Map<String, List<Content>> findAll() {
         try {
             ensureFileExists(this.ownedContentFile);
-            Map<String, List<Track>> trackMap = new SerieDAO().findAll().stream()
+            Map<String, List<Track>> trackMap = new SeriesDAO().findAll().stream()
                     .flatMap(item -> item.getTracks().stream())
                     .distinct()
                     .peek(track -> track.setName(java.net.URLDecoder.decode(track.getName(), StandardCharsets.UTF_8)))
@@ -70,7 +70,7 @@ public class TrackDAO extends ContentDAO {
         Path path = Paths.get(file);
         Stream<String> lines = Files.lines(path, StandardCharsets.ISO_8859_1);
         Stream<Track> tracks = lines.map(this::convertToTrack);
-        return tracks.toList();
+        return tracks.collect(Collectors.toList());
     }
 
 

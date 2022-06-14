@@ -1,14 +1,25 @@
-package org.amg.iRacingPlanner.view;
+package org.amg.iracingplanner.view;
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.stream.Collectors;
-import javax.swing.*;
-import org.amg.iRacingPlanner.objet.*;
+import javax.swing.BorderFactory;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import org.amg.iracingplanner.objet.Car;
+import org.amg.iracingplanner.objet.Category;
+import org.amg.iracingplanner.objet.Content;
+import org.amg.iracingplanner.objet.License;
+import org.amg.iracingplanner.objet.Series;
+import org.amg.iracingplanner.objet.Track;
 
 public class DashboardView extends JPanel {
 
@@ -16,23 +27,23 @@ public class DashboardView extends JPanel {
     private static final int LINE_HEIGHT = 30;
     private static final int SCREEN_WIDTH = 1900;
     private static final int SCREEN_HEIGHT = 970;
-    private static final int SERIE_WIDTH = 300;
+    private static final int SERIES_WIDTH = 300;
     private static final int TYPE_WIDTH = 100;
     private static final int LICENSE_WIDTH = 50;
     private static final int CARS_WIDTH = 300;
     private static final int MISSING_EVENTS_WIDTH = 100;
     private static final int EVENT_WIDTH = 300;
     private static final int EVENTS_WIDTH = 13*EVENT_WIDTH;
-    private static final int FULL_WIDTH = SERIE_WIDTH + CARS_WIDTH + MISSING_EVENTS_WIDTH + EVENTS_WIDTH;
+    private static final int FULL_WIDTH = SERIES_WIDTH + CARS_WIDTH + MISSING_EVENTS_WIDTH + EVENTS_WIDTH;
 
     // Attributes
-    private List<Serie> seriesList;
+    private List<Series> seriesList;
     private List<Content> carContentList;
     private Map<String, List<Content>> trackMap;
 
 
     // Constructor
-    DashboardView(List<Serie> seriesList, List<Content> carContentList, Map<String, List<Content>> trackMap) {
+    DashboardView(List<Series> seriesList, List<Content> carContentList, Map<String, List<Content>> trackMap) {
         this.seriesList = seriesList;
         this.carContentList = carContentList;
         this.trackMap = trackMap;
@@ -60,14 +71,14 @@ public class DashboardView extends JPanel {
     // Method to create the series panel
     private JPanel createSeriesPanel() {
         JPanel seriesPanel = new JPanel();
-        this.seriesList.forEach(serie -> seriesPanel.add(print(serie)));
+        this.seriesList.forEach(series -> seriesPanel.add(print(series)));
         seriesPanel.setPreferredSize(new Dimension(FULL_WIDTH, calculateSeriesHeight()));
         return seriesPanel;
     }
 
 
     private int calculateSeriesHeight() {
-        return (LINE_HEIGHT + 4)*this.seriesList.stream().flatMap(item -> item.getCars().stream()).collect(Collectors.toList()).size();
+        return (LINE_HEIGHT + 4)* (int) this.seriesList.stream().mapToLong(item -> item.getCars().size()).sum();
     }
 
 
@@ -75,21 +86,21 @@ public class DashboardView extends JPanel {
     private JPanel createHeaderPanel() {
         JPanel jPanel = new JPanel(new GridBagLayout());
 
-        // Serie name header column
-        JPanel serieNamePanel = new JPanel();
-        serieNamePanel.add(new JLabel("Serie"));
-        serieNamePanel.setPreferredSize(new Dimension(SERIE_WIDTH, LINE_HEIGHT));
-        serieNamePanel.setBorder(BorderFactory.createLoweredBevelBorder());
-        jPanel.add(serieNamePanel);
+        // Series name header column
+        JPanel seriesNamePanel = new JPanel();
+        seriesNamePanel.add(new JLabel("Series"));
+        seriesNamePanel.setPreferredSize(new Dimension(SERIES_WIDTH, LINE_HEIGHT));
+        seriesNamePanel.setBorder(BorderFactory.createLoweredBevelBorder());
+        jPanel.add(seriesNamePanel);
 
         // License column
-        JPanel liecnsePanel = new JPanel();
-        liecnsePanel.add(new JLabel("Class"));
-        liecnsePanel.setPreferredSize(new Dimension(LICENSE_WIDTH, LINE_HEIGHT));
-        liecnsePanel.setBorder(BorderFactory.createLoweredBevelBorder());
-        jPanel.add(liecnsePanel);
+        JPanel licensePanel = new JPanel();
+        licensePanel.add(new JLabel("Class"));
+        licensePanel.setPreferredSize(new Dimension(LICENSE_WIDTH, LINE_HEIGHT));
+        licensePanel.setBorder(BorderFactory.createLoweredBevelBorder());
+        jPanel.add(licensePanel);
 
-        // Serie type column
+        // Series type column
         JPanel typePanel = new JPanel();
         typePanel.add(new JLabel("Type"));
         typePanel.setPreferredSize(new Dimension(TYPE_WIDTH, LINE_HEIGHT));
@@ -129,95 +140,98 @@ public class DashboardView extends JPanel {
     }
 
 
-    // Create the JPanel for each serie
-    private JPanel print(Serie serie) {
-        JPanel seriePanel = new JPanel(new GridBagLayout());
-        int panelHeight = LINE_HEIGHT*serie.getCars().size();
+    // Create the JPanel for each series
+    private JPanel print(Series series) {
+        JPanel seriesPanel = new JPanel(new GridBagLayout());
+        int panelHeight = LINE_HEIGHT* series.getCars().size();
 
-        // Serie name panel
-        JPanel serieNamePanel = new JPanel(new BorderLayout());
-        JLabel serieNameLabel = new JLabel(java.net.URLDecoder.decode(serie.getSeriesname(), StandardCharsets.UTF_8));
-        serieNamePanel.add(serieNameLabel, BorderLayout.LINE_START);
-        serieNamePanel.setPreferredSize(new Dimension(SERIE_WIDTH, panelHeight));
-        serieNamePanel.setBorder(BorderFactory.createRaisedSoftBevelBorder());
-        seriePanel.add(serieNamePanel);
+        // Series name panel
+        JPanel seriesNamePanel = new JPanel(new BorderLayout());
+        JLabel seriesNameLabel = new JLabel(java.net.URLDecoder.decode(series.getSeriesname(), StandardCharsets.UTF_8));
+        seriesNamePanel.add(seriesNameLabel, BorderLayout.LINE_START);
+        seriesNamePanel.setPreferredSize(new Dimension(SERIES_WIDTH, panelHeight));
+        seriesNamePanel.setBorder(BorderFactory.createRaisedSoftBevelBorder());
+        seriesPanel.add(seriesNamePanel);
 
         // License type panel
         JPanel licensePanel = new JPanel(new BorderLayout());
-        JLabel licenseLabel = new JLabel(License.valueOf(serie.getMinlicenselevel()));
+        JLabel licenseLabel = new JLabel(License.valueOf(series.getMinlicenselevel()));
         licensePanel.add(licenseLabel, BorderLayout.LINE_START);
         licensePanel.setPreferredSize(new Dimension(LICENSE_WIDTH, panelHeight));
         licensePanel.setBorder(BorderFactory.createRaisedSoftBevelBorder());
-        seriePanel.add(licensePanel);
+        seriesPanel.add(licensePanel);
 
-        // Serie type panel
-        JPanel serieTypePanel = new JPanel(new BorderLayout());
-        JLabel serieTypeLabel = new JLabel(Category.valueOf(serie.getCategory()));
-        serieTypePanel.add(serieTypeLabel, BorderLayout.LINE_START);
-        serieTypePanel.setPreferredSize(new Dimension(TYPE_WIDTH, panelHeight));
-        serieTypePanel.setBorder(BorderFactory.createRaisedSoftBevelBorder());
-        seriePanel.add(serieTypePanel);
+        // Series type panel
+        JPanel seriesTypePanel = new JPanel(new BorderLayout());
+        JLabel seriesTypeLabel = new JLabel(Category.valueOf(series.getCategory()));
+        seriesTypePanel.add(seriesTypeLabel, BorderLayout.LINE_START);
+        seriesTypePanel.setPreferredSize(new Dimension(TYPE_WIDTH, panelHeight));
+        seriesTypePanel.setBorder(BorderFactory.createRaisedSoftBevelBorder());
+        seriesPanel.add(seriesTypePanel);
 
         // Allowed cars panel
-        boolean allowedCarOwned = ownedCarInSerie(serie, this.carContentList);
+        boolean allowedCarOwned = ownedCarInSeries(series, this.carContentList);
         JPanel carsPanel = new JPanel(new BorderLayout());
-        carsPanel.add(createCarsPanel(serie.getCars(), allowedCarOwned), BorderLayout.LINE_START);
+        carsPanel.add(createCarsPanel(series.getCars(), allowedCarOwned), BorderLayout.LINE_START);
         carsPanel.setPreferredSize(new Dimension(CARS_WIDTH, panelHeight));
         carsPanel.setBorder(BorderFactory.createRaisedSoftBevelBorder());
         if (allowedCarOwned) {
             carsPanel.setBackground(Color.GREEN);
         }
-        seriePanel.add(carsPanel);
+        seriesPanel.add(carsPanel);
 
         // Missing events panel
-        boolean participationComplete = calculateParticipation(serie);
+        boolean participationComplete = calculateParticipation(series);
         JPanel missingEventsPanel = new JPanel(new BorderLayout());
-        missingEventsPanel.add(createMissingEventsPanel(serie));
+        missingEventsPanel.add(createMissingEventsPanel(series));
         missingEventsPanel.setPreferredSize(new Dimension(MISSING_EVENTS_WIDTH, panelHeight));
         missingEventsPanel.setBorder(BorderFactory.createRaisedSoftBevelBorder());
         if (participationComplete) {
             missingEventsPanel.setBackground(Color.GREEN);
         }
-        seriePanel.add(missingEventsPanel);
+        seriesPanel.add(missingEventsPanel);
 
         // Events panel
-        serie.getTracks().forEach(track -> {
+        series.getTracks().forEach(track -> {
             track.setName(java.net.URLDecoder.decode(track.getName(), StandardCharsets.UTF_8));
             boolean ownedTrack = this.trackMap.get(track.getName()).stream()
                     .filter(item -> item.getId() == track.getId())
                     .findFirst()
-                    .get().isOwned();
-            seriePanel.add(createEventPanel(track, panelHeight, ownedTrack));
+                    .get()
+                    .isOwned();
+            seriesPanel.add(createEventPanel(track, panelHeight, ownedTrack));
         });
-        seriePanel.setPreferredSize(new Dimension(FULL_WIDTH, panelHeight));
-        return seriePanel;
+        seriesPanel.setPreferredSize(new Dimension(FULL_WIDTH, panelHeight));
+        return seriesPanel;
     }
 
 
-    private JPanel createMissingEventsPanel(Serie serie) {
+    private JPanel createMissingEventsPanel(Series series) {
         JPanel panel = new JPanel();
-        int ownedEvents = (int) serie.getTracks().stream().filter(track ->
+        int ownedEvents = (int) series.getTracks().stream().filter(track ->
                 this.trackMap.get(java.net.URLDecoder.decode(track.getName(), StandardCharsets.UTF_8)).stream()
                         .filter(item -> item.getId() == track.getId())
                         .findFirst()
-                        .get().isOwned()
+                        .get()
+                        .isOwned()
         ).count();
         JLabel label = new JLabel(String.valueOf(12 - ownedEvents));
         panel.setPreferredSize(new Dimension(EVENT_WIDTH, LINE_HEIGHT));
         panel.add(label);
-        if (calculateParticipation(serie)) {
+        if (calculateParticipation(series)) {
             panel.setBackground(Color.GREEN);
         }
         return panel;
     }
 
 
-    private boolean calculateParticipation(Serie serie) {
-        int ownedEvents = (int) serie.getTracks().stream().filter(track ->
+    private boolean calculateParticipation(Series series) {
+        int ownedEvents = (int) series.getTracks().stream().filter(track ->
                 this.trackMap.get(java.net.URLDecoder.decode(track.getName(), StandardCharsets.UTF_8)).stream()
                 .filter(item -> item.getId() == track.getId())
                 .findFirst()
-                .get().isOwned()
+                .get()
+                .isOwned()
         ).count();
         if (ownedEvents == 0) {
             return false;
@@ -226,10 +240,10 @@ public class DashboardView extends JPanel {
     }
 
 
-    // Check if there is some car owned in the serie
-    private boolean ownedCarInSerie(Serie serie, List<Content> carContentList) {
+    // Check if there is some car owned in the series
+    private boolean ownedCarInSeries(Series series, List<Content> carContentList) {
         AtomicBoolean allowedCarOwned = new AtomicBoolean(false);
-        serie.getCars().forEach(car -> {
+        series.getCars().forEach(car -> {
             if (carContentList.stream().filter(item -> item.getId() == car.getId()).findFirst().get().isOwned()) {
                 allowedCarOwned.set(true);
             }
@@ -238,7 +252,7 @@ public class DashboardView extends JPanel {
     }
 
 
-    // Create the JPanel for allowed cars in serie
+    // Create the JPanel for allowed cars in series
     private JPanel createCarsPanel(List<Car> carList, boolean allowedCarOwned) {
         JPanel carPanel = new JPanel(new GridLayout(carList.size(), 1));
         carList.forEach(car -> {
@@ -267,24 +281,12 @@ public class DashboardView extends JPanel {
 
 
     // Getters & Setters
-    public List<Serie> getSeriesList() {
-        return seriesList;
-    }
-
-    public void setSeriesList(List<Serie> seriesList) {
+    public void setSeriesList(List<Series> seriesList) {
         this.seriesList = seriesList;
-    }
-
-    public List<Content> getCarContentList() {
-        return carContentList;
     }
 
     public void setCarContentList(List<Content> carContentList) {
         this.carContentList = carContentList;
-    }
-
-    public Map<String, List<Content>> getTrackMap() {
-        return trackMap;
     }
 
     public void setTrackMap(Map<String, List<Content>> trackMap) {
