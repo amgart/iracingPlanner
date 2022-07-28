@@ -1,5 +1,5 @@
 group 'org.amg'
-version '1.0'
+version '1.0.1'
 apply plugin: 'java'
 apply plugin: 'jacoco'
 
@@ -41,7 +41,19 @@ tasks.register('copySeries', Copy) {
     into layout.buildDirectory.dir("\\libs\\series\\")
 }
 
-task(deploy, dependsOn: ['assemble', 'copySeries']){
+tasks.register('copyLauncher', Copy) {
+    from layout.buildDirectory.dir("\\..\\launcher")
+    include "*.bat"
+    into layout.buildDirectory.dir("\\libs\\")
+}
+
+tasks.register('copyReadme', Copy) {
+    from layout.buildDirectory.dir("\\..")
+    include "*.md"
+    into layout.buildDirectory.dir("\\libs\\")
+}
+
+task(deploy, dependsOn: ['assemble', 'fatJar', 'copySeries', 'copyLauncher', 'copyReadme']){
     mkdir layout.buildDirectory.dir("\\libs\\owned\\")
 }
 
@@ -53,3 +65,9 @@ jacocoTestReport {
     dependsOn test
 }
 
+task createRelease(type: Zip, dependsOn: ['deploy']) {
+    mkdir layout.buildDirectory.dir("\\dist\\")
+    archiveName "iRacingPlanner-${version}.zip"
+    destinationDirectory = project.file("${project.buildDir}\\dist")
+    from layout.buildDirectory.dir("\\libs\\")
+}
