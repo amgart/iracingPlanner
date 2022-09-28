@@ -1,22 +1,10 @@
-<mat-toolbar class="menu-toolbar">
-  <button
-    routerLink="/home"
-    mat-ripple
-    matRippleColor="white"
-    class="menu-button"
-    routerLinkActive="active"
-    mat-stroked-button
-  >
-    Home
-  </button>
-  <button
-    mat-ripple
-    matRippleColor="white"
-    class="menu-button"
-    mat-stroked-button
-    routerLinkActive="active"
-    routerLink="/game"
-  >
-    Game
-  </button>
-</mat-toolbar>
+<nav mat-tab-nav-bar>
+  <a mat-tab-link
+     *ngFor="let link of navLinks"
+     [routerLink]="link.link"
+     routerLinkActive #rla="routerLinkActive"
+     [active]="rla.isActive">
+    {{link.label}}
+  </a>
+</nav>
+<router-outlet></router-outlet>

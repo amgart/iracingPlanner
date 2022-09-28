@@ -8,6 +8,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MenuComponent} from './components/menu/menu.component';
 import {MaterialSharedModule} from './material.shared.module';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {MaterialSharedModule} from './material.shared.module';
     BrowserModule,
     AppRoutingModule,
     MaterialSharedModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
