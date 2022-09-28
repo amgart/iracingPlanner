@@ -4,10 +4,10 @@ node_js:
   - "17.5.0"
 
 before_script:
+  - cd iracingPlanner
   - npm install -g @angular/cli
 
 script:
-  - cd iracingPlanner
   - ng lint
   - npm install
   - npm run build
