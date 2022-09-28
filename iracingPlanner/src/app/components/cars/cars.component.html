@@ -1,1 +1,5 @@
-<p>cars works!</p>
+<mat-grid-list cols="4" rowHeight="100px">
+  <mat-grid-tile *ngFor="let car of cars">
+    <app-car [car]="car"></app-car>
+  </mat-grid-tile>
+</mat-grid-list>

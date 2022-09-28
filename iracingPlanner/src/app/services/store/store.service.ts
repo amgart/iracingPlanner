@@ -21,15 +21,21 @@ export class StoreService {
     }
   }
 
-  get = (key: string): any => {
+  get = (objectType: string, key: number): any => {
     if (this.store){
-      return this.store.get(key);
+      return this.store.get(objectType + key.toString());
     }
   }
 
-  set = (key: string, value: any): void => {
+  set = (objectType: string, key: number, value: any): void => {
     if (this.store) {
-      this.store.set(key, value);
+      this.store.set(objectType + key.toString(), value);
+    }
+  }
+
+  delete = (objectType: string, key: number): void => {
+    if (this.store) {
+      this.store.delete(objectType + key.toString());
     }
   }
 }
