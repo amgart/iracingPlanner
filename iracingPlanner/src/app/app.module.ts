@@ -17,6 +17,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {FormsModule} from '@angular/forms';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { TrackComponent } from './components/tracks/track/track/track.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { TrackComponent } from './components/tracks/track/track/track.component'
     MatTabsModule,
     MatCheckboxModule,
     FormsModule,
-    MatGridListModule
+    MatGridListModule,
+    MatFormFieldModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,11 +2,11 @@ interface Serie {
   minsr?: string;
   driverChanges?: boolean;
   year?: number;
-  carNumberMap?:{"carNumberMap":{}};
+  carNumberMap?: any;
   licgroupid?: number;
   seriesname?: string;
   whatshotimg?: string;
-  allowedMembers?: [];
+  allowedMembers?: any;
   currentTrack?: number;
   active?: boolean;
   show_ss_standings?: boolean;
