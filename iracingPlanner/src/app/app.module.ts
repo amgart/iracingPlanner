@@ -16,7 +16,7 @@ import {AboutComponent} from './components/about/about.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {FormsModule} from '@angular/forms';
 import {MatGridListModule} from '@angular/material/grid-list';
-import { TrackComponent } from './components/tracks/track/track/track.component';
+import {TrackComponent} from './components/tracks/track/track/track.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTableModule} from '@angular/material/table';
 
