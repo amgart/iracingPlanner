@@ -1,5 +1,6 @@
 {
   "name": "iracing-planner",
+  "productName": "AMG's iRacing Planner",
   "version": "2.0.0",
   "main": "main.js",
   "scripts": {
@@ -8,7 +9,10 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "electron": "ng build && electron ."
+    "electron": "ng build && electron .",
+    "electron-package-win": "ng build && electron-packager . iracing-planner --overwrite --asar=true --platform=win32 --arch=x64 --prune=true --out=release-builds --version-string.ProductName=\"AMG's iRacing Planner\"",
+    "electron-package-osx": "ng build && electron-packager . --overwrite --platform=darwin --arch=x64 --prune=true --out=release-builds",
+    "electron-package-linux": "ng build && electron-packager . iracing-planner --overwrite --asar=true --platform=linux --arch=x64 --prune=true --out=release-builds"
   },
   "private": true,
   "dependencies": {
@@ -32,6 +36,7 @@
     "@angular/compiler-cli": "^14.2.0",
     "@types/jasmine": "~4.0.0",
     "electron": "^21.0.0",
+    "electron-packager": "^16.0.0",
     "jasmine-core": "~4.3.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
