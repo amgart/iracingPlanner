@@ -19,6 +19,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {TrackComponent} from './components/tracks/track/track/track.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTableModule} from '@angular/material/table';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {MatTableModule} from '@angular/material/table';
     FormsModule,
     MatGridListModule,
     MatFormFieldModule,
-    MatTableModule
+    MatTableModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
