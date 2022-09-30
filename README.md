@@ -7,14 +7,8 @@ This was quite a pain, so I decided to code this little tool that builds a table
 tracks for the current season.
 
 ## How to install
-Before running the app you need to make sure that you have Java installed. If you have not installed it, please
-follow these steps (https://www.java.com/en/download/help/windows_manual_download.html).
-If you already have at least Java 11 installed, then download latest release 
-(https://github.com/amgart/iracingPlanner/releases), unzip it and put it in your favourite folder.
-Now you only need to double-click StartiRacingPlanner.bat
-
-Note: This launcher must be in the proper folder. If you want, you can create a shortcut to this .bat file 
-and put it the Desktop or whatever you want.
+Just download latest release (https://github.com/amgart/iracingPlanner/releases), unzip it and put it in your favourite folder.
+Now you only need to double-click *iracing-planner.exe*
 
 ## How to use
 With the tool up and running, just go to *My cars* tab and select the cars you own on *iRacing*. 
@@ -24,11 +18,11 @@ Once you have done this, you can return to the main *Dashboard* tab, and you wil
 as you configured it.
 
 In the *Dashboard* tab will you find the following columns:
-*   Series name
+*   Series name (if the cell paints green means that you have at least 8 tracks, and you can obtain *iDollars* with the series)
 *   License needed for racing the series (R, D, C, B or A)
 *   Category of the series (Road, Oval, Dirt Oval or RX)
 *   Cars allowed for the series (if the cell paints green means that you own at least one car)
-*   Number of tracks missing for the series (if the cell paints green means that you have at least 8 tracks, and you can obtain *iDollars* with the series)
+*   Number of tracks you can race for this serie
 *   Weeks: the list of tracks per week (if the cell paints green means that you own the track)
 
 ## How the data is obtained
@@ -38,12 +32,14 @@ cars, and other information. This json needs to be updated each season. Please r
 *How to update the tool* section.
 
 ## Known issues and limitations
-*   At this moment the tool only displays series with 12 weeks.
+*   If the serie has less than 12 races, the series is not properly shown.
 *   The json file needs to be updated every season. Please read *How to update the tool* section.
-*   The json file can contain duplicated cars and/or tracks. This causes the tool to display the cars and/or tracks duplicated as they have different names in the json. If this happens, please select all the cars/tracks that apply.
-*   The json does not contain which of the cars/tracks are included in the starter pack (not needed to buy). The tool cannot know which ones are owned by default, so please, select all cars and tracks.
+*   The json does not contain which of the cars/tracks are included in the starter pack (not needed to buy). 
+The tool cannot know which ones are owned by default, so please, select these cars and tracks too.
 
 ## Future features planned
+*   Visual enhancements
+*   Default content should be preselected and disabled to avoid removing them.
 *   Possibility to add favourite cars, tracks and series.
 *   Possibility to filter by category, license, cars and favourites in the *Dashboard* tab.
 *   *Dashboard* is automatically calculated each season instead of manually updating the tool.
