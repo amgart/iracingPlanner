@@ -1,4 +1,4 @@
-# iRacingPlanner
+# AMG's iRacingPlanner
 As an *iRacing* user I always found quite difficult to plan my season. When a new season schedule is released, 
 I used to go the schedule pdf and build a table with the series, tracks and cars. Once build, I tried to identify
 which were the best options to race and what tracks and cars to buy for the season.
