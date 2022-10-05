@@ -6,14 +6,11 @@ import {CarService} from '../../services/car/car.service';
   templateUrl: './cars.component.html',
   styleUrls: ['./cars.component.scss']
 })
-export class CarsComponent implements OnInit {
+export class CarsComponent {
 
   cars: Car[] = this.carService.findAllCars();
 
   constructor(private carService: CarService) {
-  }
-
-  ngOnInit(): void {
   }
 
 }
