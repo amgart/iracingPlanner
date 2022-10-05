@@ -9,4 +9,5 @@ before_script:
 
 script:
   - npm install
+  - ng lint
   - npm run build
