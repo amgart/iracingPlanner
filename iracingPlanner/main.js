@@ -24,7 +24,7 @@ createWindow = () => {
 
   appWin.setMenu(null);
 
-  appWin.webContents.openDevTools();
+  //appWin.webContents.openDevTools();
 
   appWin.on("closed", () => {
     appWin = null;

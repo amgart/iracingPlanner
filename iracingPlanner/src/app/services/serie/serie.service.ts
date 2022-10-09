@@ -9,11 +9,17 @@ export class SerieService {
 
   constructor(private utilService: UtilService) { }
 
-  findAllSeries(): Serie[] {
+  findSeries(filter?: string): Serie[] {
     let series: Serie[] = [];
     seriesJsonFile.series.forEach(serie => {
-      series.push(serie);
-    })
+      if (filter) {
+        if (this.utilService.decode(serie.seriesname).toLowerCase().includes(filter.toLowerCase())) {
+          series.push(serie);
+        }
+      } else {
+        series.push(serie);
+      }
+    });
     return this.utilService.sortSeries(series);
   }
 }

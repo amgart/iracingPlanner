@@ -3,6 +3,7 @@ import {SerieService} from '../../services/serie/serie.service';
 import {UtilService} from '../../services/util/util.service';
 import {TrackService} from '../../services/track/track.service';
 import {CarService} from '../../services/car/car.service';
+import {FormControl} from "@angular/forms";
 
 @Component({
   selector: 'app-dashboard',
@@ -11,6 +12,7 @@ import {CarService} from '../../services/car/car.service';
 })
 export class DashboardComponent implements OnInit {
 
+  dashForm = new FormControl('');
   displayedColumns: string[] = ['serieName', 'license', 'type', 'cars', 'fixedOpen', 'howMany',
     'week0', 'week1', 'week2', 'week3', 'week4', 'week5', 'week6', 'week7', 'week8', 'week9',
     'week10', 'week11'];
@@ -21,7 +23,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dataSource = this.serieService.findAllSeries();
+    this.dataSource = this.serieService.findSeries();
   }
 
   getLabel(text: string): string {
@@ -72,10 +74,7 @@ export class DashboardComponent implements OnInit {
 
   isTrackOwned(weekNum: number, jsonTracks: string): boolean {
     const track = this.findTrack(weekNum, jsonTracks);
-    if (track && track.pkgid && this.trackService.isOwned(track)) {
-      return true;
-    }
-    return false;
+    return !!(track && track.pkgid && this.trackService.isOwned(track));
   }
 
   isSomeCarOwned(jsonCars: string): boolean {
@@ -103,5 +102,10 @@ export class DashboardComponent implements OnInit {
   canRaceSerie(serie: Serie): boolean {
     return this.countRaces(JSON.stringify(serie.tracks)) >= 8
       && this.isSomeCarOwned(JSON.stringify(serie.cars));
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource = this.serieService.findSeries(filterValue);
   }
 }
