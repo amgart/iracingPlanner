@@ -1,3 +1,11 @@
+<form>
+  <mat-form-field appearance="standard">
+    <mat-label>Filter</mat-label>
+    <input matInput [formControl]="dashForm" (keyup)="applyFilter($event)" placeholder="Filter by series name" #input>
+  </mat-form-field>
+</form>
+
+
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
   <!-- Serie name Column -->

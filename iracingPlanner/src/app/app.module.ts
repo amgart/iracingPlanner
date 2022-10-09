@@ -14,12 +14,13 @@ import {TracksComponent} from './components/tracks/tracks.component';
 import {DashboardComponent} from './components/dashboard/dashboard.component';
 import {AboutComponent} from './components/about/about.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {TrackComponent} from './components/tracks/track/track/track.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
   declarations: [
@@ -32,20 +33,22 @@ import {MatCardModule} from '@angular/material/card';
     AboutComponent,
     TrackComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatTabsModule,
-    MatCheckboxModule,
-    FormsModule,
-    MatGridListModule,
-    MatFormFieldModule,
-    MatTableModule,
-    MatCardModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatTabsModule,
+        MatCheckboxModule,
+        FormsModule,
+        MatGridListModule,
+        MatFormFieldModule,
+        MatTableModule,
+        MatCardModule,
+        ReactiveFormsModule,
+        MatInputModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
