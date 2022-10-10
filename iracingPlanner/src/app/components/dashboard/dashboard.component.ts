@@ -13,7 +13,8 @@ import {MatTableDataSource} from "@angular/material/table";
 })
 export class DashboardComponent implements OnInit {
 
-  dashForm = new FormControl('');
+  seriesNameControl = new FormControl('');
+  raceParticipationCreditControl = new FormControl('allSeries');
   displayedColumns: string[] = ['serieName', 'license', 'type', 'cars', 'fixedOpen', 'howMany',
     'week0', 'week1', 'week2', 'week3', 'week4', 'week5', 'week6', 'week7', 'week8', 'week9',
     'week10', 'week11'];
@@ -24,7 +25,10 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dataSource = new MatTableDataSource(this.serieService.findSeries());
+    let series = this.serieService.findSeries();
+    series = this.processSeries(series);
+    this.dataSource = new MatTableDataSource(series);
+    this.dataSource.filterPredicate = this.createFilter();
   }
 
   decode(text: string | undefined): string {
@@ -50,6 +54,52 @@ export class DashboardComponent implements OnInit {
     return JSON.parse(jsonCars);
   }
 
+  getTrackLabel(weekNum: number, jsonTracks: string): string {
+    const track = this.findTrack(weekNum, jsonTracks);
+    if (track && track.track_name) {
+      return this.decode(track.track_name);
+    }
+    return '';
+  }
+
+  isTrackOwned(weekNum: number, jsonTracks: string): boolean {
+    const track = this.findTrack(weekNum, jsonTracks);
+    return this.trackService.isOwned(track);
+  }
+
+  canRaceSerie(serie: Serie): boolean {
+    if (serie.tracks && serie.cars) {
+      return this.countRaces(serie.tracks) >= 8
+        && this.isSomeCarOwned(serie.cars);
+    }
+    return false;
+  }
+
+  filter() {
+    this.dataSource.filter = `${this.seriesNameControl.value}|${this.raceParticipationCreditControl.value}` ;
+  }
+
+  private createFilter() {
+    return function (data: Serie, filter: string): boolean {
+
+      let result = false;
+      const seriesNameFilter = filter.split('|')[0];
+      const raceParticipationCreditFilter = filter.split('|')[1];
+
+      // Filter by series name
+      if (data.seriesname?.toLowerCase().includes(seriesNameFilter)) {
+        result = true;
+      }
+
+      // Filter by race participation credit
+      if (result && raceParticipationCreditFilter !== 'allSeries') {
+        result = !!(data.numOwnedTracks && data.numOwnedTracks >= 8 && data.isSomeCarOwned);
+      }
+
+      return result;
+    };
+  }
+
   private parseTracks(jsonTracks: string): Track[] {
     let result: Track[] = [];
     const tracks: SerieTrack[] = JSON.parse(jsonTracks);
@@ -68,21 +118,21 @@ export class DashboardComponent implements OnInit {
     return this.parseTracks(jsonTracks)[weekNum];
   }
 
-  getTrackLabel(weekNum: number, jsonTracks: string): string {
-    const track = this.findTrack(weekNum, jsonTracks);
-    if (track && track.track_name) {
-      return this.decode(track.track_name);
-    }
-    return '';
+  private processSeries(series: Serie[]): Serie[] {
+    let newSeries: Serie[] = [];
+    series.forEach(serie => {
+      if (serie.tracks) {
+        serie.numOwnedTracks = this.countRaces(serie.tracks);
+      }
+      if (serie.cars) {
+        serie.isSomeCarOwned = this.isSomeCarOwned(serie.cars);
+      }
+      newSeries.push(serie);
+    });
+    return newSeries;
   }
 
-  isTrackOwned(weekNum: number, jsonTracks: string): boolean {
-    const track = this.findTrack(weekNum, jsonTracks);
-    return this.trackService.isOwned(track);
-  }
-
-  isSomeCarOwned(jsonCars: string): boolean {
-    const cars: SerieCar[] = JSON.parse(jsonCars);
+  private isSomeCarOwned(cars: SerieCar[]): boolean {
     let result = false;
     cars.forEach(car => {
       if (car.id) {
@@ -95,25 +145,17 @@ export class DashboardComponent implements OnInit {
     return result;
   }
 
-  countRaces(jsonTracks: string): number {
-    const tracks = this.parseTracks(jsonTracks);
+  private countRaces(tracks: SerieTrack[]): number {
     let count = 0;
     tracks.forEach(track => {
-      if (this.trackService.isOwned(track)) {
-        count++;
+      if (track.pkgid) {
+        const convertedTrack = this.trackService.findTrackBy(track.pkgid);
+        if (convertedTrack && this.trackService.isOwned(convertedTrack)) {
+          count++;
+        }
       }
     });
     return count;
-  }
-
-  canRaceSerie(serie: Serie): boolean {
-    return this.countRaces(JSON.stringify(serie.tracks)) >= 8
-      && this.isSomeCarOwned(JSON.stringify(serie.cars));
-  }
-
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
 }

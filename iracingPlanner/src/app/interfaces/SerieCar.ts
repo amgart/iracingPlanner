@@ -3,5 +3,6 @@ interface SerieCar {
   name?: string;
   id?: number;
   pkgid?: number;
-  sku?: number
+  sku?: number;
+  owned?: boolean;
 }

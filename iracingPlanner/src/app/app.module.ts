@@ -21,6 +21,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from "@angular/material/input";
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import {MatInputModule} from "@angular/material/input";
         MatTableModule,
         MatCardModule,
         ReactiveFormsModule,
-        MatInputModule
+        MatInputModule,
+        MatButtonToggleModule
     ],
   providers: [],
   bootstrap: [AppComponent]
