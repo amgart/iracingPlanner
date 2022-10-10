@@ -17,17 +17,12 @@ export class TrackComponent implements OnInit {
   constructor(private utilService: UtilService, private trackService: TrackService) { }
 
   ngOnInit(): void {
-    this.checked = this.trackService.isOwned(this.track);
-  }
-
-  getLabel(track: Track): string {
-    if (track.name) {
-      return this.utilService.decode(track.name);
+    if (this.track.track_id) {
+      this.checked = this.trackService.isOwned(this.track);
     }
-    return '';
   }
 
-  onClick(track: Track) {
+  onClick(track: SerieTrack) {
     if (this.checked) {
       this.trackService.remove(track);
     } else {

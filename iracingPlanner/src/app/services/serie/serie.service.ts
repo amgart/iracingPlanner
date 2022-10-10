@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import seriesJsonFile from '../../assets/series.json';
+import seriesJsonFile from '../../../assets/series.json';
 import {UtilService} from '../util/util.service';
 
 @Injectable({

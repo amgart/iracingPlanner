@@ -22,13 +22,6 @@ export class CarComponent implements OnInit {
     }
   }
 
-  getLabel(car: Car): string {
-    if (car.car_name) {
-      return this.utilService.decode(car.car_name);
-    }
-    return '';
-  }
-
   onClick(car: Car) {
     if (this.checked) {
       this.carService.remove(car);

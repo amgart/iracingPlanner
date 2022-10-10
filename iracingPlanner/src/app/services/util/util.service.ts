@@ -11,7 +11,7 @@ export class UtilService {
     return decodeURIComponent(text).replaceAll('+', ' ');
   }
 
-  sort(list: Track[]): Track[] {
+  sort(list: SerieTrack[]): SerieTrack[] {
     return list.sort((a,b) => {
       if (a.name && b.name) {
         return (a.name > b.name) ? 1: (b.name > a.name) ? -1 : 0;

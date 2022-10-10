@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import carJsonFile from '../../assets/cars.json';
+import carJsonFile from '../../../assets/cars.json';
 import {StoreService} from '../store/store.service';
 
 @Injectable({

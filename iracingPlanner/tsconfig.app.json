@@ -11,6 +11,7 @@
     "src/app/interfaces/Car.ts",
     "src/app/interfaces/Serie.ts",
     "src/app/interfaces/CarClasses.ts",
+    "src/app/interfaces/SerieTrack.ts",
     "src/app/interfaces/Track.ts",
     "src/app/interfaces/SerieCar.ts"
   ],
