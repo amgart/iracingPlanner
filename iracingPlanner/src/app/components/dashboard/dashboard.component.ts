@@ -4,6 +4,7 @@ import {UtilService} from '../../services/util/util.service';
 import {TrackService} from '../../services/track/track.service';
 import {CarService} from '../../services/car/car.service';
 import {FormControl} from "@angular/forms";
+import {MatTableDataSource} from "@angular/material/table";
 
 @Component({
   selector: 'app-dashboard',
@@ -16,14 +17,14 @@ export class DashboardComponent implements OnInit {
   displayedColumns: string[] = ['serieName', 'license', 'type', 'cars', 'fixedOpen', 'howMany',
     'week0', 'week1', 'week2', 'week3', 'week4', 'week5', 'week6', 'week7', 'week8', 'week9',
     'week10', 'week11'];
-  dataSource: Serie[] = [];
+  dataSource: MatTableDataSource<Serie> = new MatTableDataSource();
 
   constructor(private serieService: SerieService, private utilService: UtilService,
               private trackService: TrackService, private carService: CarService) {
   }
 
   ngOnInit(): void {
-    this.dataSource = this.serieService.findSeries();
+    this.dataSource = new MatTableDataSource(this.serieService.findSeries());
   }
 
   decode(text: string | undefined): string {
@@ -46,12 +47,7 @@ export class DashboardComponent implements OnInit {
   }
 
   parseCars(jsonCars: string): Car[] {
-    // let result = '';
     return JSON.parse(jsonCars);
-    // cars.forEach(car => {
-    //   result += car.name + '%0A';
-    // });
-    // return this.utilService.decode(result.substring(0, result.length - 3));
   }
 
   private parseTracks(jsonTracks: string): Track[] {
@@ -109,6 +105,6 @@ export class DashboardComponent implements OnInit {
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource = this.serieService.findSeries(filterValue);
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }
