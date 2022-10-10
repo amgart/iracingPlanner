@@ -34,12 +34,9 @@ cars, and other information. This json needs to be updated each season. Please r
 ## Known issues and limitations
 *   If the serie has less than 12 races, the series is not shown, as this causes confusion about when the races happen.
 *   The json file needs to be updated every season. Please read *How to update the tool* section.
-*   The json does not contain which of the cars/tracks are included in the starter pack (not needed to buy). 
-The tool cannot know which ones are owned by default, so please, select these cars and tracks too.
 
 ## Future features planned
 *   Visual enhancements
-*   Default content should be preselected and disabled to avoid removing them.
 *   Possibility to add favourite cars, tracks and series.
 *   Possibility to filter by category, license, cars and favourites in the *Dashboard* tab.
 *   *Dashboard* is automatically calculated each season instead of manually updating the tool.

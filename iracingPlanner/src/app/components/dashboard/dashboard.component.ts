@@ -46,20 +46,20 @@ export class DashboardComponent implements OnInit {
     return this.utilService.getFixedOpenSetup(isFixedSetup);
   }
 
-  parseCars(jsonCars: string): Car[] {
+  parseCars(jsonCars: string): SerieCar[] {
     return JSON.parse(jsonCars);
   }
 
-  private parseTracks(jsonTracks: string): Track[] {
-      let result: Track[] = [];
-      const tracks: Track[] = JSON.parse(jsonTracks);
+  private parseTracks(jsonTracks: string): SerieTrack[] {
+      let result: SerieTrack[] = [];
+      const tracks: SerieTrack[] = JSON.parse(jsonTracks);
       tracks.forEach(track => {
         result.push(track);
       });
       return result;
   }
 
-  private findTrack(weekNum: number, jsonTracks: string): Track {
+  private findTrack(weekNum: number, jsonTracks: string): SerieTrack {
     return this.parseTracks(jsonTracks)[weekNum];
   }
 
@@ -73,14 +73,14 @@ export class DashboardComponent implements OnInit {
 
   isTrackOwned(weekNum: number, jsonTracks: string): boolean {
     const track = this.findTrack(weekNum, jsonTracks);
-    return !!(track && track.pkgid && this.trackService.isOwned(track));
+    return !!(track && track.pkgid && this.trackService.isOwnedSerieTrack(track.pkgid));
   }
 
   isSomeCarOwned(jsonCars: string): boolean {
-    const cars: Car[] = JSON.parse(jsonCars);
+    const cars: SerieCar[] = JSON.parse(jsonCars);
     let result = false;
     cars.forEach(car => {
-      if (this.carService.isOwned(car)) {
+      if (car.id && this.carService.isOwnedSerieCar(car.id)) {
         result = true;
       }
     });
@@ -91,7 +91,7 @@ export class DashboardComponent implements OnInit {
     const tracks = this.parseTracks(jsonTracks);
     let count = 0;
     tracks.forEach(track => {
-      if (this.trackService.isOwned(track)) {
+      if (track.pkgid && this.trackService.isOwnedSerieTrack(track.pkgid)) {
         count++;
       }
     });

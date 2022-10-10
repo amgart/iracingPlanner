@@ -1,5 +1,6 @@
 <mat-checkbox
   class="example-margin"
-  [(ngModel)]="checked"
-  (click)="onClick(track)">{{getLabel(track)}}
+  [disabled]="track.free_with_subscription ? track.free_with_subscription : false"
+  [(ngModel)]="track.free_with_subscription !== undefined ? (track.free_with_subscription? true : checked) : checked"
+  (click)="onClick(track)">{{track.track_name}}
 </mat-checkbox>

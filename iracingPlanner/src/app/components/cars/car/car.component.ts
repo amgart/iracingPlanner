@@ -10,21 +10,16 @@ import {CarService} from '../../../services/car/car.service';
 export class CarComponent implements OnInit {
 
   @Input()
-  car: Car = {}
+  car: Car = {};
 
   checked = false;
 
   constructor(private utilService: UtilService, private carService: CarService) { }
 
   ngOnInit(): void {
-    this.checked = this.carService.isOwned(this.car);
-  }
-
-  getLabel(car: Car): string {
-    if (car.name) {
-      return this.utilService.decode(car.name);
+    if (this.car.car_id) {
+      this.checked = this.carService.isOwned(this.car);
     }
-    return '';
   }
 
   onClick(car: Car) {
@@ -34,4 +29,5 @@ export class CarComponent implements OnInit {
       this.carService.save(car);
     }
   }
+
 }

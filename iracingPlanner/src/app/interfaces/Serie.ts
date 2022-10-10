@@ -39,7 +39,7 @@ interface Serie {
   restrictedToCar?: boolean;
   islite?: boolean;
   cautionTypeOval?: number;
-  tracks?: Track[];
+  tracks?: SerieTrack[];
   multiclass?: boolean;
   maxTeamDrivers?: number;
   isWorldCup?: boolean;
