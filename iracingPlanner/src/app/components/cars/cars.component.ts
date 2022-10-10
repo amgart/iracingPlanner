@@ -8,7 +8,7 @@ import {CarService} from '../../services/car/car.service';
 })
 export class CarsComponent {
 
-  cars: Car[] = this.carService.findAllCars();
+  cars: Car[] = this.carService.getCars();
 
   constructor(private carService: CarService) {
   }

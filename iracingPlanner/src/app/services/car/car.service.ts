@@ -8,12 +8,15 @@ import {StoreService} from '../store/store.service';
 export class CarService {
 
   private objectType: string = "car";
+  private cars: Car[] = [];
 
   constructor(private storeService: StoreService) { }
 
-  findAllCars(): Car[] {
-    let cars: Car[] = carJsonFile;
-    return this.sort(cars);
+  getCars(): Car[]  {
+    if (this.cars.length === 0) {
+      this.cars = this.findAllCars();
+    }
+    return this.cars;
   }
 
   save(car: Car) {
@@ -40,6 +43,17 @@ export class CarService {
     return false;
   }
 
+  findCarBy(carId: number): Car | undefined {
+    let result;
+    const carList = this.getCars();
+    carList.forEach(car => {
+      if (car.car_id === carId) {
+        result = car;
+      }
+    });
+    return result;
+  }
+
   private sort(list: Car[]): Car[] {
     return list.sort((a,b) => {
       if (a.car_name && b.car_name) {
@@ -49,23 +63,8 @@ export class CarService {
     });
   }
 
-  isOwnedSerieCar(carId: number): boolean {
-    const car = this.findCarBy(carId);
-    if (car) {
-      return this.isOwned(car);
-    }
-    return false;
+  private findAllCars(): Car[] {
+    let cars: Car[] = carJsonFile;
+    return this.sort(cars);
   }
-
-  private findCarBy(carId: number): Car | undefined {
-    let result;
-    const carList = this.findAllCars();
-    carList.forEach(car => {
-      if (car.car_id === carId) {
-        result = car;
-      }
-    });
-    return result;
-  }
-
 }

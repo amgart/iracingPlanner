@@ -50,38 +50,46 @@ export class DashboardComponent implements OnInit {
     return JSON.parse(jsonCars);
   }
 
-  private parseTracks(jsonTracks: string): SerieTrack[] {
-      let result: SerieTrack[] = [];
-      const tracks: SerieTrack[] = JSON.parse(jsonTracks);
-      tracks.forEach(track => {
-        result.push(track);
-      });
-      return result;
+  private parseTracks(jsonTracks: string): Track[] {
+    let result: Track[] = [];
+    const tracks: SerieTrack[] = JSON.parse(jsonTracks);
+    tracks.forEach(track => {
+      if (track.pkgid) {
+        const convertedTrack = this.trackService.findTrackBy(track.pkgid);
+        if (convertedTrack) {
+          result.push(convertedTrack);
+        }
+      }
+    });
+    return result;
   }
 
-  private findTrack(weekNum: number, jsonTracks: string): SerieTrack {
+  private findTrack(weekNum: number, jsonTracks: string): Track {
     return this.parseTracks(jsonTracks)[weekNum];
   }
 
   getTrackLabel(weekNum: number, jsonTracks: string): string {
     const track = this.findTrack(weekNum, jsonTracks);
-    if (track && track.name) {
-      return this.decode(track.name);
+    if (track && track.track_name) {
+      return this.decode(track.track_name);
     }
     return '';
   }
 
   isTrackOwned(weekNum: number, jsonTracks: string): boolean {
     const track = this.findTrack(weekNum, jsonTracks);
-    return !!(track && track.pkgid && this.trackService.isOwnedSerieTrack(track.pkgid));
+    return this.trackService.isOwned(track);
   }
 
   isSomeCarOwned(jsonCars: string): boolean {
     const cars: SerieCar[] = JSON.parse(jsonCars);
     let result = false;
     cars.forEach(car => {
-      if (car.id && this.carService.isOwnedSerieCar(car.id)) {
-        result = true;
+      if (car.id) {
+        const convertedCar = this.carService.findCarBy(car.id);
+        if (convertedCar) {
+          result = this.carService.isOwned(convertedCar);
+        }
       }
     });
     return result;
@@ -91,7 +99,7 @@ export class DashboardComponent implements OnInit {
     const tracks = this.parseTracks(jsonTracks);
     let count = 0;
     tracks.forEach(track => {
-      if (track.pkgid && this.trackService.isOwnedSerieTrack(track.pkgid)) {
+      if (this.trackService.isOwned(track)) {
         count++;
       }
     });
@@ -107,4 +115,5 @@ export class DashboardComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+
 }
