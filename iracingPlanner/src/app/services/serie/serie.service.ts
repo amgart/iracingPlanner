@@ -12,8 +12,14 @@ export class SerieService {
   findSeries(): Serie[] {
     let series: Serie[] = [];
     seriesJsonFile.series.forEach(serie => {
-      series.push(serie);
+      if (this.has12Races(serie)) {
+        series.push(serie);
+      }
     });
     return this.utilService.sortSeries(series);
+  }
+
+  private has12Races(serie: Serie): boolean {
+    return serie.tracks?.length === 12;
   }
 }

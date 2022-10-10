@@ -32,7 +32,7 @@ cars, and other information. This json needs to be updated each season. Please r
 *How to update the tool* section.
 
 ## Known issues and limitations
-*   If the serie has less than 12 races, the series is not properly shown.
+*   If the serie has less than 12 races, the series is not shown, as this causes confusion about when the races happen.
 *   The json file needs to be updated every season. Please read *How to update the tool* section.
 *   The json does not contain which of the cars/tracks are included in the starter pack (not needed to buy). 
 The tool cannot know which ones are owned by default, so please, select these cars and tracks too.
