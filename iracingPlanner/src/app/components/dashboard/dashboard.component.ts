@@ -46,7 +46,7 @@ export class DashboardComponent implements OnInit {
     return this.utilService.getFixedOpenSetup(isFixedSetup);
   }
 
-  parseCars(jsonCars: string): Car[] {
+  parseCars(jsonCars: string): SerieCar[] {
     return JSON.parse(jsonCars);
   }
 
@@ -77,10 +77,10 @@ export class DashboardComponent implements OnInit {
   }
 
   isSomeCarOwned(jsonCars: string): boolean {
-    const cars: Car[] = JSON.parse(jsonCars);
+    const cars: SerieCar[] = JSON.parse(jsonCars);
     let result = false;
     cars.forEach(car => {
-      if (this.carService.isOwned(car)) {
+      if (car.id && this.carService.isOwnedSerieCar(car.id)) {
         result = true;
       }
     });
