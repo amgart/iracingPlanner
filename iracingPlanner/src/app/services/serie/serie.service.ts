@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import seriesJsonFile from '../../assets/series.json';
 import {UtilService} from '../util/util.service';
 
@@ -9,17 +9,17 @@ export class SerieService {
 
   constructor(private utilService: UtilService) { }
 
-  findSeries(filter?: string): Serie[] {
+  findSeries(): Serie[] {
     let series: Serie[] = [];
     seriesJsonFile.series.forEach(serie => {
-      if (filter) {
-        if (this.utilService.decode(serie.seriesname).toLowerCase().includes(filter.toLowerCase())) {
-          series.push(serie);
-        }
-      } else {
+      if (this.has12Races(serie)) {
         series.push(serie);
       }
     });
     return this.utilService.sortSeries(series);
+  }
+
+  private has12Races(serie: Serie): boolean {
+    return serie.tracks?.length === 12;
   }
 }
