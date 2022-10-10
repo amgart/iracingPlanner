@@ -26,8 +26,11 @@ export class DashboardComponent implements OnInit {
     this.dataSource = this.serieService.findSeries();
   }
 
-  getLabel(text: string): string {
-    return this.utilService.decode(text);
+  decode(text: string | undefined): string {
+    if (text) {
+      return this.utilService.decode(text);
+    }
+    return 'undefined';
   }
 
   getLicense(minLicenseLevel: number): string {
@@ -42,13 +45,13 @@ export class DashboardComponent implements OnInit {
     return this.utilService.getFixedOpenSetup(isFixedSetup);
   }
 
-  parseCars(jsonCars: string): string {
-    let result = '';
-    const cars: Car[] = JSON.parse(jsonCars);
-    cars.forEach(car => {
-      result += car.name + '%0A';
-    });
-    return this.utilService.decode(result.substring(0, result.length - 3));
+  parseCars(jsonCars: string): Car[] {
+    // let result = '';
+    return JSON.parse(jsonCars);
+    // cars.forEach(car => {
+    //   result += car.name + '%0A';
+    // });
+    // return this.utilService.decode(result.substring(0, result.length - 3));
   }
 
   private parseTracks(jsonTracks: string): Track[] {
@@ -67,7 +70,7 @@ export class DashboardComponent implements OnInit {
   getTrackLabel(weekNum: number, jsonTracks: string): string {
     const track = this.findTrack(weekNum, jsonTracks);
     if (track && track.name) {
-      return this.utilService.decode(track.name);
+      return this.decode(track.name);
     }
     return '';
   }
