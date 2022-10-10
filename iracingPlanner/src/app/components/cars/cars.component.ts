@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {CarService} from '../../services/car/car.service';
 
 @Component({
@@ -6,14 +6,11 @@ import {CarService} from '../../services/car/car.service';
   templateUrl: './cars.component.html',
   styleUrls: ['./cars.component.scss']
 })
-export class CarsComponent implements OnInit {
+export class CarsComponent {
 
-  cars: Car[] = this.carService.findAllCars();
+  cars: Car[] = this.carService.getCars();
 
   constructor(private carService: CarService) {
-  }
-
-  ngOnInit(): void {
   }
 
 }

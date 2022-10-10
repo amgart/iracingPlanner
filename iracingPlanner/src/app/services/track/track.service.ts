@@ -1,7 +1,6 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {StoreService} from '../store/store.service';
-import seriesJsonFile from '../../assets/series.json';
-import {UtilService} from '../util/util.service';
+import trackJsonFile from '../../../assets/tracks.json';
 
 @Injectable({
   providedIn: 'root'
@@ -9,51 +8,77 @@ import {UtilService} from '../util/util.service';
 export class TrackService {
 
   private objectType: string = "track";
+  private tracks: Track[] = [];
 
-  constructor(private storeService: StoreService, private utilService: UtilService) { }
+  constructor(private storeService: StoreService) {
+  }
 
-  findAllTracks(): Track[] {
-    let tracks: Track[] = [];
-    seriesJsonFile.series.forEach(serie => {
-      if (serie.tracks && serie.tracks.length > 0) {
-        serie.tracks.forEach(track => {
-          if (!this.includes(track, tracks)) {
-            tracks.push(track);
-          }
-        })
-      }
-    })
-    return this.utilService.sort(tracks);
+  getTracks(): Track[] {
+    if (this.tracks.length === 0) {
+      this.tracks = this.findAllTracks();
+    }
+    return this.tracks;
   }
 
   save(track: Track) {
-    if (track.pkgid) {
-      this.storeService.set(this.objectType, track.pkgid, track);
+    if (track.package_id) {
+      this.storeService.set(this.objectType, track.package_id, track);
     }
   }
 
   remove(track: Track) {
-    if (track.pkgid) {
-      this.storeService.delete(this.objectType, track.pkgid);
+    if (track.package_id) {
+      this.storeService.delete(this.objectType, track.package_id);
     }
   }
 
   isOwned(track: Track): boolean {
-    if (track.pkgid) {
-      if (this.storeService.get(this.objectType, track.pkgid)) {
+    if (track.free_with_subscription) {
+      return true;
+    }
+    if (track.package_id) {
+      if (this.storeService.get(this.objectType, track.package_id)) {
         return true;
       }
     }
     return false;
   }
 
-  private includes(trackToSearch: Track, tracks: Track[]): boolean {
-    let result = false;
-    tracks.forEach(track => {
-      if (track.pkgid === trackToSearch.pkgid) {
-        result = true;
+  findTrackBy(trackId: number): Track | undefined {
+    let result;
+    const trackList = this.getTracks();
+    trackList.forEach(track => {
+      if (track.package_id === trackId) {
+        result = track;
       }
     });
     return result;
+  }
+
+  private sort(list: Track[]): Track[] {
+    return list.sort((a, b) => {
+      if (a.track_name && b.track_name) {
+        return (a.track_name > b.track_name) ? 1 : (b.track_name > a.track_name) ? -1 : 0;
+      }
+      return -1;
+    });
+  }
+
+  private removeDuplicates(originalTracks: Track[]): Track[] {
+    let result: Track[] = [];
+    let inserted: number[] = [];
+    originalTracks.forEach(track => {
+      if (track.package_id && !inserted.includes(track.package_id)) {
+        inserted.push(track.package_id);
+        result.push(track);
+      }
+    });
+    return result;
+  }
+
+  private findAllTracks(): Track[] {
+    let tracks: Track[] = trackJsonFile;
+    tracks = this.removeDuplicates(tracks);
+    return this.sort(tracks);
   }
 }

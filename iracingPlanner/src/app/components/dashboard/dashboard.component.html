@@ -1,3 +1,11 @@
+<form>
+  <mat-form-field appearance="standard">
+    <mat-label>Filter</mat-label>
+    <input matInput [formControl]="dashForm" (keyup)="applyFilter($event)" placeholder="Filter by series name" #input>
+  </mat-form-field>
+</form>
+
+
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
   <!-- Serie name Column -->
@@ -5,7 +13,7 @@
     <th mat-header-cell *matHeaderCellDef>Serie name</th>
     <td mat-cell *matCellDef="let element" class="p-1"
         [ngClass]="canRaceSerie(element) ? 'owned' : ''">
-      {{getLabel(element.seriesname)}}</td>
+      {{decode(element.seriesname)}}</td>
   </ng-container>
 
   <!-- License Column -->
@@ -25,7 +33,8 @@
     <th mat-header-cell *matHeaderCellDef>Cars</th>
     <td mat-cell *matCellDef="let element" class="p-1"
         [ngClass]="isSomeCarOwned(element.cars | json) ? 'owned' : ''">
-      {{parseCars(element.cars | json)}}</td>
+      <div *ngFor="let car of parseCars(element.cars | json)"><span class="inline">{{decode(car.name)}}</span></div>
+    </td>
   </ng-container>
 
   <!-- Fixed/Open Column -->

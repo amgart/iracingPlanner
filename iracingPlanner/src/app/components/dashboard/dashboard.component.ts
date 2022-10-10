@@ -3,6 +3,8 @@ import {SerieService} from '../../services/serie/serie.service';
 import {UtilService} from '../../services/util/util.service';
 import {TrackService} from '../../services/track/track.service';
 import {CarService} from '../../services/car/car.service';
+import {FormControl} from "@angular/forms";
+import {MatTableDataSource} from "@angular/material/table";
 
 @Component({
   selector: 'app-dashboard',
@@ -11,21 +13,25 @@ import {CarService} from '../../services/car/car.service';
 })
 export class DashboardComponent implements OnInit {
 
+  dashForm = new FormControl('');
   displayedColumns: string[] = ['serieName', 'license', 'type', 'cars', 'fixedOpen', 'howMany',
     'week0', 'week1', 'week2', 'week3', 'week4', 'week5', 'week6', 'week7', 'week8', 'week9',
     'week10', 'week11'];
-  dataSource: Serie[] = [];
+  dataSource: MatTableDataSource<Serie> = new MatTableDataSource();
 
   constructor(private serieService: SerieService, private utilService: UtilService,
               private trackService: TrackService, private carService: CarService) {
   }
 
   ngOnInit(): void {
-    this.dataSource = this.serieService.findAllSeries();
+    this.dataSource = new MatTableDataSource(this.serieService.findSeries());
   }
 
-  getLabel(text: string): string {
-    return this.utilService.decode(text);
+  decode(text: string | undefined): string {
+    if (text) {
+      return this.utilService.decode(text);
+    }
+    return 'undefined';
   }
 
   getLicense(minLicenseLevel: number): string {
@@ -40,22 +46,22 @@ export class DashboardComponent implements OnInit {
     return this.utilService.getFixedOpenSetup(isFixedSetup);
   }
 
-  parseCars(jsonCars: string): string {
-    let result = '';
-    const cars: Car[] = JSON.parse(jsonCars);
-    cars.forEach(car => {
-      result += car.name + '%0A';
-    });
-    return this.utilService.decode(result.substring(0, result.length - 3));
+  parseCars(jsonCars: string): SerieCar[] {
+    return JSON.parse(jsonCars);
   }
 
   private parseTracks(jsonTracks: string): Track[] {
-      let result: Track[] = [];
-      const tracks: Track[] = JSON.parse(jsonTracks);
-      tracks.forEach(track => {
-        result.push(track);
-      });
-      return result;
+    let result: Track[] = [];
+    const tracks: SerieTrack[] = JSON.parse(jsonTracks);
+    tracks.forEach(track => {
+      if (track.pkgid) {
+        const convertedTrack = this.trackService.findTrackBy(track.pkgid);
+        if (convertedTrack) {
+          result.push(convertedTrack);
+        }
+      }
+    });
+    return result;
   }
 
   private findTrack(weekNum: number, jsonTracks: string): Track {
@@ -64,26 +70,26 @@ export class DashboardComponent implements OnInit {
 
   getTrackLabel(weekNum: number, jsonTracks: string): string {
     const track = this.findTrack(weekNum, jsonTracks);
-    if (track && track.name) {
-      return this.utilService.decode(track.name);
+    if (track && track.track_name) {
+      return this.decode(track.track_name);
     }
     return '';
   }
 
   isTrackOwned(weekNum: number, jsonTracks: string): boolean {
     const track = this.findTrack(weekNum, jsonTracks);
-    if (track && track.pkgid && this.trackService.isOwned(track)) {
-      return true;
-    }
-    return false;
+    return this.trackService.isOwned(track);
   }
 
   isSomeCarOwned(jsonCars: string): boolean {
-    const cars: Car[] = JSON.parse(jsonCars);
+    const cars: SerieCar[] = JSON.parse(jsonCars);
     let result = false;
     cars.forEach(car => {
-      if (this.carService.isOwned(car)) {
-        result = true;
+      if (car.id) {
+        const convertedCar = this.carService.findCarBy(car.id);
+        if (convertedCar) {
+          result = this.carService.isOwned(convertedCar);
+        }
       }
     });
     return result;
@@ -104,4 +110,10 @@ export class DashboardComponent implements OnInit {
     return this.countRaces(JSON.stringify(serie.tracks)) >= 8
       && this.isSomeCarOwned(JSON.stringify(serie.cars));
   }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
 }
