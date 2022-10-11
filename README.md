@@ -38,7 +38,7 @@ cars, and other information. This json needs to be updated each season. Please r
 ## Future features planned
 *   Visual enhancements
 *   Possibility to add favourite cars, tracks and series.
-*   Possibility to filter by category, license, cars and favourites in the *Dashboard* tab.
+*   Possibility to filter favourite cars and tracks in the *Dashboard* tab.
 *   *Dashboard* is automatically calculated each season instead of manually updating the tool.
 *   Price calculator for the user to use when planning the new season and being able to know how much money he needs to spend.
 *   Owned cars and tracks are automatically updated with your *iRacing* account instead of the current tabs configuration.
