@@ -14,14 +14,25 @@
   </mat-button-toggle-group>
 
   <!-- Filter by category -->
-  <mat-button-toggle-group [formControl]="categoryControl" name="category" aria-label="Font Style"
-                           (change)="filter()">
+  <mat-button-toggle-group [formControl]="categoryControl" name="category" aria-label="Font Style" (change)="filter()">
     <mat-button-toggle value="allSeries">All</mat-button-toggle>
     <mat-button-toggle value="Road">Road</mat-button-toggle>
     <mat-button-toggle value="Dirt">Dirt</mat-button-toggle>
     <mat-button-toggle value="Oval">Oval</mat-button-toggle>
     <mat-button-toggle value="Dirt Oval">Dirt Oval</mat-button-toggle>
   </mat-button-toggle-group>
+
+  <!-- Filter by license -->
+  <mat-button-toggle-group [formControl]="licenseControl" name="license" aria-label="Font Style" (change)="filter()">
+    <mat-button-toggle value="allSeries">All</mat-button-toggle>
+    <mat-button-toggle value="R">R</mat-button-toggle>
+    <mat-button-toggle value="D">D</mat-button-toggle>
+    <mat-button-toggle value="C">C</mat-button-toggle>
+    <mat-button-toggle value="B">B</mat-button-toggle>
+    <mat-button-toggle value="A">A</mat-button-toggle>
+    <mat-button-toggle value="Pro">Pro</mat-button-toggle>
+  </mat-button-toggle-group>
+
 </form>
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -37,7 +48,7 @@
   <!-- License Column -->
   <ng-container matColumnDef="license">
     <th mat-header-cell *matHeaderCellDef>License</th>
-    <td mat-cell *matCellDef="let element" class="p-1">{{getLicense(element.minlicenselevel)}}</td>
+    <td mat-cell *matCellDef="let element" class="p-1">{{element.licenseString}}</td>
   </ng-container>
 
   <!-- Type Column -->
