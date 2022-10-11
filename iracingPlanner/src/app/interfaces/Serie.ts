@@ -54,4 +54,5 @@ interface Serie {
   numOwnedTracks?: number;
   isSomeCarOwned?: boolean;
   categoryString?: string;
+  licenseString?: string;
 }

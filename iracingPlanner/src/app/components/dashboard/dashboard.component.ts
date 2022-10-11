@@ -16,6 +16,7 @@ export class DashboardComponent implements OnInit {
   seriesNameControl = new FormControl('');
   raceParticipationCreditControl = new FormControl('allSeries');
   categoryControl = new FormControl('allSeries');
+  licenseControl = new FormControl('allSeries');
   displayedColumns: string[] = ['serieName', 'license', 'type', 'cars', 'fixedOpen', 'howMany',
     'week0', 'week1', 'week2', 'week3', 'week4', 'week5', 'week6', 'week7', 'week8', 'week9',
     'week10', 'week11'];
@@ -77,7 +78,7 @@ export class DashboardComponent implements OnInit {
   }
 
   filter() {
-    this.dataSource.filter = `${this.seriesNameControl.value}|${this.raceParticipationCreditControl.value}|${this.categoryControl.value}` ;
+    this.dataSource.filter = `${this.seriesNameControl.value}|${this.raceParticipationCreditControl.value}|${this.categoryControl.value}|${this.licenseControl.value}` ;
   }
 
   private createFilter() {
@@ -87,6 +88,7 @@ export class DashboardComponent implements OnInit {
       const seriesNameFilter = filter.split('|')[0];
       const raceParticipationCreditFilter = filter.split('|')[1];
       const categoryFilter = filter.split('|')[2];
+      const licenseFilter = filter.split('|')[3];
 
       // Filter by series name
       if (data.seriesname?.toLowerCase().includes(seriesNameFilter)) {
@@ -100,8 +102,12 @@ export class DashboardComponent implements OnInit {
 
       // Filter by category
       if (result && categoryFilter !== 'allSeries') {
-        console.log(data.categoryString);
         result = data.categoryString === categoryFilter;
+      }
+
+      // Filter by license
+      if (result && licenseFilter !== 'allSeries') {
+        result = data.licenseString === licenseFilter;
       }
 
       return result;
@@ -137,6 +143,9 @@ export class DashboardComponent implements OnInit {
       }
       if (serie.category) {
         serie.categoryString = this.getCategory(serie.category);
+      }
+      if (serie.minlicenselevel) {
+        serie.licenseString = this.getLicense(serie.minlicenselevel);
       }
       newSeries.push(serie);
     });
