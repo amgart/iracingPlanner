@@ -15,6 +15,7 @@ export class DashboardComponent implements OnInit {
 
   seriesNameControl = new FormControl('');
   raceParticipationCreditControl = new FormControl('allSeries');
+  categoryControl = new FormControl('allSeries');
   displayedColumns: string[] = ['serieName', 'license', 'type', 'cars', 'fixedOpen', 'howMany',
     'week0', 'week1', 'week2', 'week3', 'week4', 'week5', 'week6', 'week7', 'week8', 'week9',
     'week10', 'week11'];
@@ -76,7 +77,7 @@ export class DashboardComponent implements OnInit {
   }
 
   filter() {
-    this.dataSource.filter = `${this.seriesNameControl.value}|${this.raceParticipationCreditControl.value}` ;
+    this.dataSource.filter = `${this.seriesNameControl.value}|${this.raceParticipationCreditControl.value}|${this.categoryControl.value}` ;
   }
 
   private createFilter() {
@@ -85,6 +86,7 @@ export class DashboardComponent implements OnInit {
       let result = false;
       const seriesNameFilter = filter.split('|')[0];
       const raceParticipationCreditFilter = filter.split('|')[1];
+      const categoryFilter = filter.split('|')[2];
 
       // Filter by series name
       if (data.seriesname?.toLowerCase().includes(seriesNameFilter)) {
@@ -94,6 +96,12 @@ export class DashboardComponent implements OnInit {
       // Filter by race participation credit
       if (result && raceParticipationCreditFilter !== 'allSeries') {
         result = !!(data.numOwnedTracks && data.numOwnedTracks >= 8 && data.isSomeCarOwned);
+      }
+
+      // Filter by category
+      if (result && categoryFilter !== 'allSeries') {
+        console.log(data.categoryString);
+        result = data.categoryString === categoryFilter;
       }
 
       return result;
@@ -126,6 +134,9 @@ export class DashboardComponent implements OnInit {
       }
       if (serie.cars) {
         serie.isSomeCarOwned = this.isSomeCarOwned(serie.cars);
+      }
+      if (serie.category) {
+        serie.categoryString = this.getCategory(serie.category);
       }
       newSeries.push(serie);
     });
