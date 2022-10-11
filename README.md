@@ -18,11 +18,11 @@ Once you have done this, you can return to the main *Dashboard* tab, and you wil
 as you configured it.
 
 In the *Dashboard* tab will you find the following columns:
-*   Series name (if the cell paints green means that you have at least 8 tracks, and you can obtain *iDollars* with the series)
+*   Series name (if the cell paints green means that you have at least 8 tracks, and you can obtain race participation credits with the series)
 *   License needed for racing the series (R, D, C, B or A)
 *   Category of the series (Road, Oval, Dirt Oval or RX)
 *   Cars allowed for the series (if the cell paints green means that you own at least one car)
-*   Number of tracks you can race for this serie
+*   Number of tracks you can race for this series
 *   Weeks: the list of tracks per week (if the cell paints green means that you own the track)
 
 ## How the data is obtained
@@ -38,7 +38,7 @@ cars, and other information. This json needs to be updated each season. Please r
 ## Future features planned
 *   Visual enhancements
 *   Possibility to add favourite cars, tracks and series.
-*   Possibility to filter by category, license, cars and favourites in the *Dashboard* tab.
+*   Possibility to filter favourite cars and tracks in the *Dashboard* tab.
 *   *Dashboard* is automatically calculated each season instead of manually updating the tool.
 *   Price calculator for the user to use when planning the new season and being able to know how much money he needs to spend.
 *   Owned cars and tracks are automatically updated with your *iRacing* account instead of the current tabs configuration.

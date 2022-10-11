@@ -7,4 +7,5 @@ interface SerieTrack {
   raceweek?: number;
   config?: string;
   timeOfDay?: number;
+  owned?: boolean;
 }

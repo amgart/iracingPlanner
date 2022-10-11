@@ -1,10 +1,39 @@
 <form>
+
+  <!-- Filter by series name -->
   <mat-form-field appearance="standard">
     <mat-label>Filter</mat-label>
-    <input matInput [formControl]="dashForm" (keyup)="applyFilter($event)" placeholder="Filter by series name" #input>
+    <input matInput [formControl]="seriesNameControl" (keyup)="filter()" placeholder="Filter by series name" #input>
   </mat-form-field>
-</form>
 
+  <!-- Filter by race participation credit -->
+  <mat-button-toggle-group [formControl]="raceParticipationCreditControl" name="raceParticipationCredit" aria-label="Font Style"
+                           (change)="filter()">
+    <mat-button-toggle value="allSeries">All</mat-button-toggle>
+    <mat-button-toggle value="raceParticipation">Can get race participation credits</mat-button-toggle>
+  </mat-button-toggle-group>
+
+  <!-- Filter by category -->
+  <mat-button-toggle-group [formControl]="categoryControl" name="category" aria-label="Font Style" (change)="filter()">
+    <mat-button-toggle value="allSeries">All</mat-button-toggle>
+    <mat-button-toggle value="Road">Road</mat-button-toggle>
+    <mat-button-toggle value="Dirt">Dirt</mat-button-toggle>
+    <mat-button-toggle value="Oval">Oval</mat-button-toggle>
+    <mat-button-toggle value="Dirt Oval">Dirt Oval</mat-button-toggle>
+  </mat-button-toggle-group>
+
+  <!-- Filter by license -->
+  <mat-button-toggle-group [formControl]="licenseControl" name="license" aria-label="Font Style" (change)="filter()">
+    <mat-button-toggle value="allSeries">All</mat-button-toggle>
+    <mat-button-toggle value="R">R</mat-button-toggle>
+    <mat-button-toggle value="D">D</mat-button-toggle>
+    <mat-button-toggle value="C">C</mat-button-toggle>
+    <mat-button-toggle value="B">B</mat-button-toggle>
+    <mat-button-toggle value="A">A</mat-button-toggle>
+    <mat-button-toggle value="Pro">Pro</mat-button-toggle>
+  </mat-button-toggle-group>
+
+</form>
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
@@ -19,20 +48,20 @@
   <!-- License Column -->
   <ng-container matColumnDef="license">
     <th mat-header-cell *matHeaderCellDef>License</th>
-    <td mat-cell *matCellDef="let element" class="p-1">{{getLicense(element.minlicenselevel)}}</td>
+    <td mat-cell *matCellDef="let element" class="p-1">{{element.licenseString}}</td>
   </ng-container>
 
   <!-- Type Column -->
   <ng-container matColumnDef="type">
     <th mat-header-cell *matHeaderCellDef>Type</th>
-    <td mat-cell *matCellDef="let element" class="p-1">{{getCategory(element.category)}}</td>
+    <td mat-cell *matCellDef="let element" class="p-1">{{element.categoryString}}</td>
   </ng-container>
 
   <!-- Cars Column -->
   <ng-container matColumnDef="cars">
     <th mat-header-cell *matHeaderCellDef>Cars</th>
     <td mat-cell *matCellDef="let element" class="p-1"
-        [ngClass]="isSomeCarOwned(element.cars | json) ? 'owned' : ''">
+        [ngClass]="element.isSomeCarOwned ? 'owned' : ''">
       <div *ngFor="let car of parseCars(element.cars | json)"><span class="inline">{{decode(car.name)}}</span></div>
     </td>
   </ng-container>
@@ -46,7 +75,7 @@
   <!-- How many races can I run? Column -->
   <ng-container matColumnDef="howMany">
     <th mat-header-cell *matHeaderCellDef>How many can I race?</th>
-    <td mat-cell *matCellDef="let element" class="p-1">{{countRaces(element.tracks | json)}}</td>
+    <td mat-cell *matCellDef="let element" class="p-1">{{element.numOwnedTracks}}</td>
   </ng-container>
 
   <!-- Week 0 Column -->

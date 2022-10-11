@@ -1,7 +1,7 @@
 {
   "name": "iracing-planner",
   "productName": "AMG's iRacing Planner",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "main": "main.js",
   "scripts": {
     "ng": "ng",
@@ -13,7 +13,8 @@
     "electron-package-win": "ng build && electron-packager . iracing-planner --overwrite --asar=true --platform=win32 --arch=x64 --prune=true --out=release-builds --version-string.ProductName=\"AMG's iRacing Planner\"",
     "electron-package-osx": "ng build && electron-packager . --overwrite --platform=darwin --arch=x64 --prune=true --out=release-builds",
     "electron-package-linux": "ng build && electron-packager . iracing-planner --overwrite --asar=true --platform=linux --arch=x64 --prune=true --out=release-builds",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "zip": "zip-build release-builds/iracing-planner-win32-x64 release-builds -t amgiRacingPlanner_v%VERSION%.%EXT%"
   },
   "private": true,
   "dependencies": {
@@ -52,6 +53,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
-    "typescript": "~4.8.4"
+    "typescript": "~4.8.4",
+    "zip-build": "^1.7.0"
   }
 }

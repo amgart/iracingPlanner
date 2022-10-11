@@ -14,7 +14,7 @@ interface Serie {
   seriesid?: number;
   carclasses?: CarClasses[];
   isOfficial?: boolean;
-  cars: Car[];
+  cars?: SerieCar[];
   restrictedByMember?: boolean;
   isFixedSetup?: boolean;
   seasonid?: number;
@@ -49,4 +49,10 @@ interface Serie {
   raceweek?: number;
   quarter?: number;
   minTeamDrivers?: number;
+
+  // My params
+  numOwnedTracks?: number;
+  isSomeCarOwned?: boolean;
+  categoryString?: string;
+  licenseString?: string;
 }
