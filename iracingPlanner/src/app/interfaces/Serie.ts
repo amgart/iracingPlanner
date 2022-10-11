@@ -49,6 +49,9 @@ interface Serie {
   raceweek?: number;
   quarter?: number;
   minTeamDrivers?: number;
+
+  // My params
   numOwnedTracks?: number;
   isSomeCarOwned?: boolean;
+  categoryString?: string;
 }
