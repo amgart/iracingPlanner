@@ -55,4 +55,5 @@ interface Serie {
   isSomeCarOwned?: boolean;
   categoryString?: string;
   licenseString?: string;
+  setupString?: string;
 }
