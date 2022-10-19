@@ -10,9 +10,9 @@ if (!store.get("clicks")) {
 
 createWindow = () => {
   appWin = new BrowserWindow({
-    width: 1024,
-    height: 768,
-    title: "iRacing Planner",
+    width: 1920,
+    height: 1080,
+    title: "AMG's iRacing Planner",
     resizable: true,
     webPreferences: {
       contextIsolation: false,
@@ -20,6 +20,7 @@ createWindow = () => {
     }
   });
 
+  appWin.maximize();
   appWin.loadURL(`file://${__dirname}/dist/index.html`);
 
   appWin.setMenu(null);
@@ -28,6 +29,11 @@ createWindow = () => {
 
   appWin.on("closed", () => {
     appWin = null;
+  });
+
+  appWin.webContents.on('new-window', function(e, url) {
+    e.preventDefault();
+    require('electron').shell.openExternal(url);
   });
 }
 

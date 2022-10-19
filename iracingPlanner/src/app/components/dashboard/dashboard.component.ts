@@ -17,6 +17,7 @@ export class DashboardComponent implements OnInit {
   raceParticipationCreditControl = new FormControl('allSeries');
   categoryControl = new FormControl('allSeries');
   licenseControl = new FormControl('allSeries');
+  setupControl = new FormControl('allSeries');
   displayedColumns: string[] = ['serieName', 'license', 'type', 'cars', 'fixedOpen', 'howMany',
     'week0', 'week1', 'week2', 'week3', 'week4', 'week5', 'week6', 'week7', 'week8', 'week9',
     'week10', 'week11'];
@@ -38,18 +39,6 @@ export class DashboardComponent implements OnInit {
       return this.utilService.decode(text);
     }
     return 'undefined';
-  }
-
-  getLicense(minLicenseLevel: number): string {
-    return this.utilService.getLicenseFrom(minLicenseLevel);
-  }
-
-  getCategory(category: number): string {
-    return this.utilService.getCategory(category);
-  }
-
-  getFixedOpenSetup(isFixedSetup: boolean): string {
-    return this.utilService.getFixedOpenSetup(isFixedSetup);
   }
 
   parseCars(jsonCars: string): SerieCar[] {
@@ -78,17 +67,19 @@ export class DashboardComponent implements OnInit {
   }
 
   filter() {
-    this.dataSource.filter = `${this.seriesNameControl.value}|${this.raceParticipationCreditControl.value}|${this.categoryControl.value}|${this.licenseControl.value}` ;
+    this.dataSource.filter = `${this.seriesNameControl.value}|${this.raceParticipationCreditControl.value}|${this.categoryControl.value}|${this.licenseControl.value}|${this.setupControl.value}`;
   }
 
   private createFilter() {
     return function (data: Serie, filter: string): boolean {
 
       let result = false;
-      const seriesNameFilter = filter.split('|')[0];
-      const raceParticipationCreditFilter = filter.split('|')[1];
-      const categoryFilter = filter.split('|')[2];
-      const licenseFilter = filter.split('|')[3];
+      const filterSplit = filter.split('|');
+      const seriesNameFilter = filterSplit[0];
+      const raceParticipationCreditFilter = filterSplit[1];
+      const categoryFilter = filterSplit[2];
+      const licenseFilter = filterSplit[3];
+      const setupFilter = filterSplit[4];
 
       // Filter by series name
       if (data.seriesname?.toLowerCase().includes(seriesNameFilter)) {
@@ -108,6 +99,11 @@ export class DashboardComponent implements OnInit {
       // Filter by license
       if (result && licenseFilter !== 'allSeries') {
         result = data.licenseString === licenseFilter;
+      }
+
+      // Filter by setup
+      if (result && setupFilter !== 'allSeries') {
+        result = data.setupString === setupFilter;
       }
 
       return result;
@@ -147,6 +143,9 @@ export class DashboardComponent implements OnInit {
       if (serie.minlicenselevel) {
         serie.licenseString = this.getLicense(serie.minlicenselevel);
       }
+      if (serie.isFixedSetup !== undefined) {
+        serie.setupString = this.getFixedOpenSetup(serie.isFixedSetup);
+      }
       newSeries.push(serie);
     });
     return newSeries;
@@ -178,4 +177,15 @@ export class DashboardComponent implements OnInit {
     return count;
   }
 
+  private getFixedOpenSetup(isFixedSetup: boolean): string {
+    return this.utilService.getFixedOpenSetup(isFixedSetup);
+  }
+
+  private getLicense(minLicenseLevel: number): string {
+    return this.utilService.getLicenseFrom(minLicenseLevel);
+  }
+
+  private getCategory(category: number): string {
+    return this.utilService.getCategory(category);
+  }
 }

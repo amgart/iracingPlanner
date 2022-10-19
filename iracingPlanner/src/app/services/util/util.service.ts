@@ -66,8 +66,7 @@ export class UtilService {
   getFixedOpenSetup(isFixedSetup: boolean): string {
     if (isFixedSetup) {
       return "Fixed";
-    } else {
-      return "Open";
     }
+    return "Open";
   }
 }
