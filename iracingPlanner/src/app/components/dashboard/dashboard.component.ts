@@ -18,6 +18,7 @@ export class DashboardComponent implements OnInit {
   categoryControl = new FormControl('allSeries');
   licenseControl = new FormControl('allSeries');
   setupControl = new FormControl('allSeries');
+  ownedCarsControl = new FormControl('allSeries');
   displayedColumns: string[] = ['serieName', 'license', 'type', 'cars', 'fixedOpen', 'howMany',
     'week0', 'week1', 'week2', 'week3', 'week4', 'week5', 'week6', 'week7', 'week8', 'week9',
     'week10', 'week11'];
@@ -67,7 +68,7 @@ export class DashboardComponent implements OnInit {
   }
 
   filter() {
-    this.dataSource.filter = `${this.seriesNameControl.value}|${this.raceParticipationCreditControl.value}|${this.categoryControl.value}|${this.licenseControl.value}|${this.setupControl.value}`;
+    this.dataSource.filter = `${this.seriesNameControl.value}|${this.raceParticipationCreditControl.value}|${this.categoryControl.value}|${this.licenseControl.value}|${this.setupControl.value}|${this.ownedCarsControl.value}`;
   }
 
   private createFilter() {
@@ -80,6 +81,7 @@ export class DashboardComponent implements OnInit {
       const categoryFilter = filterSplit[2];
       const licenseFilter = filterSplit[3];
       const setupFilter = filterSplit[4];
+      const ownedCarsFilter = filterSplit[5];
 
       // Filter by series name
       if (data.seriesname?.toLowerCase().includes(seriesNameFilter)) {
@@ -104,6 +106,11 @@ export class DashboardComponent implements OnInit {
       // Filter by setup
       if (result && setupFilter !== 'allSeries') {
         result = data.setupString === setupFilter;
+      }
+
+      // Filter by ownedCars
+      if (result && ownedCarsFilter !== 'allSeries') {
+        result = data.isSomeCarOwned !== undefined && data.isSomeCarOwned;
       }
 
       return result;

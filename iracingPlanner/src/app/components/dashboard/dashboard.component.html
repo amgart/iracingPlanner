@@ -43,6 +43,13 @@
     <mat-button-toggle value="Open">Open</mat-button-toggle>
   </mat-button-toggle-group>
 
+  <!-- Filter by owned cars -->
+  <mat-button-toggle-group [formControl]="ownedCarsControl" name="ownedCars" aria-label="Font Style"
+                           (change)="filter()" class="m-1">
+    <mat-button-toggle value="allSeries">All</mat-button-toggle>
+    <mat-button-toggle value="Owned">Owned cars</mat-button-toggle>
+  </mat-button-toggle-group>
+
 </form>
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
