@@ -10,7 +10,7 @@ interface Serie {
   currentTrack?: number;
   active?: boolean;
   show_ss_standings?: boolean;
-  driverChangeRule: number;
+  driverChangeRule?: number;
   seriesid?: number;
   carclasses?: CarClasses[];
   isOfficial?: boolean;

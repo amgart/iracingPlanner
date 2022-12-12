@@ -1,7 +1,7 @@
 <form>
 
   <!-- Filter by series name -->
-  <mat-form-field class="p-1 w-500" appearance="standard">
+  <mat-form-field class="p-1 w-500">
     <mat-label>Filter</mat-label>
     <input matInput [formControl]="seriesNameControl" (keyup)="filter()" placeholder="Filter by series name" #input>
   </mat-form-field>
