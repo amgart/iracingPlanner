@@ -9,11 +9,11 @@
     "src/main.ts",
     "src/polyfills.ts",
     "src/app/interfaces/Car.ts",
-    "src/app/interfaces/Serie.ts",
-    "src/app/interfaces/CarClasses.ts",
-    "src/app/interfaces/SerieTrack.ts",
+    "src/app/interfaces/Season.ts",
     "src/app/interfaces/Track.ts",
-    "src/app/interfaces/SerieCar.ts"
+    "src/app/interfaces/Schedule.ts",
+    "src/app/interfaces/CarClass.ts",
+    "src/app/interfaces/CarsInClass.ts"
   ],
   "include": [
     "src/**/*.d.ts"

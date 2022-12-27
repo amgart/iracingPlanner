@@ -8,16 +8,12 @@ import trackJsonFile from '../../../assets/tracks.json';
 export class TrackService {
 
   private objectType: string = "track";
-  private tracks: Track[] = [];
 
   constructor(private storeService: StoreService) {
   }
 
-  getTracks(): Track[] {
-    if (this.tracks.length === 0) {
-      this.tracks = this.findAllTracks();
-    }
-    return this.tracks;
+  getTracks(removeDuplicates: boolean): Track[] {
+    return this.findAllTracks(removeDuplicates);
   }
 
   save(track: Track) {
@@ -46,13 +42,28 @@ export class TrackService {
 
   findTrackBy(trackId: number): Track | undefined {
     let result;
-    const trackList = this.getTracks();
+    const trackList = this.getTracks(false);
     trackList.forEach(track => {
-      if (track.package_id === trackId) {
+      if (track.track_id === trackId) {
         result = track;
       }
     });
     return result;
+  }
+
+  findTracksForSeason(season: Season): Track[] {
+    let tracks: Track[] = [];
+    if (season.schedules) {
+      season.schedules.forEach(schedule => {
+        if (schedule.track && schedule.track.track_id) {
+          const track = this.findTrackBy(schedule.track.track_id);
+          if (track) {
+            tracks.push(track);
+          }
+        }
+      });
+    }
+    return tracks;
   }
 
   private sort(list: Track[]): Track[] {
@@ -65,7 +76,7 @@ export class TrackService {
   }
 
   private removeDuplicates(originalTracks: Track[]): Track[] {
-    let result: Track[] = [];
+    let result: Car[] = [];
     let inserted: number[] = [];
     originalTracks.forEach(track => {
       if (track.package_id && !inserted.includes(track.package_id)) {
@@ -76,9 +87,11 @@ export class TrackService {
     return result;
   }
 
-  private findAllTracks(): Track[] {
-    let tracks: Track[] = trackJsonFile;
-    tracks = this.removeDuplicates(tracks);
+  private findAllTracks(removeDuplicates: boolean): Track[] {
+    let tracks: Car[] = trackJsonFile;
+    if (removeDuplicates) {
+      tracks = this.removeDuplicates(tracks);
+    }
     return this.sort(tracks);
   }
 }

@@ -11,19 +11,19 @@ export class UtilService {
     return decodeURIComponent(text).replaceAll('+', ' ');
   }
 
-  sort(list: SerieTrack[]): SerieTrack[] {
+  sort(list: Track[]): Track[] {
     return list.sort((a,b) => {
-      if (a.name && b.name) {
-        return (a.name > b.name) ? 1: (b.name > a.name) ? -1 : 0;
+      if (a.track_name && b.track_name) {
+        return (a.track_name > b.track_name) ? 1: (b.track_name > a.track_name) ? -1 : 0;
       }
       return -1;
     });
   }
 
-  sortSeries(list: Serie[]): Serie[]{
+  sortSeries(list: Season[]): Season[]{
     return list.sort((a,b) => {
-      if (a.seriesname && b.seriesname) {
-        return (a.seriesname > b.seriesname) ? 1: (b.seriesname > a.seriesname) ? -1 : 0;
+      if (a.season_name && b.season_name) {
+        return (a.season_name > b.season_name) ? 1: (b.season_name > a.season_name) ? -1 : 0;
       }
       return -1;
     });
@@ -33,15 +33,15 @@ export class UtilService {
     switch(minLicenseLevel) {
       case 1:
         return "R";
-      case 4:
+      case 2:
         return "D";
-      case 8:
+      case 3:
         return "C";
-      case 12:
+      case 4:
         return "B";
-      case 16:
+      case 5:
         return "A";
-      case 18:
+      case 6:
         return "Pro";
       default:
         return minLicenseLevel.toString();
