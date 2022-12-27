@@ -8,12 +8,20 @@ import trackJsonFile from '../../../assets/tracks.json';
 export class TrackService {
 
   private objectType: string = "track";
+  private tracks: Track[] = [];
 
   constructor(private storeService: StoreService) {
   }
 
-  getTracks(removeDuplicates: boolean): Track[] {
-    return this.findAllTracks(removeDuplicates);
+  getTracks(): Track[] {
+    if (this.tracks.length === 0) {
+      this.tracks = this.findAllTracks(false);
+    }
+    return this.tracks;
+  }
+
+  getTracksWithoutDuplicates(): Track[] {
+    return this.findAllTracks(true)
   }
 
   save(track: Track) {
@@ -42,7 +50,7 @@ export class TrackService {
 
   findTrackBy(trackId: number): Track | undefined {
     let result;
-    const trackList = this.getTracks(false);
+    const trackList = this.getTracks();
     trackList.forEach(track => {
       if (track.track_id === trackId) {
         result = track;
