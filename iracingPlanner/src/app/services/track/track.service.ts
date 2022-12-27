@@ -15,9 +15,13 @@ export class TrackService {
 
   getTracks(): Track[] {
     if (this.tracks.length === 0) {
-      this.tracks = this.findAllTracks();
+      this.tracks = this.findAllTracks(false);
     }
     return this.tracks;
+  }
+
+  getTracksWithoutDuplicates(): Track[] {
+    return this.findAllTracks(true)
   }
 
   save(track: Track) {
@@ -48,11 +52,26 @@ export class TrackService {
     let result;
     const trackList = this.getTracks();
     trackList.forEach(track => {
-      if (track.package_id === trackId) {
+      if (track.track_id === trackId) {
         result = track;
       }
     });
     return result;
+  }
+
+  findTracksForSeason(season: Season): Track[] {
+    let tracks: Track[] = [];
+    if (season.schedules) {
+      season.schedules.forEach(schedule => {
+        if (schedule.track && schedule.track.track_id) {
+          const track = this.findTrackBy(schedule.track.track_id);
+          if (track) {
+            tracks.push(track);
+          }
+        }
+      });
+    }
+    return tracks;
   }
 
   private sort(list: Track[]): Track[] {
@@ -65,7 +84,7 @@ export class TrackService {
   }
 
   private removeDuplicates(originalTracks: Track[]): Track[] {
-    let result: Track[] = [];
+    let result: Car[] = [];
     let inserted: number[] = [];
     originalTracks.forEach(track => {
       if (track.package_id && !inserted.includes(track.package_id)) {
@@ -76,9 +95,11 @@ export class TrackService {
     return result;
   }
 
-  private findAllTracks(): Track[] {
-    let tracks: Track[] = trackJsonFile;
-    tracks = this.removeDuplicates(tracks);
+  private findAllTracks(removeDuplicates: boolean): Track[] {
+    let tracks: Car[] = trackJsonFile;
+    if (removeDuplicates) {
+      tracks = this.removeDuplicates(tracks);
+    }
     return this.sort(tracks);
   }
 }

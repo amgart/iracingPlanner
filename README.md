@@ -26,10 +26,11 @@ In the *Dashboard* tab will you find the following columns:
 *   Weeks: the list of tracks per week (if the cell paints green means that you own the track)
 
 ## How the data is obtained
-The schedule for the current season is stored as a json file inside the tool. This json file is obtained through
-an *iRacing* API call and contains all the series, with the corresponding tracks per week, license, categories, 
-cars, and other information. This json needs to be updated each season. Please read the 
-*How to update the tool* section.
+The schedule for the current season, cars and tracks are stored as a json files inside the tool. 
+These json files are obtained through *iRacing* API calls and contains all the series, with the corresponding 
+tracks per week, license, categories, cars, and other information. These json files need to be updated each season.
+So, please, at the beginning of the season download the corresponding release 
+[here](https://github.com/amgart/iracingPlanner/releases).
 
 ## Known issues and limitations
 *   If the serie has less than 12 races, the series is not shown, as this causes confusion about when the races happen.
@@ -47,13 +48,13 @@ cars, and other information. This json needs to be updated each season. Please r
 If you want to report issues, give me some feedback or recommend some new features, you can do it here in
 GitHub or you can reach me by social media:
 
-*   My YouTube channel: https://www.youtube.com/channel/UC5TSGSOsf1KE2zjnFFJTSfw
-*   My Twitch channel: https://www.twitch.tv/amgart88
-*   My Instagram: https://www.instagram.com/amg.art/
-*   If you want to register in iRacing and use me as a referred: https://www.iracing.com/membership/?refid=366160
+*   [My YouTube channel](https://www.youtube.com/channel/UC5TSGSOsf1KE2zjnFFJTSfw)
+*   [My Twitch channel](https://www.twitch.tv/amgart88)
+*   [My Instagram](https://www.instagram.com/amg.art/)
+*   [If you want to register in iRacing and use me as a referred](https://www.iracing.com/membership/?refid=366160)
 *   If you want to add me as a friend, my iRacing name is: Albert Martínez
-*   If you want to become a patron: https://www.patreon.com/amgart
-*   If you want to make a donation:
+*   [If you want to become a patron](https://www.patreon.com/amgart)
+*   If you want to buy me a coffee:
 
 [![](https://www.paypalobjects.com/es_ES/ES/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WBC5FZRDZHMSE)
 
@@ -63,7 +64,7 @@ if the features are arriving slowly.
 If you want to help me, proposing new features, following me in the social media or making a donation 
 really helps.
 
-## Thank you so much
+Thank you so much!
 
 ## Build Status
 [![Build Status](https://travis-ci.com/amgart/iracingPlanner.svg?token=fxGz683x8EKy5r4BMBoM&branch=develop)](https://travis-ci.com/amgart/iracingPlanner)

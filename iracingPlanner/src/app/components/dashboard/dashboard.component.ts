@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {SerieService} from '../../services/serie/serie.service';
+import {SeasonService} from '../../services/serie/season.service';
 import {UtilService} from '../../services/util/util.service';
 import {TrackService} from '../../services/track/track.service';
 import {CarService} from '../../services/car/car.service';
@@ -17,12 +17,14 @@ export class DashboardComponent implements OnInit {
   raceParticipationCreditControl = new FormControl('allSeries');
   categoryControl = new FormControl('allSeries');
   licenseControl = new FormControl('allSeries');
+  setupControl = new FormControl('allSeries');
+  ownedCarsControl = new FormControl('allSeries');
   displayedColumns: string[] = ['serieName', 'license', 'type', 'cars', 'fixedOpen', 'howMany',
     'week0', 'week1', 'week2', 'week3', 'week4', 'week5', 'week6', 'week7', 'week8', 'week9',
     'week10', 'week11'];
-  dataSource: MatTableDataSource<Serie> = new MatTableDataSource();
+  dataSource: MatTableDataSource<Season> = new MatTableDataSource();
 
-  constructor(private serieService: SerieService, private utilService: UtilService,
+  constructor(private serieService: SeasonService, private utilService: UtilService,
               private trackService: TrackService, private carService: CarService) {
   }
 
@@ -40,58 +42,53 @@ export class DashboardComponent implements OnInit {
     return 'undefined';
   }
 
-  getLicense(minLicenseLevel: number): string {
-    return this.utilService.getLicenseFrom(minLicenseLevel);
+  parseCars(season: Season): Car[] {
+    return this.carService.findCarsForSeason(season);
   }
 
-  getCategory(category: number): string {
-    return this.utilService.getCategory(category);
-  }
-
-  getFixedOpenSetup(isFixedSetup: boolean): string {
-    return this.utilService.getFixedOpenSetup(isFixedSetup);
-  }
-
-  parseCars(jsonCars: string): SerieCar[] {
-    return JSON.parse(jsonCars);
-  }
-
-  getTrackLabel(weekNum: number, jsonTracks: string): string {
-    const track = this.findTrack(weekNum, jsonTracks);
+  getTrackLabel(weekNum: number, season: Season): string {
+    const track = this.findTrack(weekNum, season);
     if (track && track.track_name) {
       return this.decode(track.track_name);
     }
     return '';
   }
 
-  isTrackOwned(weekNum: number, jsonTracks: string): boolean {
-    const track = this.findTrack(weekNum, jsonTracks);
-    return this.trackService.isOwned(track);
+  isTrackOwned(weekNum: number, season: Season): boolean {
+    const track = this.findTrack(weekNum, season);
+    if (track) {
+      return this.trackService.isOwned(track);
+    }
+    return false;
   }
 
-  canRaceSerie(serie: Serie): boolean {
-    if (serie.tracks && serie.cars) {
-      return this.countRaces(serie.tracks) >= 8
-        && this.isSomeCarOwned(serie.cars);
+  canRaceSerie(season: Season): boolean {
+    const tracks: Track[] = this.trackService.findTracksForSeason(season);
+    const cars: Car[] = this.parseCars(season);
+    if (tracks && cars) {
+      return this.countRaces(tracks) >= 8 && this.isSomeCarOwned(cars);
     }
     return false;
   }
 
   filter() {
-    this.dataSource.filter = `${this.seriesNameControl.value}|${this.raceParticipationCreditControl.value}|${this.categoryControl.value}|${this.licenseControl.value}` ;
+    this.dataSource.filter = `${this.seriesNameControl.value}|${this.raceParticipationCreditControl.value}|${this.categoryControl.value}|${this.licenseControl.value}|${this.setupControl.value}|${this.ownedCarsControl.value}`;
   }
 
   private createFilter() {
-    return function (data: Serie, filter: string): boolean {
+    return function (data: Season, filter: string): boolean {
 
       let result = false;
-      const seriesNameFilter = filter.split('|')[0];
-      const raceParticipationCreditFilter = filter.split('|')[1];
-      const categoryFilter = filter.split('|')[2];
-      const licenseFilter = filter.split('|')[3];
+      const filterSplit = filter.split('|');
+      const seriesNameFilter = filterSplit[0];
+      const raceParticipationCreditFilter = filterSplit[1];
+      const categoryFilter = filterSplit[2];
+      const licenseFilter = filterSplit[3];
+      const setupFilter = filterSplit[4];
+      const ownedCarsFilter = filterSplit[5];
 
       // Filter by series name
-      if (data.seriesname?.toLowerCase().includes(seriesNameFilter)) {
+      if (data.season_name?.toLowerCase().includes(seriesNameFilter)) {
         result = true;
       }
 
@@ -110,53 +107,54 @@ export class DashboardComponent implements OnInit {
         result = data.licenseString === licenseFilter;
       }
 
+      // Filter by setup
+      if (result && setupFilter !== 'allSeries') {
+        result = data.setupString === setupFilter;
+      }
+
+      // Filter by ownedCars
+      if (result && ownedCarsFilter !== 'allSeries') {
+        result = data.isSomeCarOwned !== undefined && data.isSomeCarOwned;
+      }
+
       return result;
     };
   }
 
-  private parseTracks(jsonTracks: string): Track[] {
-    let result: Track[] = [];
-    const tracks: SerieTrack[] = JSON.parse(jsonTracks);
-    tracks.forEach(track => {
-      if (track.pkgid) {
-        const convertedTrack = this.trackService.findTrackBy(track.pkgid);
-        if (convertedTrack) {
-          result.push(convertedTrack);
-        }
-      }
-    });
-    return result;
+  private findTrack(weekNum: number, season: Season): Track {
+    return this.trackService.findTracksForSeason(season)[weekNum];
   }
 
-  private findTrack(weekNum: number, jsonTracks: string): Track {
-    return this.parseTracks(jsonTracks)[weekNum];
-  }
-
-  private processSeries(series: Serie[]): Serie[] {
-    let newSeries: Serie[] = [];
-    series.forEach(serie => {
-      if (serie.tracks) {
-        serie.numOwnedTracks = this.countRaces(serie.tracks);
+  private processSeries(seasons: Season[]): Season[] {
+    let newSeries: Season[] = [];
+    seasons.forEach(season => {
+      const tracks = this.trackService.findTracksForSeason(season);
+      if (tracks) {
+        season.numOwnedTracks = this.countRaces(tracks);
       }
-      if (serie.cars) {
-        serie.isSomeCarOwned = this.isSomeCarOwned(serie.cars);
+      const cars = this.carService.findCarsForSeason(season);
+      if (cars) {
+        season.isSomeCarOwned = this.isSomeCarOwned(cars);
       }
-      if (serie.category) {
-        serie.categoryString = this.getCategory(serie.category);
+      if (tracks && tracks.length > 0 && tracks[0].category_id) {
+        season.categoryString = this.getCategory(tracks[0].category_id);
       }
-      if (serie.minlicenselevel) {
-        serie.licenseString = this.getLicense(serie.minlicenselevel);
+      if (season.license_group) {
+        season.licenseString = this.getLicense(season.license_group);
       }
-      newSeries.push(serie);
+      if (season.fixed_setup !== undefined) {
+        season.setupString = this.getFixedOpenSetup(season.fixed_setup);
+      }
+      newSeries.push(season);
     });
     return newSeries;
   }
 
-  private isSomeCarOwned(cars: SerieCar[]): boolean {
+  private isSomeCarOwned(cars: Car[]): boolean {
     let result = false;
     cars.forEach(car => {
-      if (car.id) {
-        const convertedCar = this.carService.findCarBy(car.id);
+      if (car.car_id) {
+        const convertedCar = this.carService.findCarBy(car.car_id);
         if (convertedCar) {
           result = this.carService.isOwned(convertedCar);
         }
@@ -165,11 +163,11 @@ export class DashboardComponent implements OnInit {
     return result;
   }
 
-  private countRaces(tracks: SerieTrack[]): number {
+  private countRaces(tracks: Track[]): number {
     let count = 0;
     tracks.forEach(track => {
-      if (track.pkgid) {
-        const convertedTrack = this.trackService.findTrackBy(track.pkgid);
+      if (track.track_id) {
+        const convertedTrack = this.trackService.findTrackBy(track.track_id);
         if (convertedTrack && this.trackService.isOwned(convertedTrack)) {
           count++;
         }
@@ -178,4 +176,15 @@ export class DashboardComponent implements OnInit {
     return count;
   }
 
+  private getFixedOpenSetup(isFixedSetup: boolean): string {
+    return this.utilService.getFixedOpenSetup(isFixedSetup);
+  }
+
+  private getLicense(minLicenseLevel: number): string {
+    return this.utilService.getLicenseFrom(minLicenseLevel);
+  }
+
+  private getCategory(category: number): string {
+    return this.utilService.getCategory(category);
+  }
 }

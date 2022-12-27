@@ -22,7 +22,7 @@ export class TrackComponent implements OnInit {
     }
   }
 
-  onClick(track: SerieTrack) {
+  onClick(track: Track) {
     if (this.checked) {
       this.trackService.remove(track);
     } else {

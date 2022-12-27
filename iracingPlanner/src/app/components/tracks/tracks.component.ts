@@ -8,7 +8,7 @@ import {TrackService} from '../../services/track/track.service';
 })
 export class TracksComponent {
 
-  tracks: Track[] = this.trackService.getTracks();
+  tracks: Track[] = this.trackService.getTracksWithoutDuplicates();
 
   constructor(private trackService: TrackService) {
   }

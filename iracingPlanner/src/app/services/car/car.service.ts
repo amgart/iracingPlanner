@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import carJsonFile from '../../../assets/cars.json';
 import {StoreService} from '../store/store.service';
+import {CarClassService} from "../carClass/car-class.service";
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,8 @@ export class CarService {
   private objectType: string = "car";
   private cars: Car[] = [];
 
-  constructor(private storeService: StoreService) { }
+  constructor(private storeService: StoreService,
+              private carClassService: CarClassService) { }
 
   getCars(): Car[]  {
     if (this.cars.length === 0) {
@@ -52,6 +54,26 @@ export class CarService {
       }
     });
     return result;
+  }
+
+  findCarsForSeason(season: Season): Car[] {
+    let cars: Car[] = [];
+    if (season.car_class_ids) {
+      season.car_class_ids.forEach(carClassId => {
+        const carClass = this.carClassService.findCarClassBy(carClassId);
+        if (carClass && carClass.cars_in_class) {
+          carClass.cars_in_class.forEach(carInClass => {
+            if (carInClass.car_id) {
+              const car = this.findCarBy(carInClass.car_id);
+              if (car) {
+                cars.push(car);
+              }
+            }
+          });
+        }
+      });
+    }
+    return cars;
   }
 
   private sort(list: Car[]): Car[] {
