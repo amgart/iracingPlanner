@@ -97,7 +97,8 @@
 
   <!-- Week 0 Column -->
   <ng-container matColumnDef="week0">
-    <th mat-header-cell *matHeaderCellDef>Week 1</th>
+    <th mat-header-cell *matHeaderCellDef
+        [ngClass]="getCssClassForWeek(0)">Week 1</th>
     <td mat-cell *matCellDef="let element" class="p-1"
       [ngClass]="isTrackOwned(0, element) ? 'owned' : ''">
       {{getTrackLabel(0, element)}}</td>
@@ -105,7 +106,8 @@
 
   <!-- Week 1 Column -->
   <ng-container matColumnDef="week1">
-    <th mat-header-cell *matHeaderCellDef>Week 2</th>
+    <th mat-header-cell *matHeaderCellDef
+        [ngClass]="getCssClassForWeek(1)">Week 2</th>
     <td mat-cell *matCellDef="let element" class="p-1"
         [ngClass]="isTrackOwned(1, element) ? 'owned' : ''">
       {{getTrackLabel(1, element)}}</td>
@@ -113,7 +115,8 @@
 
   <!-- Week 2 Column -->
   <ng-container matColumnDef="week2">
-    <th mat-header-cell *matHeaderCellDef>Week 3</th>
+    <th mat-header-cell *matHeaderCellDef
+        [ngClass]="getCssClassForWeek(2)">Week 3</th>
     <td mat-cell *matCellDef="let element" class="p-1"
         [ngClass]="isTrackOwned(2, element) ? 'owned' : ''">
       {{getTrackLabel(2, element)}}</td>
@@ -121,7 +124,8 @@
 
   <!-- Week 3 Column -->
   <ng-container matColumnDef="week3">
-    <th mat-header-cell *matHeaderCellDef>Week 4</th>
+    <th mat-header-cell *matHeaderCellDef
+        [ngClass]="getCssClassForWeek(3)">Week 4</th>
     <td mat-cell *matCellDef="let element" class="p-1"
         [ngClass]="isTrackOwned(3, element) ? 'owned' : ''">
       {{getTrackLabel(3, element)}}</td>
@@ -129,7 +133,8 @@
 
   <!-- Week 4 Column -->
   <ng-container matColumnDef="week4">
-    <th mat-header-cell *matHeaderCellDef>Week 5</th>
+    <th mat-header-cell *matHeaderCellDef
+        [ngClass]="getCssClassForWeek(4)">Week 5</th>
     <td mat-cell *matCellDef="let element" class="p-1"
         [ngClass]="isTrackOwned(4, element) ? 'owned' : ''">
       {{getTrackLabel(4, element)}}</td>
@@ -137,7 +142,8 @@
 
   <!-- Week 5 Column -->
   <ng-container matColumnDef="week5">
-    <th mat-header-cell *matHeaderCellDef>Week 6</th>
+    <th mat-header-cell *matHeaderCellDef
+        [ngClass]="getCssClassForWeek(5)">Week 6</th>
     <td mat-cell *matCellDef="let element" class="p-1"
         [ngClass]="isTrackOwned(5, element) ? 'owned' : ''">
       {{getTrackLabel(5, element)}}</td>
@@ -145,7 +151,8 @@
 
   <!-- Week 6 Column -->
   <ng-container matColumnDef="week6">
-    <th mat-header-cell *matHeaderCellDef>Week 7</th>
+    <th mat-header-cell *matHeaderCellDef
+        [ngClass]="getCssClassForWeek(6)">Week 7</th>
     <td mat-cell *matCellDef="let element" class="p-1"
         [ngClass]="isTrackOwned(6, element) ? 'owned' : ''">
       {{getTrackLabel(6, element)}}</td>
@@ -153,7 +160,8 @@
 
   <!-- Week 7 Column -->
   <ng-container matColumnDef="week7">
-    <th mat-header-cell *matHeaderCellDef>Week 8</th>
+    <th mat-header-cell *matHeaderCellDef
+        [ngClass]="getCssClassForWeek(7)">Week 8</th>
     <td mat-cell *matCellDef="let element" class="p-1"
         [ngClass]="isTrackOwned(7, element) ? 'owned' : ''">
       {{getTrackLabel(7, element)}}</td>
@@ -161,7 +169,8 @@
 
   <!-- Week 8 Column -->
   <ng-container matColumnDef="week8">
-    <th mat-header-cell *matHeaderCellDef>Week 9</th>
+    <th mat-header-cell *matHeaderCellDef
+        [ngClass]="getCssClassForWeek(8)">Week 9</th>
     <td mat-cell *matCellDef="let element" class="p-1"
         [ngClass]="isTrackOwned(8, element) ? 'owned' : ''">
       {{getTrackLabel(8, element)}}</td>
@@ -169,7 +178,8 @@
 
   <!-- Week 9 Column -->
   <ng-container matColumnDef="week9">
-    <th mat-header-cell *matHeaderCellDef>Week 10</th>
+    <th mat-header-cell *matHeaderCellDef
+        [ngClass]="getCssClassForWeek(9)">Week 10</th>
     <td mat-cell *matCellDef="let element" class="p-1"
         [ngClass]="isTrackOwned(9, element) ? 'owned' : ''">
       {{getTrackLabel(9, element)}}</td>
@@ -177,7 +187,8 @@
 
   <!-- Week 10 Column -->
   <ng-container matColumnDef="week10">
-    <th mat-header-cell *matHeaderCellDef>Week 11</th>
+    <th mat-header-cell *matHeaderCellDef
+        [ngClass]="getCssClassForWeek(10)">Week 11</th>
     <td mat-cell *matCellDef="let element" class="p-1"
         [ngClass]="isTrackOwned(10, element) ? 'owned' : ''">
       {{getTrackLabel(10, element)}}</td>
@@ -185,7 +196,8 @@
 
   <!-- Week 11 Column -->
   <ng-container matColumnDef="week11">
-    <th mat-header-cell *matHeaderCellDef>Week 12</th>
+    <th mat-header-cell *matHeaderCellDef
+        [ngClass]="getCssClassForWeek(11)">Week 12</th>
     <td mat-cell *matCellDef="let element" class="p-1"
         [ngClass]="isTrackOwned(11, element) ? 'owned' : ''">
       {{getTrackLabel(11, element)}}</td>

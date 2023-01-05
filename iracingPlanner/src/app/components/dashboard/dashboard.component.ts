@@ -23,15 +23,16 @@ export class DashboardComponent implements OnInit {
     'week0', 'week1', 'week2', 'week3', 'week4', 'week5', 'week6', 'week7', 'week8', 'week9',
     'week10', 'week11'];
   dataSource: MatTableDataSource<Season> = new MatTableDataSource();
+  private season: Season[] = [];
 
   constructor(private serieService: SeasonService, private utilService: UtilService,
               private trackService: TrackService, private carService: CarService) {
   }
 
   ngOnInit(): void {
-    let series = this.serieService.findSeries();
-    series = this.processSeries(series);
-    this.dataSource = new MatTableDataSource(series);
+    this.season = this.serieService.findSeries();
+    this.season = this.processSeries(this.season);
+    this.dataSource = new MatTableDataSource(this.season);
     this.dataSource.filterPredicate = this.createFilter();
   }
 
@@ -73,6 +74,35 @@ export class DashboardComponent implements OnInit {
 
   filter() {
     this.dataSource.filter = `${this.seriesNameControl.value}|${this.raceParticipationCreditControl.value}|${this.categoryControl.value}|${this.licenseControl.value}|${this.setupControl.value}|${this.ownedCarsControl.value}`;
+  }
+
+  getCssClassForWeek(weekNum: number): string {
+    let cssClass = '';
+    const currentWeekStartDate = this.getCurrentWeekStartDate(weekNum, this.season[0]);
+    if (currentWeekStartDate
+      && this.isPreviousTo(this.calculateWeekEndDate(currentWeekStartDate), new Date())) {
+      cssClass = 'doneWeek';
+    }
+    return cssClass;
+  }
+
+  private calculateWeekEndDate(date: Date): Date {
+    date.setDate(date.getDate() + 7);
+    return date;
+  }
+
+  private getCurrentWeekStartDate(weekNum: number, season: Season): Date | undefined {
+    if (season && season.schedules) {
+      const schedule = season.schedules[weekNum];
+      if (schedule.start_date) {
+        return new Date(schedule.start_date);
+      }
+    }
+    return undefined;
+  }
+
+  private isPreviousTo(date: Date, referenceDate: Date): boolean {
+    return date < referenceDate;
   }
 
   private createFilter() {
