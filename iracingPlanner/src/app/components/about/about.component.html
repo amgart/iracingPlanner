@@ -1,3 +1,10 @@
+<nav mat-tab-nav-bar>
+  <a mat-tab-link [routerLink]="'/dashboard'" [active]="false">Dashboard</a>
+  <a mat-tab-link [routerLink]="'/cars'" [active]="false">Cars</a>
+  <a mat-tab-link [routerLink]="'/tracks'" [active]="false">Tracks</a>
+  <a mat-tab-link [active]="true">About</a>
+</nav>
+
 <mat-card>
   <mat-card-title-group>
     <mat-card-title>About AMG's iRacing Planner</mat-card-title>
