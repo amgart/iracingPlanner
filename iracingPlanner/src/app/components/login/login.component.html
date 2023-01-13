@@ -1,14 +1,14 @@
 <div class="page-container">
   <div class="login-container">
     <form [formGroup]="form">
-      <mat-form-field>
+      <mat-form-field class="login-field">
         <mat-label>iRacing user</mat-label>
         <input matInput
                [formControlName]="'user'"
                value="{{form.controls.user.value}}">
       </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field class="login-field">
         <mat-label>iRacing password</mat-label>
         <input matInput
                type="password"
