@@ -5,6 +5,7 @@ import {TrackService} from '../../services/track/track.service';
 import {CarService} from '../../services/car/car.service';
 import {FormControl} from "@angular/forms";
 import {MatTableDataSource} from "@angular/material/table";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-dashboard',
@@ -26,7 +27,8 @@ export class DashboardComponent implements OnInit {
   private season: Season[] = [];
 
   constructor(private serieService: SeasonService, private utilService: UtilService,
-              private trackService: TrackService, private carService: CarService) {
+              private trackService: TrackService, private carService: CarService,
+              private _router: Router) {
   }
 
   ngOnInit(): void {
