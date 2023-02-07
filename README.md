@@ -9,6 +9,7 @@ tracks for the current season.
 ## How to install
 Just download latest release (https://github.com/amgart/iracingPlanner/releases), unzip it and put it in your favourite folder.
 Now you only need to double-click *iracing-planner.exe*
+For more information, you can see [this video](https://www.youtube.com/watch?v=dkKvZZ2X7ys)
 
 ## How to use
 With the tool up and running, just go to *My cars* tab and select the cars you own on *iRacing*. 
@@ -38,11 +39,12 @@ So, please, at the beginning of the season download the corresponding release
 
 ## Future features planned
 *   Visual enhancements
+*   Possibility to introduce your iRacing account info.
+*   *Dashboard* is automatically calculated each season instead of manually updating the tool (if you introduce your iRacing account info).
+*   Owned cars and tracks are automatically updated with your *iRacing* account (if you introduce your iRacing account info).
 *   Possibility to add favourite cars, tracks and series.
 *   Possibility to filter favourite cars and tracks in the *Dashboard* tab.
-*   *Dashboard* is automatically calculated each season instead of manually updating the tool.
 *   Price calculator for the user to use when planning the new season and being able to know how much money he needs to spend.
-*   Owned cars and tracks are automatically updated with your *iRacing* account instead of the current tabs configuration.
 
 ## About the author
 If you want to report issues, give me some feedback or recommend some new features, you can do it here in
