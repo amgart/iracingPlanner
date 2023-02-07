@@ -12,7 +12,12 @@ Now you only need to double-click *iracing-planner.exe*
 For more information, you can see [this video](https://www.youtube.com/watch?v=dkKvZZ2X7ys)
 
 ## How to use
-With the tool up and running, just go to *My cars* tab and select the cars you own on *iRacing*. 
+When the tool starts, a login screen appears where you can introduce your iRacing credentials. At this moment this info is not used
+(as the development of this feature is in progress), but it will be used to auto refresh the dashboard with the current 
+season info, obtain your owned cars and tracks. Your credentials are stored locally.
+In the login screen you will be able to click 'Login' and use this online features, or you will be able to keep using
+the offline mode.
+After the login redirects to the *Dashboard* screen, just go to *My cars* tab and select the cars you own on *iRacing*. 
 Select too your owned tracks on *My tracks* tab.
 
 Once you have done this, you can return to the main *Dashboard* tab, and you will see the table of series 
