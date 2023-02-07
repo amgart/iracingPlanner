@@ -12,6 +12,10 @@ export class LoginService {
 
   login(user: string, password: string): boolean {
     this.storeService.set(this.objectType, -1, {user: user, password: password});
-    return false;
+    return true;
+  }
+
+  getStoredCredentials(): any {
+    return this.storeService.get(this.objectType, -1);
   }
 }

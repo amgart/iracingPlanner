@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {LoginService} from "../../services/login/login.service";
@@ -8,7 +8,7 @@ import {LoginService} from "../../services/login/login.service";
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
   hide = true;
   form = new FormGroup({
@@ -18,6 +18,12 @@ export class LoginComponent {
 
   constructor(private _router: Router,
               private loginService: LoginService) {
+  }
+
+  ngOnInit(): void {
+    const credentials = this.loginService.getStoredCredentials();
+    this.form.get('user')?.setValue(credentials.user);
+    this.form.get('password')?.setValue(credentials.password);
   }
 
   offlineMode(): void {
