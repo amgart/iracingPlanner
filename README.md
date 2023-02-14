@@ -9,9 +9,15 @@ tracks for the current season.
 ## How to install
 Just download latest release (https://github.com/amgart/iracingPlanner/releases), unzip it and put it in your favourite folder.
 Now you only need to double-click *iracing-planner.exe*
+For more information, you can see [this video](https://www.youtube.com/watch?v=dkKvZZ2X7ys)
 
 ## How to use
-With the tool up and running, just go to *My cars* tab and select the cars you own on *iRacing*. 
+When the tool starts, a login screen appears where you can introduce your iRacing credentials. At this moment this info is not used
+(as the development of this feature is in progress), but it will be used to auto refresh the dashboard with the current 
+season info, obtain your owned cars and tracks. Your credentials are stored locally.
+In the login screen you will be able to click 'Login' and use this online features, or you will be able to keep using
+the offline mode.
+After the login redirects to the *Dashboard* screen, just go to *My cars* tab and select the cars you own on *iRacing*. 
 Select too your owned tracks on *My tracks* tab.
 
 Once you have done this, you can return to the main *Dashboard* tab, and you will see the table of series 
@@ -38,11 +44,12 @@ So, please, at the beginning of the season download the corresponding release
 
 ## Future features planned
 *   Visual enhancements
+*   Possibility to introduce your iRacing account info.
+*   *Dashboard* is automatically calculated each season instead of manually updating the tool (if you introduce your iRacing account info).
+*   Owned cars and tracks are automatically updated with your *iRacing* account (if you introduce your iRacing account info).
 *   Possibility to add favourite cars, tracks and series.
 *   Possibility to filter favourite cars and tracks in the *Dashboard* tab.
-*   *Dashboard* is automatically calculated each season instead of manually updating the tool.
 *   Price calculator for the user to use when planning the new season and being able to know how much money he needs to spend.
-*   Owned cars and tracks are automatically updated with your *iRacing* account instead of the current tabs configuration.
 
 ## About the author
 If you want to report issues, give me some feedback or recommend some new features, you can do it here in

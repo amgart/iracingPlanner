@@ -1,21 +1,28 @@
+<nav mat-tab-nav-bar>
+  <a mat-tab-link [active]="true">Dashboard</a>
+  <a mat-tab-link [routerLink]="'/cars'" [active]="false">Cars</a>
+  <a mat-tab-link [routerLink]="'/tracks'" [active]="false">Tracks</a>
+  <a mat-tab-link [routerLink]="'/about'" [active]="false">About</a>
+</nav>
+
 <form>
 
   <!-- Filter by series name -->
-  <mat-form-field class="p-1 w-500">
+  <mat-form-field class="m-1 fs-12 w-500">
     <mat-label>Filter</mat-label>
     <input matInput [formControl]="seriesNameControl" (keyup)="filter()" placeholder="Filter by series name" #input>
   </mat-form-field>
 
   <!-- Filter by race participation credit -->
   <mat-button-toggle-group [formControl]="raceParticipationCreditControl" name="raceParticipationCredit"
-                           aria-label="Font Style" (change)="filter()" class="m-1">
+                           aria-label="Font Style" (change)="filter()" class="m-1 fs-12">
     <mat-button-toggle value="allSeries">All</mat-button-toggle>
     <mat-button-toggle value="raceParticipation">Can get race participation credits</mat-button-toggle>
   </mat-button-toggle-group>
 
   <!-- Filter by category -->
   <mat-button-toggle-group [formControl]="categoryControl" name="category" aria-label="Font Style"
-                           (change)="filter()" class="m-1">
+                           (change)="filter()" class="m-1 fs-12">
     <mat-button-toggle value="allSeries">All</mat-button-toggle>
     <mat-button-toggle value="Road">Road</mat-button-toggle>
     <mat-button-toggle value="Dirt">Dirt</mat-button-toggle>
@@ -25,7 +32,7 @@
 
   <!-- Filter by license -->
   <mat-button-toggle-group [formControl]="licenseControl" name="license" aria-label="Font Style"
-                           (change)="filter()" class="m-1">
+                           (change)="filter()" class="m-1 fs-12">
     <mat-button-toggle value="allSeries">All</mat-button-toggle>
     <mat-button-toggle value="R">R</mat-button-toggle>
     <mat-button-toggle value="D">D</mat-button-toggle>
@@ -37,7 +44,7 @@
 
   <!-- Filter by setup -->
   <mat-button-toggle-group [formControl]="setupControl" name="setup" aria-label="Font Style"
-                           (change)="filter()" class="m-1">
+                           (change)="filter()" class="m-1 fs-12">
     <mat-button-toggle value="allSeries">All</mat-button-toggle>
     <mat-button-toggle value="Fixed">Fixed</mat-button-toggle>
     <mat-button-toggle value="Open">Open</mat-button-toggle>
@@ -45,7 +52,7 @@
 
   <!-- Filter by owned cars -->
   <mat-button-toggle-group [formControl]="ownedCarsControl" name="ownedCars" aria-label="Font Style"
-                           (change)="filter()" class="m-1">
+                           (change)="filter()" class="m-1 fs-12">
     <mat-button-toggle value="allSeries">All</mat-button-toggle>
     <mat-button-toggle value="Owned">Owned cars</mat-button-toggle>
   </mat-button-toggle-group>
@@ -57,7 +64,7 @@
   <!-- Serie name Column -->
   <ng-container matColumnDef="serieName">
     <th mat-header-cell *matHeaderCellDef>Serie name</th>
-    <td mat-cell *matCellDef="let element" class="p-1"
+    <td mat-cell *matCellDef="let element" class="p-05"
         [ngClass]="canRaceSerie(element) ? 'owned' : ''">
       {{decode(element.season_name)}}</td>
   </ng-container>
@@ -65,19 +72,19 @@
   <!-- License Column -->
   <ng-container matColumnDef="license">
     <th mat-header-cell *matHeaderCellDef>License</th>
-    <td mat-cell *matCellDef="let element" class="p-1">{{element.licenseString}}</td>
+    <td mat-cell *matCellDef="let element" class="p-05">{{element.licenseString}}</td>
   </ng-container>
 
   <!-- Type Column -->
   <ng-container matColumnDef="type">
     <th mat-header-cell *matHeaderCellDef>Type</th>
-    <td mat-cell *matCellDef="let element" class="p-1">{{element.categoryString}}</td>
+    <td mat-cell *matCellDef="let element" class="p-05">{{element.categoryString}}</td>
   </ng-container>
 
   <!-- Cars Column -->
   <ng-container matColumnDef="cars">
     <th mat-header-cell *matHeaderCellDef>Cars</th>
-    <td mat-cell *matCellDef="let element" class="p-1"
+    <td mat-cell *matCellDef="let element" class="p-05"
         [ngClass]="element.isSomeCarOwned ? 'owned' : ''">
       <div *ngFor="let car of parseCars(element)"><span class="inline">{{decode(car.car_name)}}</span></div>
     </td>
@@ -86,107 +93,119 @@
   <!-- Fixed/Open Column -->
   <ng-container matColumnDef="fixedOpen">
     <th mat-header-cell *matHeaderCellDef>Fixed/Open</th>
-    <td mat-cell *matCellDef="let element" class="p-1">{{element.setupString}}</td>
+    <td mat-cell *matCellDef="let element" class="p-05">{{element.setupString}}</td>
   </ng-container>
 
   <!-- How many races can I run? Column -->
   <ng-container matColumnDef="howMany">
     <th mat-header-cell *matHeaderCellDef>How many can I race?</th>
-    <td mat-cell *matCellDef="let element" class="p-1">{{element.numOwnedTracks}}</td>
+    <td mat-cell *matCellDef="let element" class="p-05">{{element.numOwnedTracks}}</td>
   </ng-container>
 
   <!-- Week 0 Column -->
   <ng-container matColumnDef="week0">
-    <th mat-header-cell *matHeaderCellDef>Week 1</th>
-    <td mat-cell *matCellDef="let element" class="p-1"
+    <th mat-header-cell *matHeaderCellDef
+        [ngClass]="getCssClassForWeek(0)">Week 1</th>
+    <td mat-cell *matCellDef="let element" class="p-05"
       [ngClass]="isTrackOwned(0, element) ? 'owned' : ''">
       {{getTrackLabel(0, element)}}</td>
   </ng-container>
 
   <!-- Week 1 Column -->
   <ng-container matColumnDef="week1">
-    <th mat-header-cell *matHeaderCellDef>Week 2</th>
-    <td mat-cell *matCellDef="let element" class="p-1"
+    <th mat-header-cell *matHeaderCellDef
+        [ngClass]="getCssClassForWeek(1)">Week 2</th>
+    <td mat-cell *matCellDef="let element" class="p-05"
         [ngClass]="isTrackOwned(1, element) ? 'owned' : ''">
       {{getTrackLabel(1, element)}}</td>
   </ng-container>
 
   <!-- Week 2 Column -->
   <ng-container matColumnDef="week2">
-    <th mat-header-cell *matHeaderCellDef>Week 3</th>
-    <td mat-cell *matCellDef="let element" class="p-1"
+    <th mat-header-cell *matHeaderCellDef
+        [ngClass]="getCssClassForWeek(2)">Week 3</th>
+    <td mat-cell *matCellDef="let element" class="p-05"
         [ngClass]="isTrackOwned(2, element) ? 'owned' : ''">
       {{getTrackLabel(2, element)}}</td>
   </ng-container>
 
   <!-- Week 3 Column -->
   <ng-container matColumnDef="week3">
-    <th mat-header-cell *matHeaderCellDef>Week 4</th>
-    <td mat-cell *matCellDef="let element" class="p-1"
+    <th mat-header-cell *matHeaderCellDef
+        [ngClass]="getCssClassForWeek(3)">Week 4</th>
+    <td mat-cell *matCellDef="let element" class="p-05"
         [ngClass]="isTrackOwned(3, element) ? 'owned' : ''">
       {{getTrackLabel(3, element)}}</td>
   </ng-container>
 
   <!-- Week 4 Column -->
   <ng-container matColumnDef="week4">
-    <th mat-header-cell *matHeaderCellDef>Week 5</th>
-    <td mat-cell *matCellDef="let element" class="p-1"
+    <th mat-header-cell *matHeaderCellDef
+        [ngClass]="getCssClassForWeek(4)">Week 5</th>
+    <td mat-cell *matCellDef="let element" class="p-05"
         [ngClass]="isTrackOwned(4, element) ? 'owned' : ''">
       {{getTrackLabel(4, element)}}</td>
   </ng-container>
 
   <!-- Week 5 Column -->
   <ng-container matColumnDef="week5">
-    <th mat-header-cell *matHeaderCellDef>Week 6</th>
-    <td mat-cell *matCellDef="let element" class="p-1"
+    <th mat-header-cell *matHeaderCellDef
+        [ngClass]="getCssClassForWeek(5)">Week 6</th>
+    <td mat-cell *matCellDef="let element" class="p-05"
         [ngClass]="isTrackOwned(5, element) ? 'owned' : ''">
       {{getTrackLabel(5, element)}}</td>
   </ng-container>
 
   <!-- Week 6 Column -->
   <ng-container matColumnDef="week6">
-    <th mat-header-cell *matHeaderCellDef>Week 7</th>
-    <td mat-cell *matCellDef="let element" class="p-1"
+    <th mat-header-cell *matHeaderCellDef
+        [ngClass]="getCssClassForWeek(6)">Week 7</th>
+    <td mat-cell *matCellDef="let element" class="p-05"
         [ngClass]="isTrackOwned(6, element) ? 'owned' : ''">
       {{getTrackLabel(6, element)}}</td>
   </ng-container>
 
   <!-- Week 7 Column -->
   <ng-container matColumnDef="week7">
-    <th mat-header-cell *matHeaderCellDef>Week 8</th>
-    <td mat-cell *matCellDef="let element" class="p-1"
+    <th mat-header-cell *matHeaderCellDef
+        [ngClass]="getCssClassForWeek(7)">Week 8</th>
+    <td mat-cell *matCellDef="let element" class="p-05"
         [ngClass]="isTrackOwned(7, element) ? 'owned' : ''">
       {{getTrackLabel(7, element)}}</td>
   </ng-container>
 
   <!-- Week 8 Column -->
   <ng-container matColumnDef="week8">
-    <th mat-header-cell *matHeaderCellDef>Week 9</th>
-    <td mat-cell *matCellDef="let element" class="p-1"
+    <th mat-header-cell *matHeaderCellDef
+        [ngClass]="getCssClassForWeek(8)">Week 9</th>
+    <td mat-cell *matCellDef="let element" class="p-05"
         [ngClass]="isTrackOwned(8, element) ? 'owned' : ''">
       {{getTrackLabel(8, element)}}</td>
   </ng-container>
 
   <!-- Week 9 Column -->
   <ng-container matColumnDef="week9">
-    <th mat-header-cell *matHeaderCellDef>Week 10</th>
-    <td mat-cell *matCellDef="let element" class="p-1"
+    <th mat-header-cell *matHeaderCellDef
+        [ngClass]="getCssClassForWeek(9)">Week 10</th>
+    <td mat-cell *matCellDef="let element" class="p-05"
         [ngClass]="isTrackOwned(9, element) ? 'owned' : ''">
       {{getTrackLabel(9, element)}}</td>
   </ng-container>
 
   <!-- Week 10 Column -->
   <ng-container matColumnDef="week10">
-    <th mat-header-cell *matHeaderCellDef>Week 11</th>
-    <td mat-cell *matCellDef="let element" class="p-1"
+    <th mat-header-cell *matHeaderCellDef
+        [ngClass]="getCssClassForWeek(10)">Week 11</th>
+    <td mat-cell *matCellDef="let element" class="p-05"
         [ngClass]="isTrackOwned(10, element) ? 'owned' : ''">
       {{getTrackLabel(10, element)}}</td>
   </ng-container>
 
   <!-- Week 11 Column -->
   <ng-container matColumnDef="week11">
-    <th mat-header-cell *matHeaderCellDef>Week 12</th>
-    <td mat-cell *matCellDef="let element" class="p-1"
+    <th mat-header-cell *matHeaderCellDef
+        [ngClass]="getCssClassForWeek(11)">Week 12</th>
+    <td mat-cell *matCellDef="let element" class="p-05"
         [ngClass]="isTrackOwned(11, element) ? 'owned' : ''">
       {{getTrackLabel(11, element)}}</td>
   </ng-container>

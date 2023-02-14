@@ -4,7 +4,6 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MenuComponent} from './components/menu/menu.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTabsModule} from '@angular/material/tabs';
@@ -22,35 +21,38 @@ import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import { LoginComponent } from './components/login/login.component';
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent,
     CarsComponent,
     CarComponent,
     TracksComponent,
     DashboardComponent,
     AboutComponent,
-    TrackComponent
+    TrackComponent,
+    LoginComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatToolbarModule,
-        MatButtonModule,
-        MatTabsModule,
-        MatCheckboxModule,
-        FormsModule,
-        MatGridListModule,
-        MatFormFieldModule,
-        MatTableModule,
-        MatCardModule,
-        ReactiveFormsModule,
-        MatInputModule,
-        MatButtonToggleModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatTabsModule,
+    MatCheckboxModule,
+    FormsModule,
+    MatGridListModule,
+    MatFormFieldModule,
+    MatTableModule,
+    MatCardModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatButtonToggleModule,
+    MatIconModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

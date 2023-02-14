@@ -1,3 +1,10 @@
+<nav mat-tab-nav-bar>
+  <a mat-tab-link [routerLink]="'/dashboard'" [active]="false">Dashboard</a>
+  <a mat-tab-link [active]="true">Cars</a>
+  <a mat-tab-link [routerLink]="'/tracks'" [active]="false">Tracks</a>
+  <a mat-tab-link [routerLink]="'/about'" [active]="false">About</a>
+</nav>
+
 <mat-grid-list cols="4" rowHeight="50px">
   <mat-grid-tile *ngFor="let car of cars">
     <app-car [car]="car"></app-car>

@@ -2,6 +2,14 @@
   background-color: #6ebb6e;
 }
 
+.doneWeek {
+  background-color: lightgray !important;
+}
+
+.p-05 {
+  padding: 0.5rem;
+}
+
 .p-1 {
   padding: 1rem;
 }
@@ -12,9 +20,17 @@
 }
 
 .w-500 {
-  width: 500px;
+  width: 35%;
 }
 
 .m-1 {
   margin: 1rem;
+}
+
+.fs-12 {
+  font-size: 12px;
+}
+
+.mat-mdc-table .mat-mdc-header-cell, .mdc-data-table__cell {
+  font-size: 11px;
 }
