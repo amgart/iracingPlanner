@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {UtilService} from '../../../services/util/util.service';
 import {CarService} from '../../../services/car/car.service';
+import {Car} from "../../../interfaces/Car";
 
 @Component({
   selector: 'app-car',

@@ -1,4 +1,6 @@
-interface Schedule {
+import {Track} from "./Track";
+
+export interface Schedule {
   season_id?: number;
   race_week_num?: number;
   series_id?: number;

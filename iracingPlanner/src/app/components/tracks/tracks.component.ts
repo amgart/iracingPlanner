@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {TrackService} from '../../services/track/track.service';
+import {Track} from "../../interfaces/Track";
 
 @Component({
   selector: 'app-tracks',

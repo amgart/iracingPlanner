@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 import carJsonFile from '../../../assets/cars.json';
 import {StoreService} from '../store/store.service';
 import {CarClassService} from "../carClass/car-class.service";
+import {Car} from "../../interfaces/Car";
+import {Season} from "../../interfaces/Season";
 
 @Injectable({
   providedIn: 'root'

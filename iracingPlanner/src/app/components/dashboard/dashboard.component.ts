@@ -5,6 +5,9 @@ import {TrackService} from '../../services/track/track.service';
 import {CarService} from '../../services/car/car.service';
 import {FormControl} from "@angular/forms";
 import {MatTableDataSource} from "@angular/material/table";
+import {Season} from "../../interfaces/Season";
+import {Car} from "../../interfaces/Car";
+import {Track} from "../../interfaces/Track";
 
 @Component({
   selector: 'app-dashboard',

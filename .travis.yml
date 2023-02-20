@@ -11,3 +11,4 @@ script:
   - npm install
   - ng lint
   - npm run build
+  - npm run test
