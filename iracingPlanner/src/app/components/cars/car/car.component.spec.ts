@@ -40,6 +40,14 @@ describe('CarComponent', () => {
     expect(component.checked).toBeTrue();
   });
 
+  it('should not initialize checked if car_id is not present', () => {
+    component.car = {
+      car_name: 'Test Car'
+    };
+    component.ngOnInit();
+    expect(component.checked).toBeFalse();
+  });
+
   it('should call carService remove when checkbox is checked', () => {
     spyOn(carService, 'remove').and.stub();
     component.checked = true;

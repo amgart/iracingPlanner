@@ -37,6 +37,12 @@ describe('TrackComponent', () => {
     expect(component.checked).toBeTrue();
   });
 
+  it('should set checked value to false if track_id is not defined', () => {
+    component.track = { track_name: 'Track 1' };
+    component.ngOnInit();
+    expect(component.checked).toBeFalse();
+  });
+
   it('should call remove method if track is already owned and user unchecks the checkbox', () => {
     spyOn(trackService, 'remove');
     component.track = { track_id: 1, track_name: 'Track 1' };
