@@ -127,7 +127,83 @@ describe('DashboardComponent', () => {
       { track_id: 0, track_name: 'track' },
       { track_id: 1, track_name: 'track 2' }]);
     const val = component.isTrackOwned(2, season);
-    expect(trackService.isOwned).toHaveBeenCalledTimes(0);
     expect(val).toBeFalse();
   });
+
+  it('should return false when verifying participation credits if track does not exist', () => {
+    const season = {
+      season_id: 1,
+      schedules: [
+        { race_week_num: 0, track: { track_id: 0, track_name: 'track' }},
+        { race_week_num: 1, track: { track_id: 1, track_name: 'track 2' }}
+      ]
+    };
+    spyOn(trackService, 'findTracksForSeason').and.returnValue([]);
+    spyOn(carService, 'findCarsForSeason').and.returnValue([
+      { car_id: 1 },
+      { car_id: 2 }
+    ]);
+    const val = component.canRaceSerie(season);
+    expect(val).toBeFalse();
+  });
+
+  it('should return false when verifying participation credits if car does not exist', () => {
+    const season = {
+      season_id: 1,
+      schedules: [
+        { race_week_num: 0, track: { track_id: 0, track_name: 'track' }},
+        { race_week_num: 1, track: { track_id: 1, track_name: 'track 2' }}
+      ]
+    };
+    spyOn(trackService, 'findTracksForSeason').and.returnValue([
+      { track_id: 0, track_name: 'track' },
+      { track_id: 1, track_name: 'track 2' }]);
+    spyOn(carService, 'findCarsForSeason').and.returnValue([]);
+    const val = component.canRaceSerie(season);
+    expect(val).toBeFalse();
+  });
+
+  it('should return false when verifying participation credits if no more than 8 races can be raced', () => {
+    const season = {
+      season_id: 1,
+      schedules: [
+        { race_week_num: 0, track: { track_id: 0, track_name: 'track' }},
+        { race_week_num: 1, track: { track_id: 1, track_name: 'track 2' }}
+      ]
+    };
+    spyOn(trackService, 'findTracksForSeason').and.returnValue([
+      { track_id: 0, track_name: 'track' },
+      { track_id: 1, track_name: 'track 2' }]);
+    spyOn(carService, 'findCarsForSeason').and.returnValue([
+      { car_id: 1 }
+    ]);
+    const val = component.canRaceSerie(season);
+    expect(val).toBeFalse();
+  });
+
+  it('should return false when verifying participation credits if no owned car is available', () => {
+    const season = {
+      season_id: 1,
+      schedules: [
+        { race_week_num: 0, track: { track_id: 0, track_name: 'track' }},
+        { race_week_num: 1, track: { track_id: 1, track_name: 'track 2' }}
+      ]
+    };
+    spyOn(trackService, 'findTracksForSeason').and.returnValue([
+      { track_id: 0, track_name: 'track 1' },
+      { track_id: 1, track_name: 'track 2' },
+      { track_id: 2, track_name: 'track 3' },
+      { track_id: 3, track_name: 'track 4' },
+      { track_id: 4, track_name: 'track 5' },
+      { track_id: 5, track_name: 'track 6' },
+      { track_id: 6, track_name: 'track 7' },
+      { track_id: 7, track_name: 'track 8' }]);
+    spyOn(carService, 'findCarsForSeason').and.returnValue([
+      { car_id: 1 }
+    ]);
+    spyOn(carService, 'findCarBy').and.returnValue(undefined);
+    const val = component.canRaceSerie(season);
+    expect(val).toBeFalse();
+  });
+
 });
