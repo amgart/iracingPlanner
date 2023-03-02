@@ -1,4 +1,6 @@
-interface CarClass {
+import {CarsInClass} from "./CarsInClass";
+
+export interface CarClass {
   car_class_id?: number;
   cars_in_class?: CarsInClass[];
   cust_id?: number;

@@ -7,13 +7,7 @@
   },
   "files": [
     "src/main.ts",
-    "src/polyfills.ts",
-    "src/app/interfaces/Car.ts",
-    "src/app/interfaces/Season.ts",
-    "src/app/interfaces/Track.ts",
-    "src/app/interfaces/Schedule.ts",
-    "src/app/interfaces/CarClass.ts",
-    "src/app/interfaces/CarsInClass.ts"
+    "src/polyfills.ts"
   ],
   "include": [
     "src/**/*.d.ts"

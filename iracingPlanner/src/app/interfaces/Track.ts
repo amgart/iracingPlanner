@@ -1,4 +1,4 @@
-interface Track {
+export interface Track {
   ai_enabled?: boolean;
   award_exempt?: boolean;
   category?: string;

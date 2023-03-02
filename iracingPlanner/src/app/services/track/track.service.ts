@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core';
 import {StoreService} from '../store/store.service';
 import trackJsonFile from '../../../assets/tracks.json';
+import {Track} from "../../interfaces/Track";
+import {Season} from "../../interfaces/Season";
 
 @Injectable({
   providedIn: 'root'
@@ -84,7 +86,7 @@ export class TrackService {
   }
 
   private removeDuplicates(originalTracks: Track[]): Track[] {
-    let result: Car[] = [];
+    let result: Track[] = [];
     let inserted: number[] = [];
     originalTracks.forEach(track => {
       if (track.package_id && !inserted.includes(track.package_id)) {
@@ -96,7 +98,7 @@ export class TrackService {
   }
 
   private findAllTracks(removeDuplicates: boolean): Track[] {
-    let tracks: Car[] = trackJsonFile;
+    let tracks: Track[] = trackJsonFile;
     if (removeDuplicates) {
       tracks = this.removeDuplicates(tracks);
     }

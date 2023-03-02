@@ -1,4 +1,4 @@
-interface Car {
+export interface Car {
   ai_enabled?: boolean;
   allow_number_colors?: boolean;
   allow_number_font?: boolean;
