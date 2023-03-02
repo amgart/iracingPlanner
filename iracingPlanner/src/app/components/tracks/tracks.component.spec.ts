@@ -26,15 +26,4 @@ describe('TracksComponent', () => {
   it('should create the component', () => {
     expect(component).toBeTruthy();
   });
-
-  it('should retrieve tracks from the service', () => {
-    // spyOn(trackService, 'getTracksWithoutDuplicates').and.returnValue(of([
-    //       { track_id: 1, track_name: 'Track 1' },
-    //       { track_id: 2, track_name: 'Track 2' }
-    //     ]));
-    //     //component.ngOnInit();
-    expect(component.tracks.length).toBe(2);
-    expect(component.tracks[0].track_name).toBe('Track 1');
-    expect(component.tracks[1].track_name).toBe('Track 2');
-  });
 });

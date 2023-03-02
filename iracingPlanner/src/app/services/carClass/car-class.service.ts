@@ -20,7 +20,7 @@ export class CarClassService {
     return result;
   }
 
-  private findAllCarClasses(): CarClass[] {
+  findAllCarClasses(): CarClass[] {
     return carClassJsonFile;
   }
 }

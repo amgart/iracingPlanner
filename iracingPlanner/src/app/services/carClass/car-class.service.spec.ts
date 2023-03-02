@@ -14,14 +14,17 @@ describe('CarClassService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should find a car class by id', () => {
-    const expectedCarClass = carClassJsonFile[0]; // Assuming the JSON file has at least one car class.
-    const result = service.findCarClassBy(expectedCarClass.car_class_id);
+  it('should return the car class with the given id', () => {
+    const id = 1;
+    const carClassList = carClassJsonFile;
+    const expectedCarClass = carClassList.find(carClass => carClass.car_class_id === id);
+    const result = service.findCarClassBy(id);
     expect(result).toEqual(expectedCarClass);
   });
 
-  it('should return undefined when trying to find a car class that does not exist', () => {
-    const result = service.findCarClassBy(-1);
-    expect(result).toBeUndefined();
+  it('should return all car classes', () => {
+    const carClassList = carClassJsonFile;
+    const result = service.findAllCarClasses();
+    expect(result).toEqual(carClassList);
   });
 });

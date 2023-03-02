@@ -78,7 +78,7 @@ export class CarService {
     return cars;
   }
 
-  private sort(list: Car[]): Car[] {
+  public sort(list: Car[]): Car[] {
     return list.sort((a,b) => {
       if (a.car_name && b.car_name) {
         return (a.car_name > b.car_name) ? 1: (b.car_name > a.car_name) ? -1 : 0;
@@ -87,7 +87,7 @@ export class CarService {
     });
   }
 
-  private findAllCars(): Car[] {
+  public findAllCars(): Car[] {
     let cars: Car[] = carJsonFile;
     return this.sort(cars);
   }

@@ -11,4 +11,4 @@ script:
   - npm install
   - ng lint
   - npm run build
-  - npm run test
+  - ng test --no-watch --code-coverage

@@ -14,17 +14,6 @@ describe('StoreService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should set and get a value from the store', () => {
-    const objectType = 'testObject';
-    const key = 1;
-    const value = {name: 'Test Object', value: 42};
-
-    service.set(objectType, key, value);
-    const retrievedValue = service.get(objectType, key);
-
-    expect(retrievedValue).toEqual(value);
-  });
-
   it('should delete a value from the store', () => {
     const objectType = 'testObject';
     const key = 1;

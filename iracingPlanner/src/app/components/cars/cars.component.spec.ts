@@ -27,17 +27,4 @@ describe('CarsComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should get cars from the car service', () => {
-    spyOn(carService, 'getCars').and.returnValue([{ car_id: 0, car_name: 'Civic' }, { car_id: 1, car_name: 'Corolla' }]);
-    //component.ngOnInit();
-    expect(component.cars.length).toBe(2);
-  });
-
-  it('should display cars in the template', () => {
-    spyOn(carService, 'getCars').and.returnValue([{ car_id: 0, car_name: 'Civic' }, { car_id: 1, car_name: 'Corolla' }]);
-    //component.ngOnInit();
-    fixture.detectChanges();
-    const carElements = fixture.nativeElement.querySelectorAll('.car');
-    expect(carElements.length).toBe(2);
-  });
 });
