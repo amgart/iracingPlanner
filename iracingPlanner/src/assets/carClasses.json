@@ -182,20 +182,6 @@
     "short_name": "Cup"
   },
   {
-    "car_class_id": 20,
-    "cars_in_class": [
-      {
-        "car_dirpath": "specracer",
-        "car_id": 23,
-        "retired": false
-      }
-    ],
-    "cust_id": 0,
-    "name": "Spec Racer Ford",
-    "relative_speed": 30,
-    "short_name": "SRF"
-  },
-  {
     "car_class_id": 21,
     "cars_in_class": [
       {
@@ -970,20 +956,6 @@
     "short_name": "V8SC"
   },
   {
-    "car_class_id": 26,
-    "cars_in_class": [
-      {
-        "car_dirpath": "dallara",
-        "car_id": 29,
-        "retired": false
-      }
-    ],
-    "cust_id": 0,
-    "name": "Dallara IndyCar",
-    "relative_speed": 150,
-    "short_name": "IndyCar"
-  },
-  {
     "car_class_id": 28,
     "cars_in_class": [
       {
@@ -1729,30 +1701,6 @@
     "name": "[Retired] Chevrolet Silverado",
     "relative_speed": 60,
     "short_name": "[R] Chevy Silver"
-  },
-  {
-    "car_class_id": 71,
-    "cars_in_class": [
-      {
-        "car_dirpath": "trucks\\fordf150",
-        "car_id": 123,
-        "retired": false
-      },
-      {
-        "car_dirpath": "trucks\\toyotatundra2022",
-        "car_id": 155,
-        "retired": false
-      },
-      {
-        "car_dirpath": "trucks\\silverado2019",
-        "car_id": 111,
-        "retired": false
-      }
-    ],
-    "cust_id": 0,
-    "name": "Camping World Truck Series",
-    "relative_speed": 60,
-    "short_name": "Camping World"
   },
   {
     "car_class_id": 72,
@@ -2502,6 +2450,30 @@
     "name": "XFINITY Series",
     "relative_speed": 65,
     "short_name": "XFINITY Series"
+  },
+  {
+    "car_class_id": 71,
+    "cars_in_class": [
+      {
+        "car_dirpath": "trucks\\fordf150",
+        "car_id": 123,
+        "retired": false
+      },
+      {
+        "car_dirpath": "trucks\\toyotatundra2022",
+        "car_id": 155,
+        "retired": false
+      },
+      {
+        "car_dirpath": "trucks\\silverado2019",
+        "car_id": 111,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "NASCAR Truck Series",
+    "relative_speed": 60,
+    "short_name": "NASCAR Trucks"
   },
   {
     "car_class_id": 1613,
@@ -3785,6 +3757,20 @@
     "short_name": "Mercedes-AMG W13"
   },
   {
+    "car_class_id": 26,
+    "cars_in_class": [
+      {
+        "car_dirpath": "dallara",
+        "car_id": 29,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "[Legacy] Dallara IR-05",
+    "relative_speed": 150,
+    "short_name": "[L] DallaraIR05"
+  },
+  {
     "car_class_id": 4014,
     "cars_in_class": [
       {
@@ -3805,7 +3791,40 @@
     ],
     "cust_id": 0,
     "name": "RoarTouringCar",
-    "relative_speed": 100,
+    "relative_speed": 45,
     "short_name": "RoarTouringCar"
+  },
+  {
+    "car_class_id": 20,
+    "cars_in_class": [
+      {
+        "car_dirpath": "specracer",
+        "car_id": 23,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "Spec Racer Ford",
+    "relative_speed": 39,
+    "short_name": "SRF"
+  },
+  {
+    "car_class_id": 4020,
+    "cars_in_class": [
+      {
+        "car_dirpath": "hyundaielantracn7",
+        "car_id": 146,
+        "retired": false
+      },
+      {
+        "car_dirpath": "hondacivictyper",
+        "car_id": 147,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "Crev23",
+    "relative_speed": 45,
+    "short_name": "Crev23"
   }
 ]
