@@ -12,8 +12,7 @@ describe('CarsComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ CarsComponent ],
       providers: [ CarService ]
-    })
-      .compileComponents();
+    }).compileComponents();
   });
 
   beforeEach(() => {

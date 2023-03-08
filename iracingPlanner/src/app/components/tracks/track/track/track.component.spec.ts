@@ -14,8 +14,7 @@ describe('TrackComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ TrackComponent ],
       providers: [ UtilService, TrackService ]
-    })
-      .compileComponents();
+    }).compileComponents();
   });
 
   beforeEach(() => {
