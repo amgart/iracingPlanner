@@ -10,14 +10,12 @@ describe('TrackComponent', () => {
   let utilService: UtilService;
   let trackService: TrackService;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  beforeEach(() => {
+    TestBed.configureTestingModule({
       declarations: [ TrackComponent ],
       providers: [ UtilService, TrackService ]
     }).compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(TrackComponent);
     component = fixture.componentInstance;
     utilService = TestBed.inject(UtilService);
@@ -26,6 +24,7 @@ describe('TrackComponent', () => {
   });
 
   it('should create the component', () => {
+    spyOn(trackService, 'getTracksWithoutDuplicates').and.returnValue([]);
     expect(component).toBeTruthy();
   });
 
