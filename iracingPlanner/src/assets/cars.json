@@ -351,7 +351,7 @@
     "car_dirpath": "latemodel",
     "car_id": 12,
     "car_make": "Chevrolet",
-    "car_name": "Chevrolet Monte Carlo SS",
+    "car_name": "[Retired] - Chevrolet Monte Carlo SS",
     "car_name_abbreviated": "LM",
     "car_types": [
       {
@@ -381,17 +381,16 @@
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
     "hp": 370,
-    "is_ps_purchasable": true,
+    "is_ps_purchasable": false,
     "max_power_adjust_pct": 0,
     "max_weight_penalty_kg": 250,
     "min_power_adjust_pct": -5,
     "package_id": 30,
     "patterns": 33,
-    "price": 11.95,
-    "price_display": "$11.95",
-    "retired": false,
+    "price": 0,
+    "retired": true,
     "search_filters": "oval,nascar,lm,latemodel,chevy",
-    "sku": 10007
+    "sku": 0
   },
   {
     "ai_enabled": false,
@@ -8030,6 +8029,7 @@
     ],
     "created": "2022-07-13T11:29:07Z",
     "first_sale": "2022-09-06T00:00:00Z",
+    "forum_url": "https://forums.iracing.com/categories/porsche-mission-r",
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": false,
@@ -8094,6 +8094,7 @@
     ],
     "created": "2022-08-11T07:49:48Z",
     "first_sale": "2022-12-06T15:47:01Z",
+    "forum_url": "https://forums.iracing.com/categories/bmw-m-hybrid-v8",
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
@@ -8158,6 +8159,7 @@
     ],
     "created": "2022-10-13T15:10:11Z",
     "first_sale": "2022-12-06T15:47:01Z",
+    "forum_url": "https://forums.iracing.com/categories/toyota-gr86",
     "free_with_subscription": true,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
@@ -8195,7 +8197,7 @@
     "sku": 10544
   },
   {
-    "ai_enabled": false,
+    "ai_enabled": true,
     "allow_number_colors": true,
     "allow_number_font": false,
     "allow_sponsor1": false,
@@ -8234,6 +8236,7 @@
     ],
     "created": "2022-10-20T11:21:59Z",
     "first_sale": "2022-12-06T15:47:01Z",
+    "forum_url": "https://forums.iracing.com/categories/mercedes-amg-w13-e-performance",
     "free_with_subscription": false,
     "has_headlights": false,
     "has_multiple_dry_tire_types": true,
@@ -8463,5 +8466,182 @@
     "search_filters": "road,amg,w12,openwheel,formula,formula1",
     "site_url": "http://www.mercedes-amg.com/lifestyle_racing.php",
     "sku": 10545
+  },
+  {
+    "ai_enabled": true,
+    "allow_number_colors": false,
+    "allow_number_font": false,
+    "allow_sponsor1": true,
+    "allow_sponsor2": true,
+    "allow_wheel_color": true,
+    "award_exempt": false,
+    "car_dirpath": "renaultcliocup",
+    "car_id": 162,
+    "car_make": "Renault",
+    "car_name": "Renault Clio",
+    "car_name_abbreviated": "RENC",
+    "car_types": [
+      {
+        "car_type": "road"
+      }
+    ],
+    "car_weight": 2271,
+    "categories": [
+      "road"
+    ],
+    "created": "2023-01-09T10:46:06Z",
+    "first_sale": "2023-03-07T00:00:00Z",
+    "forum_url": "https://forums.iracing.com/categories/renault-clio-r-s-v",
+    "free_with_subscription": false,
+    "has_headlights": true,
+    "has_multiple_dry_tire_types": false,
+    "hp": 200,
+    "is_ps_purchasable": true,
+    "max_power_adjust_pct": 0,
+    "max_weight_penalty_kg": 250,
+    "min_power_adjust_pct": -5,
+    "package_id": 422,
+    "patterns": 24,
+    "price": 11.95,
+    "price_display": "$11.95",
+    "retired": false,
+    "search_filters": "road",
+    "sku": 10548
+  },
+  {
+    "ai_enabled": true,
+    "allow_number_colors": false,
+    "allow_number_font": false,
+    "allow_sponsor1": true,
+    "allow_sponsor2": true,
+    "allow_wheel_color": true,
+    "award_exempt": false,
+    "car_dirpath": "raygr22",
+    "car_id": 163,
+    "car_make": "Ray",
+    "car_model": "Ray GR22",
+    "car_name": "Ray FF1600",
+    "car_name_abbreviated": "GR22",
+    "car_types": [
+      {
+        "car_type": "ford"
+      },
+      {
+        "car_type": "formula"
+      },
+      {
+        "car_type": "road"
+      }
+    ],
+    "car_weight": 1108,
+    "categories": [
+      "road"
+    ],
+    "created": "2023-01-18T09:55:06Z",
+    "first_sale": "2023-03-07T00:00:00Z",
+    "forum_url": "https://forums.iracing.com/categories/ray-ff1600",
+    "free_with_subscription": true,
+    "has_headlights": false,
+    "has_multiple_dry_tire_types": false,
+    "hp": 116,
+    "is_ps_purchasable": true,
+    "max_power_adjust_pct": 0,
+    "max_weight_penalty_kg": 250,
+    "min_power_adjust_pct": -5,
+    "package_id": 424,
+    "paint_rules": {
+      "1": {
+        "PaintCarAvailable": false,
+        "Color1": "FF0000",
+        "Color2": "00FF00",
+        "Color3": "0000FF",
+        "Sponsor1Available": false,
+        "Sponsor2Available": false,
+        "Sponsor1": "0",
+        "Sponsor2": "0",
+        "PaintWheelAvailable": false,
+        "WheelColor": "EBEBEB",
+        "RimTypeAvailable": false,
+        "RimType": "null",
+        "AllowNumberFontChanges": false,
+        "NumberFont": "0",
+        "AllowNumberColorChanges": false,
+        "NumberColor1": "FF0000",
+        "NumberColor2": "00FF00",
+        "NumberColor3": "0000FF",
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car, the wheels, or changing the car fonts."
+      }
+    },
+    "patterns": 25,
+    "price": 0,
+    "price_display": "$0.00",
+    "retired": false,
+    "search_filters": "road,formula,ford",
+    "sku": 10549
+  },
+  {
+    "ai_enabled": true,
+    "allow_number_colors": true,
+    "allow_number_font": true,
+    "allow_sponsor1": true,
+    "allow_sponsor2": true,
+    "allow_wheel_color": true,
+    "award_exempt": false,
+    "car_dirpath": "latemodel2023",
+    "car_id": 164,
+    "car_model": "Late Model Stock",
+    "car_name": "Late Model Stock",
+    "car_name_abbreviated": "LM23",
+    "car_types": [
+      {
+        "car_type": "oval"
+      }
+    ],
+    "car_weight": 3100,
+    "categories": [
+      "road",
+      "oval"
+    ],
+    "created": "2023-01-26T13:36:37Z",
+    "first_sale": "2023-03-07T00:00:00Z",
+    "forum_url": "https://forums.iracing.com/categories/LateModel",
+    "free_with_subscription": false,
+    "has_headlights": false,
+    "has_multiple_dry_tire_types": false,
+    "hp": 500,
+    "is_ps_purchasable": true,
+    "max_power_adjust_pct": 0,
+    "max_weight_penalty_kg": 250,
+    "min_power_adjust_pct": -5,
+    "package_id": 426,
+    "paint_rules": {
+      "1": {
+        "PaintCarAvailable": false,
+        "Color1": "FF0000",
+        "Color2": "00FF00",
+        "Color3": "0000FF",
+        "Sponsor1Available": false,
+        "Sponsor2Available": false,
+        "Sponsor1": "0",
+        "Sponsor2": "0",
+        "PaintWheelAvailable": true,
+        "WheelColor": "EBEBEB",
+        "RimTypeAvailable": false,
+        "RimType": "null",
+        "AllowNumberFontChanges": true,
+        "NumberFont": "0",
+        "AllowNumberColorChanges": true,
+        "NumberColor1": "FF0000",
+        "NumberColor2": "00FF00",
+        "NumberColor3": "0000FF",
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car, the wheels, or changing the car fonts."
+      }
+    },
+    "patterns": 25,
+    "price": 11.95,
+    "price_display": "$11.95",
+    "retired": false,
+    "search_filters": "oval",
+    "sku": 10550
   }
 ]

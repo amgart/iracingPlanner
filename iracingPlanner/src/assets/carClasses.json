@@ -182,34 +182,6 @@
     "short_name": "Cup"
   },
   {
-    "car_class_id": 21,
-    "cars_in_class": [
-      {
-        "car_dirpath": "stockcars2\\chevy",
-        "car_id": 24,
-        "retired": false
-      }
-    ],
-    "cust_id": 0,
-    "name": "K&N Series",
-    "relative_speed": 53,
-    "short_name": "K&N Series"
-  },
-  {
-    "car_class_id": 22,
-    "cars_in_class": [
-      {
-        "car_dirpath": "lotus79",
-        "car_id": 25,
-        "retired": false
-      }
-    ],
-    "cust_id": 0,
-    "name": "Lotus 79",
-    "relative_speed": 125,
-    "short_name": "Lotus 79"
-  },
-  {
     "car_class_id": 0,
     "cars_in_class": [
       {
@@ -245,11 +217,6 @@
       {
         "car_dirpath": "legends\\ford34c\\rookie",
         "car_id": 11,
-        "retired": false
-      },
-      {
-        "car_dirpath": "latemodel",
-        "car_id": 12,
         "retired": false
       },
       {
@@ -906,12 +873,55 @@
         "car_dirpath": "mercedesw13",
         "car_id": 161,
         "retired": false
+      },
+      {
+        "car_dirpath": "renaultcliocup",
+        "car_id": 162,
+        "retired": false
+      },
+      {
+        "car_dirpath": "raygr22",
+        "car_id": 163,
+        "retired": false
+      },
+      {
+        "car_dirpath": "latemodel2023",
+        "car_id": 164,
+        "retired": false
       }
     ],
     "cust_id": 0,
     "name": "Hosted All Cars Class",
     "relative_speed": 100,
     "short_name": "Hosted All Cars"
+  },
+  {
+    "car_class_id": 21,
+    "cars_in_class": [
+      {
+        "car_dirpath": "stockcars2\\chevy",
+        "car_id": 24,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "K&N Series",
+    "relative_speed": 53,
+    "short_name": "K&N Series"
+  },
+  {
+    "car_class_id": 22,
+    "cars_in_class": [
+      {
+        "car_dirpath": "lotus79",
+        "car_id": 25,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "Lotus 79",
+    "relative_speed": 125,
+    "short_name": "Lotus 79"
   },
   {
     "car_class_id": 23,
@@ -3826,5 +3836,47 @@
     "name": "Crev23",
     "relative_speed": 45,
     "short_name": "Crev23"
+  },
+  {
+    "car_class_id": 4015,
+    "cars_in_class": [
+      {
+        "car_dirpath": "renaultcliocup",
+        "car_id": 162,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "Renault Clio",
+    "relative_speed": 37,
+    "short_name": "Renault Clio"
+  },
+  {
+    "car_class_id": 4016,
+    "cars_in_class": [
+      {
+        "car_dirpath": "raygr22",
+        "car_id": 163,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "Ray FF1600",
+    "relative_speed": 43,
+    "short_name": "Ray FF1600"
+  },
+  {
+    "car_class_id": 4017,
+    "cars_in_class": [
+      {
+        "car_dirpath": "latemodel2023",
+        "car_id": 164,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "Late Model Stock",
+    "relative_speed": 51,
+    "short_name": "Late Model Stock"
   }
 ]

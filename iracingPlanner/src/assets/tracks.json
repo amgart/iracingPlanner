@@ -591,7 +591,7 @@
     ]
   },
   {
-    "ai_enabled": false,
+    "ai_enabled": true,
     "allow_pitlane_collisions": true,
     "allow_rolling_start": true,
     "allow_standing_start": false,
@@ -4023,7 +4023,7 @@
     ]
   },
   {
-    "ai_enabled": false,
+    "ai_enabled": true,
     "allow_pitlane_collisions": true,
     "allow_rolling_start": true,
     "allow_standing_start": false,
@@ -5853,7 +5853,7 @@
     ]
   },
   {
-    "ai_enabled": false,
+    "ai_enabled": true,
     "allow_pitlane_collisions": true,
     "allow_rolling_start": true,
     "allow_standing_start": true,
@@ -5912,7 +5912,7 @@
     ]
   },
   {
-    "ai_enabled": false,
+    "ai_enabled": true,
     "allow_pitlane_collisions": true,
     "allow_rolling_start": true,
     "allow_standing_start": true,
@@ -5971,7 +5971,7 @@
     ]
   },
   {
-    "ai_enabled": false,
+    "ai_enabled": true,
     "allow_pitlane_collisions": true,
     "allow_rolling_start": true,
     "allow_standing_start": true,
@@ -6030,7 +6030,7 @@
     ]
   },
   {
-    "ai_enabled": false,
+    "ai_enabled": true,
     "allow_pitlane_collisions": true,
     "allow_rolling_start": true,
     "allow_standing_start": true,
@@ -6089,7 +6089,7 @@
     ]
   },
   {
-    "ai_enabled": false,
+    "ai_enabled": true,
     "allow_pitlane_collisions": true,
     "allow_rolling_start": true,
     "allow_standing_start": true,
@@ -7387,7 +7387,7 @@
     ]
   },
   {
-    "ai_enabled": false,
+    "ai_enabled": true,
     "allow_pitlane_collisions": true,
     "allow_rolling_start": true,
     "allow_standing_start": true,
@@ -7446,7 +7446,7 @@
     ]
   },
   {
-    "ai_enabled": false,
+    "ai_enabled": true,
     "allow_pitlane_collisions": true,
     "allow_rolling_start": true,
     "allow_standing_start": true,
@@ -7505,7 +7505,7 @@
     ]
   },
   {
-    "ai_enabled": false,
+    "ai_enabled": true,
     "allow_pitlane_collisions": true,
     "allow_rolling_start": true,
     "allow_standing_start": true,
@@ -7564,7 +7564,7 @@
     ]
   },
   {
-    "ai_enabled": false,
+    "ai_enabled": true,
     "allow_pitlane_collisions": true,
     "allow_rolling_start": true,
     "allow_standing_start": true,
@@ -8628,7 +8628,7 @@
     ]
   },
   {
-    "ai_enabled": false,
+    "ai_enabled": true,
     "allow_pitlane_collisions": true,
     "allow_rolling_start": true,
     "allow_standing_start": true,
@@ -8746,7 +8746,7 @@
     ]
   },
   {
-    "ai_enabled": false,
+    "ai_enabled": true,
     "allow_pitlane_collisions": true,
     "allow_rolling_start": true,
     "allow_standing_start": true,
@@ -8864,7 +8864,7 @@
     ]
   },
   {
-    "ai_enabled": false,
+    "ai_enabled": true,
     "allow_pitlane_collisions": true,
     "allow_rolling_start": true,
     "allow_standing_start": true,
@@ -8923,7 +8923,7 @@
     ]
   },
   {
-    "ai_enabled": false,
+    "ai_enabled": true,
     "allow_pitlane_collisions": true,
     "allow_rolling_start": true,
     "allow_standing_start": true,
@@ -13095,7 +13095,7 @@
     ]
   },
   {
-    "ai_enabled": false,
+    "ai_enabled": true,
     "allow_pitlane_collisions": true,
     "allow_rolling_start": true,
     "allow_standing_start": false,
@@ -14144,7 +14144,7 @@
     ]
   },
   {
-    "ai_enabled": false,
+    "ai_enabled": true,
     "allow_pitlane_collisions": true,
     "allow_rolling_start": true,
     "allow_standing_start": true,
@@ -15671,7 +15671,7 @@
     ]
   },
   {
-    "ai_enabled": false,
+    "ai_enabled": true,
     "allow_pitlane_collisions": true,
     "allow_rolling_start": true,
     "allow_standing_start": true,
@@ -15730,7 +15730,7 @@
     ]
   },
   {
-    "ai_enabled": false,
+    "ai_enabled": true,
     "allow_pitlane_collisions": true,
     "allow_rolling_start": true,
     "allow_standing_start": true,
@@ -15789,7 +15789,7 @@
     ]
   },
   {
-    "ai_enabled": false,
+    "ai_enabled": true,
     "allow_pitlane_collisions": true,
     "allow_rolling_start": true,
     "allow_standing_start": true,
@@ -15848,7 +15848,7 @@
     ]
   },
   {
-    "ai_enabled": false,
+    "ai_enabled": true,
     "allow_pitlane_collisions": true,
     "allow_rolling_start": true,
     "allow_standing_start": true,
@@ -18135,7 +18135,7 @@
     ]
   },
   {
-    "ai_enabled": false,
+    "ai_enabled": true,
     "allow_pitlane_collisions": true,
     "allow_rolling_start": true,
     "allow_standing_start": false,
@@ -19487,7 +19487,7 @@
     ]
   },
   {
-    "ai_enabled": false,
+    "ai_enabled": true,
     "allow_pitlane_collisions": true,
     "allow_rolling_start": true,
     "allow_standing_start": false,
@@ -20010,7 +20010,7 @@
     ]
   },
   {
-    "ai_enabled": false,
+    "ai_enabled": true,
     "allow_pitlane_collisions": true,
     "allow_rolling_start": true,
     "allow_standing_start": false,
@@ -21122,6 +21122,122 @@
     "track_types": [
       {
         "track_type": "dirt_road"
+      }
+    ]
+  },
+  {
+    "ai_enabled": true,
+    "allow_pitlane_collisions": true,
+    "allow_rolling_start": true,
+    "allow_standing_start": true,
+    "award_exempt": false,
+    "category": "road",
+    "category_id": 2,
+    "closes": "2023-12-31",
+    "config_name": "Grand Prix",
+    "corners_per_lap": 13,
+    "created": "2023-02-07T10:03:34Z",
+    "first_sale": "2023-03-07T00:00:00Z",
+    "free_with_subscription": false,
+    "fully_lit": false,
+    "grid_stalls": 60,
+    "has_opt_path": false,
+    "has_short_parade_lap": true,
+    "has_start_zone": false,
+    "has_svg_map": true,
+    "is_dirt": false,
+    "is_oval": false,
+    "is_ps_purchasable": true,
+    "lap_scoring": 0,
+    "latitude": 36.708333,
+    "location": "Jerez de la Frontera, Spain",
+    "longitude": -6.034167,
+    "max_cars": 60,
+    "night_lighting": false,
+    "nominal_lap_time": 109.67439,
+    "number_pitstalls": 24,
+    "opens": "2023-01-01",
+    "package_id": 428,
+    "price": 14.95,
+    "price_display": "$14.95",
+    "priority": 1,
+    "purchasable": true,
+    "qualify_laps": 2,
+    "restart_on_left": false,
+    "retired": false,
+    "search_filters": "road,jerez",
+    "site_url": "https://www.circuitodejerez.com/",
+    "sku": 10551,
+    "solo_laps": 5,
+    "start_on_left": false,
+    "supports_grip_compound": false,
+    "tech_track": false,
+    "time_zone": "Europe/Madrid",
+    "track_config_length": 2.751,
+    "track_dirpath": "jerez\\gp",
+    "track_id": 473,
+    "track_name": "Circuito de Jerez - Ángel Nieto",
+    "track_types": [
+      {
+        "track_type": "road"
+      }
+    ]
+  },
+  {
+    "ai_enabled": true,
+    "allow_pitlane_collisions": true,
+    "allow_rolling_start": true,
+    "allow_standing_start": true,
+    "award_exempt": false,
+    "category": "road",
+    "category_id": 2,
+    "closes": "2023-12-31",
+    "config_name": "Moto",
+    "corners_per_lap": 15,
+    "created": "2023-02-07T10:14:24Z",
+    "first_sale": "2023-03-07T00:00:00Z",
+    "free_with_subscription": false,
+    "fully_lit": false,
+    "grid_stalls": 60,
+    "has_opt_path": false,
+    "has_short_parade_lap": true,
+    "has_start_zone": false,
+    "has_svg_map": true,
+    "is_dirt": false,
+    "is_oval": false,
+    "is_ps_purchasable": true,
+    "lap_scoring": 0,
+    "latitude": 36.708333,
+    "location": "Jerez de la Frontera, Spain",
+    "longitude": -6.034167,
+    "max_cars": 60,
+    "night_lighting": false,
+    "nominal_lap_time": 106.4699,
+    "number_pitstalls": 24,
+    "opens": "2023-01-01",
+    "package_id": 428,
+    "price": 14.95,
+    "price_display": "$14.95",
+    "priority": 2,
+    "purchasable": true,
+    "qualify_laps": 2,
+    "restart_on_left": false,
+    "retired": false,
+    "search_filters": "road,jerez",
+    "site_url": "https://www.circuitodejerez.com/",
+    "sku": 10551,
+    "solo_laps": 5,
+    "start_on_left": false,
+    "supports_grip_compound": false,
+    "tech_track": false,
+    "time_zone": "Europe/Madrid",
+    "track_config_length": 2.748,
+    "track_dirpath": "jerez\\moto",
+    "track_id": 474,
+    "track_name": "Circuito de Jerez - Ángel Nieto",
+    "track_types": [
+      {
+        "track_type": "road"
       }
     ]
   }
