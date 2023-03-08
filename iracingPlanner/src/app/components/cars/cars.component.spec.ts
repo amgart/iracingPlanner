@@ -9,16 +9,14 @@ describe('CarsComponent', () => {
   let carService: CarService;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
+    TestBed.configureTestingModule({
       declarations: [ CarsComponent ],
       providers: [ CarService ]
     }).compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(CarsComponent);
-    component = fixture.componentInstance;
     carService = TestBed.inject(CarService);
+    component = fixture.componentInstance;
     fixture.detectChanges();
   });
 

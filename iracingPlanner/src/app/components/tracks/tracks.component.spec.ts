@@ -12,14 +12,11 @@ describe('TracksComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ TracksComponent ],
       providers: [ TrackService ]
-    })
-      .compileComponents();
-  });
+    }).compileComponents();
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(TracksComponent);
-    component = fixture.componentInstance;
     trackService = TestBed.inject(TrackService);
+    component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
