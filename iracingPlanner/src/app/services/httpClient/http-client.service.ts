@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {ReleaseDTO} from "../../interfaces/ReleaseDTO";
+import {LoginDTO} from "../../interfaces/LoginDTO";
 
 @Injectable({
   providedIn: 'root'
@@ -21,5 +22,15 @@ export class HttpClientService {
         }
         return undefined;
       });
+  }
+
+  login(loginDTO: LoginDTO): void {
+    fetch('https://members-ng.iracing.com/auth', {
+      method: 'POST',
+      body: JSON.stringify(loginDTO),
+      headers: {}
+    }).then(res => {
+      console.log(res);
+    });
   }
 }

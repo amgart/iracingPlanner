@@ -55,7 +55,6 @@ import {NotificationComponent} from './components/notification/notification.comp
     MatButtonToggleModule,
     MatIconModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
