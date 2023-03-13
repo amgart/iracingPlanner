@@ -1,14 +1,14 @@
 {
   "name": "iracing-planner",
   "productName": "AMG's iRacing Planner",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "main": "main.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
+    "test": "ng test --no-watch --code-coverage",
     "electron": "ng build && electron .",
     "electron-package-win": "ng build && electron-packager . iracing-planner --overwrite --asar=true --platform=win32 --arch=x64 --prune=true --out=release-builds --version-string.ProductName=\"AMG's iRacing Planner\"",
     "electron-package-osx": "ng build && electron-packager . --overwrite --platform=darwin --arch=x64 --prune=true --out=release-builds",
@@ -27,7 +27,10 @@
     "@angular/platform-browser": "^15.0.3",
     "@angular/platform-browser-dynamic": "^15.0.3",
     "@angular/router": "^15.0.3",
+    "compare-versions": "^6.0.0-rc.1",
+    "crypto-js": "^4.1.1",
     "electron-store": "^8.1.0",
+    "jasmine": "^4.5.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.5.0",
     "zone.js": "~0.12.0"

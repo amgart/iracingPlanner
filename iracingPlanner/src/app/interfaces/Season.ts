@@ -1,4 +1,6 @@
-interface Season {
+import {Schedule} from "./Schedule";
+
+export interface Season {
 
   active?: boolean;
   allowed_season_members?: any;

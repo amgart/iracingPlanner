@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {Season} from "../../interfaces/Season";
 
 @Injectable({
   providedIn: 'root'
@@ -9,15 +10,6 @@ export class UtilService {
 
   decode(text: string): string {
     return decodeURIComponent(text).replaceAll('+', ' ');
-  }
-
-  sort(list: Track[]): Track[] {
-    return list.sort((a,b) => {
-      if (a.track_name && b.track_name) {
-        return (a.track_name > b.track_name) ? 1: (b.track_name > a.track_name) ? -1 : 0;
-      }
-      return -1;
-    });
   }
 
   sortSeries(list: Season[]): Season[]{

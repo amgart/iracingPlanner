@@ -21,8 +21,9 @@ import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
-import { LoginComponent } from './components/login/login.component';
+import {LoginComponent} from './components/login/login.component';
 import {MatIconModule} from "@angular/material/icon";
+import {NotificationComponent} from './components/notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {MatIconModule} from "@angular/material/icon";
     DashboardComponent,
     AboutComponent,
     TrackComponent,
-    LoginComponent
+    LoginComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +55,6 @@ import {MatIconModule} from "@angular/material/icon";
     MatButtonToggleModule,
     MatIconModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

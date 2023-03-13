@@ -1,16 +1,20 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TrackService} from '../../services/track/track.service';
+import {Track} from "../../interfaces/Track";
 
 @Component({
   selector: 'app-tracks',
   templateUrl: './tracks.component.html',
   styleUrls: ['./tracks.component.scss']
 })
-export class TracksComponent {
+export class TracksComponent implements OnInit {
 
-  tracks: Track[] = this.trackService.getTracksWithoutDuplicates();
+  tracks: Track[] = [];
 
   constructor(private trackService: TrackService) {
   }
 
+  ngOnInit(): void {
+    this.tracks = this.trackService.getTracksWithoutDuplicates();
+  }
 }

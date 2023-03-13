@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import carClassJsonFile from '../../../assets/carClasses.json';
+import {CarClass} from "../../interfaces/CarClass";
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class CarClassService {
     return result;
   }
 
-  private findAllCarClasses(): CarClass[] {
+  findAllCarClasses(): CarClass[] {
     return carClassJsonFile;
   }
 }
