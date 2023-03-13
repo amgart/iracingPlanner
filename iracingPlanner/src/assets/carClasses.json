@@ -182,6 +182,34 @@
     "short_name": "Cup"
   },
   {
+    "car_class_id": 21,
+    "cars_in_class": [
+      {
+        "car_dirpath": "stockcars2\\chevy",
+        "car_id": 24,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "K&N Series",
+    "relative_speed": 53,
+    "short_name": "K&N Series"
+  },
+  {
+    "car_class_id": 22,
+    "cars_in_class": [
+      {
+        "car_dirpath": "lotus79",
+        "car_id": 25,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "Lotus 79",
+    "relative_speed": 125,
+    "short_name": "Lotus 79"
+  },
+  {
     "car_class_id": 0,
     "cars_in_class": [
       {
@@ -888,40 +916,17 @@
         "car_dirpath": "latemodel2023",
         "car_id": 164,
         "retired": false
+      },
+      {
+        "car_dirpath": "stockcars2\\chevy\\gen4cup",
+        "car_id": 167,
+        "retired": false
       }
     ],
     "cust_id": 0,
     "name": "Hosted All Cars Class",
     "relative_speed": 100,
     "short_name": "Hosted All Cars"
-  },
-  {
-    "car_class_id": 21,
-    "cars_in_class": [
-      {
-        "car_dirpath": "stockcars2\\chevy",
-        "car_id": 24,
-        "retired": false
-      }
-    ],
-    "cust_id": 0,
-    "name": "K&N Series",
-    "relative_speed": 53,
-    "short_name": "K&N Series"
-  },
-  {
-    "car_class_id": 22,
-    "cars_in_class": [
-      {
-        "car_dirpath": "lotus79",
-        "car_id": 25,
-        "retired": false
-      }
-    ],
-    "cust_id": 0,
-    "name": "Lotus 79",
-    "relative_speed": 125,
-    "short_name": "Lotus 79"
   },
   {
     "car_class_id": 23,
@@ -3684,6 +3689,20 @@
     "name": "Porsche Mission R",
     "relative_speed": 70,
     "short_name": "Porsche MissionR"
+  },
+  {
+    "car_class_id": 4021,
+    "cars_in_class": [
+      {
+        "car_dirpath": "stockcars2\\chevy\\gen4cup",
+        "car_id": 167,
+        "retired": false
+      }
+    ],
+    "cust_id": 0,
+    "name": "Gen 4 Cup",
+    "relative_speed": 83,
+    "short_name": "Gen 4 Cup"
   },
   {
     "car_class_id": 4010,
