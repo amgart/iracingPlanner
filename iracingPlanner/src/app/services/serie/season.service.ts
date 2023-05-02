@@ -1,26 +1,16 @@
 import {Injectable} from '@angular/core';
-import seasonJsonFile from '../../../assets/series.json';
 import {UtilService} from '../util/util.service';
 import {Season} from "../../interfaces/Season";
+import {HttpClientService} from "../httpClient/http-client.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class SeasonService {
 
-  constructor(private utilService: UtilService) { }
+  constructor(private utilService: UtilService, private httpClientService: HttpClientService) { }
 
-  findSeries(): Season[] {
-    let seasons: Season[] = [];
-    seasonJsonFile.forEach(season => {
-      if (this.has12Races(season)) {
-        seasons.push(season);
-      }
-    });
-    return this.utilService.sortSeries(seasons);
-  }
-
-  private has12Races(season: Season): boolean {
-    return season.schedules?.length === 12;
+  findSeries(): Promise<Season[]> {
+    return this.httpClientService.getSeries();
   }
 }

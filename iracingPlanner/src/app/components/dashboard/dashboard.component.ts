@@ -33,10 +33,17 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.season = this.serieService.findSeries();
-    this.season = this.processSeries(this.season);
-    this.dataSource = new MatTableDataSource(this.season);
-    this.dataSource.filterPredicate = this.createFilter();
+    this.serieService.findSeries().then(series => {
+      let tmpSeries: Season[] = [];
+      series.forEach(serie => {
+        if (this.has12Races(serie)) {
+          tmpSeries.push(serie);
+        }
+      });
+      this.season = this.processSeries(this.utilService.sortSeries(tmpSeries));
+      this.dataSource = new MatTableDataSource(this.season);
+      this.dataSource.filterPredicate = this.createFilter();
+    });
   }
 
   decode(text: string | undefined): string {
@@ -219,5 +226,9 @@ export class DashboardComponent implements OnInit {
 
   private getCategory(category: number): string {
     return this.utilService.getCategory(category);
+  }
+
+  private has12Races(season: Season): boolean {
+    return season.schedules?.length === 12;
   }
 }

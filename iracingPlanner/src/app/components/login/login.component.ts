@@ -35,12 +35,13 @@ export class LoginComponent implements OnInit {
     const pwd = this.form.controls.password.value;
     if (user && pwd) {
       this.loginService.login(user, pwd).then(res => {
-        if (res.authCode !== 0) {
+        console.log('----- test');
+        // if (res.authCode !== 0) {
           // TODO - show login ok notification
           this._router.navigate(['/dashboard']);
-        } else {
+        // } else {
           // TODO - show login ko notification
-        }
+        // }
       });
     }
   }
