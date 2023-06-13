@@ -61,6 +61,8 @@
     "award_exempt": false,
     "car_dirpath": "skmodified",
     "car_id": 2,
+    "car_make": "Modified",
+    "car_model": "SK",
     "car_name": "Modified - SK",
     "car_name_abbreviated": "SK",
     "car_types": [
@@ -497,6 +499,9 @@
     "car_name_abbreviated": "TRUCK",
     "car_types": [
       {
+        "car_type": "chevy"
+      },
+      {
         "car_type": "nascar"
       },
       {
@@ -526,7 +531,7 @@
     "price": 0,
     "price_display": "$0.00",
     "retired": false,
-    "search_filters": "oval,nascar,truck",
+    "search_filters": "oval,nascar,truck,chevy",
     "sku": 10054
   },
   {
@@ -597,6 +602,9 @@
     "car_name_abbreviated": "CUP",
     "car_types": [
       {
+        "car_type": "chevy"
+      },
+      {
         "car_type": "cot"
       },
       {
@@ -629,7 +637,7 @@
     "price": 2.95,
     "price_display": "$2.95",
     "retired": false,
-    "search_filters": "oval,nascar,cupcar,COT",
+    "search_filters": "oval,nascar,cupcar,COT,chevy",
     "sku": 10068
   },
   {
@@ -698,6 +706,9 @@
         "car_type": "arca"
       },
       {
+        "car_type": "chevy"
+      },
+      {
         "car_type": "nascar"
       },
       {
@@ -724,7 +735,7 @@
     "price": 11.95,
     "price_display": "$11.95",
     "retired": false,
-    "search_filters": "oval,nascar,arca",
+    "search_filters": "oval,nascar,arca,chevy",
     "sku": 10088
   },
   {
@@ -786,7 +797,7 @@
     "sku": 10110
   },
   {
-    "ai_enabled": false,
+    "ai_enabled": true,
     "allow_number_colors": true,
     "allow_number_font": true,
     "allow_sponsor1": true,
@@ -1049,7 +1060,8 @@
     "award_exempt": false,
     "car_dirpath": "skmodified\\tour",
     "car_id": 31,
-    "car_make": "Tour",
+    "car_make": "Modified",
+    "car_model": "Tour",
     "car_name": "Modified - NASCAR Whelen Tour",
     "car_name_abbreviated": "TMOD",
     "car_types": [
@@ -1364,6 +1376,9 @@
     "car_name_abbreviated": "IMPB",
     "car_types": [
       {
+        "car_type": "chevy"
+      },
+      {
         "car_type": "nascar"
       },
       {
@@ -1396,7 +1411,7 @@
     "price": 2.95,
     "price_display": "$2.95",
     "retired": false,
-    "search_filters": "oval,nascar,nationwide,xfinity",
+    "search_filters": "oval,nascar,nationwide,xfinity,chevy",
     "sku": 10268
   },
   {
@@ -1449,7 +1464,7 @@
     "sku": 10280
   },
   {
-    "ai_enabled": false,
+    "ai_enabled": true,
     "allow_number_colors": false,
     "allow_number_font": false,
     "allow_sponsor1": true,
@@ -1459,8 +1474,8 @@
     "car_dirpath": "fordgt",
     "car_id": 40,
     "car_make": "Ford",
-    "car_model": "GT",
-    "car_name": "Ford GT GT2/GT3",
+    "car_model": "GT2",
+    "car_name": "Ford GT GT2",
     "car_name_abbreviated": "FGT",
     "car_types": [
       {
@@ -1501,7 +1516,7 @@
     "sku": 10281
   },
   {
-    "ai_enabled": false,
+    "ai_enabled": true,
     "allow_number_colors": false,
     "allow_number_font": false,
     "allow_sponsor1": true,
@@ -1721,6 +1736,9 @@
     "car_name_abbreviated": "CSS",
     "car_types": [
       {
+        "car_type": "chevy"
+      },
+      {
         "car_type": "cupcar"
       },
       {
@@ -1750,7 +1768,7 @@
     "price": 2.95,
     "price_display": "$2.95",
     "retired": false,
-    "search_filters": "oval,nascar,cupcar",
+    "search_filters": "oval,nascar,cupcar,chevy",
     "site_url": "http://www.iracing.com",
     "sku": 10344
   },
@@ -2229,9 +2247,6 @@
     "car_name_abbreviated": "DW12",
     "car_types": [
       {
-        "car_type": "indycar"
-      },
-      {
         "car_type": "openwheel"
       },
       {
@@ -2275,7 +2290,7 @@
     "price": 0,
     "price_display": "$0.00",
     "retired": false,
-    "search_filters": "oval,road,openwheel,indycar",
+    "search_filters": "oval,road,openwheel",
     "site_url": "https://www.dallara.it/",
     "sku": 10370
   },
@@ -2294,6 +2309,9 @@
     "car_name": "[Legacy] NASCAR Xfinity Chevrolet Camaro - 2014",
     "car_name_abbreviated": "CCB",
     "car_types": [
+      {
+        "car_type": "chevy"
+      },
       {
         "car_type": "nascar"
       },
@@ -2327,7 +2345,7 @@
     "price": 2.95,
     "price_display": "$2.95",
     "retired": false,
-    "search_filters": "oval,nascar,xfinity,nationwide",
+    "search_filters": "oval,nascar,xfinity,nationwide,chevy",
     "site_url": "http://www.iracing.com",
     "sku": 10373
   },
@@ -2342,7 +2360,7 @@
     "car_dirpath": "fordgt\\gt3",
     "car_id": 59,
     "car_make": "Ford",
-    "car_model": "GT",
+    "car_model": "GT3",
     "car_name": "Ford GT GT3",
     "car_name_abbreviated": "FGT3",
     "car_types": [
@@ -2591,6 +2609,9 @@
     "car_name_abbreviated": "CS",
     "car_types": [
       {
+        "car_type": "chevy"
+      },
+      {
         "car_type": "nascar"
       },
       {
@@ -2618,12 +2639,12 @@
     "patterns": 24,
     "price": 0,
     "retired": true,
-    "search_filters": "oval,nascar,truck",
+    "search_filters": "oval,nascar,truck,chevy",
     "site_url": "http://www.iracing.com",
     "sku": 0
   },
   {
-    "ai_enabled": false,
+    "ai_enabled": true,
     "allow_number_colors": false,
     "allow_number_font": false,
     "allow_sponsor1": true,
@@ -4378,9 +4399,6 @@
     "car_name_abbreviated": "IR18",
     "car_types": [
       {
-        "car_type": "indycar"
-      },
-      {
         "car_type": "openwheel"
       },
       {
@@ -4411,7 +4429,7 @@
     "price": 11.95,
     "price_display": "$11.95",
     "retired": false,
-    "search_filters": "oval,road,openwheel,indycar",
+    "search_filters": "oval,road,openwheel",
     "site_url": "https://www.dallara.it",
     "sku": 10440
   },
@@ -4659,6 +4677,9 @@
     "car_name_abbreviated": "ZL1",
     "car_types": [
       {
+        "car_type": "chevy"
+      },
+      {
         "car_type": "classa"
       },
       {
@@ -4691,7 +4712,7 @@
     "price": 11.95,
     "price_display": "$11.95",
     "retired": false,
-    "search_filters": "oval,nascar,cupcar,classa",
+    "search_filters": "oval,nascar,cupcar,classa,chevy",
     "sku": 10447
   },
   {
@@ -5043,6 +5064,9 @@
     "car_name_abbreviated": "CS2019",
     "car_types": [
       {
+        "car_type": "chevy"
+      },
+      {
         "car_type": "craftsman"
       },
       {
@@ -5075,7 +5099,7 @@
     "price": 11.95,
     "price_display": "$11.95",
     "retired": false,
-    "search_filters": "oval,nascar,truck,craftsman",
+    "search_filters": "oval,nascar,truck,craftsman,chevy",
     "sku": 10459
   },
   {
@@ -5197,6 +5221,9 @@
     "car_name_abbreviated": "XCC",
     "car_types": [
       {
+        "car_type": "chevy"
+      },
+      {
         "car_type": "classb"
       },
       {
@@ -5232,7 +5259,7 @@
     "price": 11.95,
     "price_display": "$11.95",
     "retired": false,
-    "search_filters": "oval,nascar,xfinity,nationwide,classb",
+    "search_filters": "oval,nascar,xfinity,nationwide,classb,chevy",
     "site_url": "http://www.iracing.com",
     "sku": 10464
   },
@@ -5531,9 +5558,6 @@
     "car_name_abbreviated": "PM18",
     "car_types": [
       {
-        "car_type": "indycar"
-      },
-      {
         "car_type": "openwheel"
       },
       {
@@ -5563,7 +5587,7 @@
     "price": 11.95,
     "price_display": "$11.95",
     "retired": false,
-    "search_filters": "road,openwheel,oval,indycar",
+    "search_filters": "road,openwheel,oval",
     "site_url": "https://www.usf2000.com/about/road-to-indy",
     "sku": 10477
   },
@@ -5762,6 +5786,9 @@
     "car_name_abbreviated": "C87",
     "car_types": [
       {
+        "car_type": "chevy"
+      },
+      {
         "car_type": "cupcar"
       },
       {
@@ -5807,7 +5834,7 @@
     "price": 11.95,
     "price_display": "$11.95",
     "retired": false,
-    "search_filters": "oval,nascar,cupcar,winstoncup",
+    "search_filters": "oval,nascar,cupcar,winstoncup,chevy",
     "sku": 10482
   },
   {
@@ -6268,6 +6295,7 @@
     "award_exempt": false,
     "car_dirpath": "dirtmodified\\358",
     "car_id": 134,
+    "car_make": "Dirt Modified",
     "car_model": "358 Modified",
     "car_name": "Dirt 358 Modified",
     "car_name_abbreviated": "358MOD",
@@ -6385,12 +6413,12 @@
     "allow_sponsor1": true,
     "allow_sponsor2": true,
     "allow_wheel_color": true,
-    "award_exempt": false,
+    "award_exempt": true,
     "car_dirpath": "porsche911rgt3",
     "car_id": 137,
     "car_make": "Porsche",
     "car_model": "911 GT3 R",
-    "car_name": "Porsche 911 GT3 R",
+    "car_name": "[Legacy] Porsche 911 GT3 R",
     "car_name_abbreviated": "PGTR",
     "car_types": [
       {
@@ -6447,8 +6475,8 @@
       }
     },
     "patterns": 24,
-    "price": 11.95,
-    "price_display": "$11.95",
+    "price": 2.95,
+    "price_display": "$2.95",
     "retired": false,
     "search_filters": "road,sportscar,gt3,gtd",
     "site_url": "https://www.porsche.com/",
@@ -6535,6 +6563,9 @@
     "car_name_abbreviated": "NGC",
     "car_types": [
       {
+        "car_type": "chevy"
+      },
+      {
         "car_type": "cupcar"
       },
       {
@@ -6564,7 +6595,7 @@
     "price": 11.95,
     "price_display": "$11.95",
     "retired": false,
-    "search_filters": "oval,nascar,cupcar",
+    "search_filters": "oval,nascar,cupcar,chevy",
     "sku": 10503
   },
   {
@@ -7254,10 +7285,10 @@
     "award_exempt": false,
     "car_dirpath": "formulair04",
     "car_id": 148,
-    "car_make": "iRacing",
-    "car_model": "iR-04",
-    "car_name": "iRacing Formula iR-04",
-    "car_name_abbreviated": "iR04",
+    "car_make": "FIA",
+    "car_model": "F4",
+    "car_name": "FIA F4",
+    "car_name_abbreviated": "F4",
     "car_types": [
       {
         "car_type": "openwheel"
@@ -7287,11 +7318,11 @@
     "price_display": "$11.95",
     "retired": false,
     "search_filters": "road,openwheel",
-    "site_url": "http://www.iracing.com",
+    "site_url": "https://www.fia.com/events/formula-4-certified-fia/season-2020/formula-4-certified-fia",
     "sku": 10518
   },
   {
-    "ai_enabled": false,
+    "ai_enabled": true,
     "allow_number_colors": false,
     "allow_number_font": false,
     "allow_sponsor1": true,
@@ -7622,6 +7653,9 @@
       },
       {
         "car_type": "sportscar"
+      },
+      {
+        "car_type": "tcr"
       }
     ],
     "car_weight": 2789,
@@ -7680,7 +7714,7 @@
     "price": 11.95,
     "price_display": "$11.95",
     "retired": false,
-    "search_filters": "road,sportscar,aienabled",
+    "search_filters": "road,sportscar,aienabled,tcr",
     "sku": 10526
   },
   {
@@ -7887,9 +7921,20 @@
         "Sponsor1": "0",
         "Sponsor2": "0",
         "RulesExplanation": "The currently selected car pattern doesn't allow painting the car or the car's numbers."
+      },
+      "5": {
+        "PaintCarAvailable": false,
+        "Color1": "FF0000",
+        "Color2": "00FF00",
+        "Color3": "0000FF",
+        "Sponsor1Available": false,
+        "Sponsor2Available": false,
+        "Sponsor1": "0",
+        "Sponsor2": "0",
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car or the car's numbers."
       }
     },
-    "patterns": 28,
+    "patterns": 29,
     "price": 11.95,
     "price_display": "$11.95",
     "retired": false,
@@ -8022,7 +8067,7 @@
     "first_sale": "2022-09-06T00:00:00Z",
     "forum_url": "https://forums.iracing.com/categories/porsche-mission-r",
     "free_with_subscription": false,
-    "has_headlights": false,
+    "has_headlights": true,
     "has_multiple_dry_tire_types": false,
     "hp": 1073,
     "is_ps_purchasable": true,
@@ -8079,7 +8124,7 @@
         "car_type": "sportscar"
       }
     ],
-    "car_weight": 2271,
+    "car_weight": 2447,
     "categories": [
       "road"
     ],
@@ -8089,7 +8134,7 @@
     "free_with_subscription": false,
     "has_headlights": true,
     "has_multiple_dry_tire_types": false,
-    "hp": 640,
+    "hp": 665,
     "is_ps_purchasable": true,
     "max_power_adjust_pct": 0,
     "max_weight_penalty_kg": 250,
@@ -8469,6 +8514,7 @@
     "car_dirpath": "renaultcliocup",
     "car_id": 162,
     "car_make": "Renault",
+    "car_model": "Clio",
     "car_name": "Renault Clio",
     "car_name_abbreviated": "RENC",
     "car_types": [
@@ -8521,6 +8567,9 @@
         "car_type": "formula"
       },
       {
+        "car_type": "openwheel"
+      },
+      {
         "car_type": "road"
       }
     ],
@@ -8567,7 +8616,7 @@
     "price": 0,
     "price_display": "$0.00",
     "retired": false,
-    "search_filters": "road,formula,ford",
+    "search_filters": "road,formula,ford,openwheel",
     "sku": 10549
   },
   {
@@ -8636,6 +8685,71 @@
     "sku": 10550
   },
   {
+    "ai_enabled": true,
+    "allow_number_colors": true,
+    "allow_number_font": true,
+    "allow_sponsor1": true,
+    "allow_sponsor2": true,
+    "allow_wheel_color": true,
+    "award_exempt": false,
+    "car_dirpath": "ligierjsp320",
+    "car_id": 165,
+    "car_make": "Ligier",
+    "car_model": "JSP 320",
+    "car_name": "Ligier JS P320",
+    "car_name_abbreviated": "LJSP",
+    "car_types": [
+      {
+        "car_type": "lmp3"
+      },
+      {
+        "car_type": "prototype"
+      },
+      {
+        "car_type": "road"
+      },
+      {
+        "car_type": "sportscar"
+      }
+    ],
+    "car_weight": 2094,
+    "categories": [
+      "road"
+    ],
+    "created": "2023-02-08T15:43:06Z",
+    "first_sale": "2023-06-06T00:00:00Z",
+    "forum_url": "https://forums.iracing.com/categories/ligier-js-p320",
+    "free_with_subscription": false,
+    "has_headlights": true,
+    "has_multiple_dry_tire_types": false,
+    "hp": 455,
+    "is_ps_purchasable": true,
+    "max_power_adjust_pct": 0,
+    "max_weight_penalty_kg": 250,
+    "min_power_adjust_pct": -5,
+    "package_id": 430,
+    "paint_rules": {
+      "1": {
+        "PaintCarAvailable": false,
+        "Color1": "FF0000",
+        "Color2": "00FF00",
+        "Color3": "0000FF",
+        "Sponsor1Available": false,
+        "Sponsor2Available": false,
+        "Sponsor1": "0",
+        "Sponsor2": "0",
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car or the car's numbers."
+      }
+    },
+    "patterns": 25,
+    "price": 11.95,
+    "price_display": "$11.95",
+    "retired": false,
+    "search_filters": "road,sportscar,prototype,lmp3",
+    "site_url": "https://ligierautomotive.com/",
+    "sku": 10552
+  },
+  {
     "ai_enabled": false,
     "allow_number_colors": true,
     "allow_number_font": true,
@@ -8668,7 +8782,7 @@
       "oval"
     ],
     "created": "2023-03-09T09:45:09Z",
-    "first_sale": "2009-03-31T19:38:05Z",
+    "first_sale": "2023-06-06T00:00:00Z",
     "forum_url": "https://forums.iracing.com/categories/gen-4-stock-car",
     "free_with_subscription": false,
     "has_headlights": false,
@@ -8685,5 +8799,170 @@
     "retired": false,
     "search_filters": "oval,nascar,arca,chevy",
     "sku": 10088
+  },
+  {
+    "ai_enabled": true,
+    "allow_number_colors": true,
+    "allow_number_font": true,
+    "allow_sponsor1": true,
+    "allow_sponsor2": true,
+    "allow_wheel_color": true,
+    "award_exempt": false,
+    "car_dirpath": "cadillacvseriesrgtp",
+    "car_id": 168,
+    "car_make": "Cadillac",
+    "car_model": "V-Series.R GTP",
+    "car_name": "Cadillac V-Series.R GTP",
+    "car_name_abbreviated": "CGTP",
+    "car_types": [
+      {
+        "car_type": "prototype"
+      },
+      {
+        "car_type": "road"
+      },
+      {
+        "car_type": "sportscar"
+      }
+    ],
+    "car_weight": 2380,
+    "categories": [
+      "road"
+    ],
+    "created": "2023-03-31T09:05:52Z",
+    "first_sale": "2023-06-06T00:00:00Z",
+    "forum_url": "https://forums.iracing.com/categories/cadillac-v-series-r-gtp",
+    "free_with_subscription": false,
+    "has_headlights": true,
+    "has_multiple_dry_tire_types": false,
+    "hp": 670,
+    "is_ps_purchasable": true,
+    "max_power_adjust_pct": 0,
+    "max_weight_penalty_kg": 250,
+    "min_power_adjust_pct": -5,
+    "package_id": 436,
+    "paint_rules": {
+      "1": {
+        "PaintCarAvailable": false,
+        "Color1": "FF0000",
+        "Color2": "00FF00",
+        "Color3": "0000FF",
+        "Sponsor1Available": false,
+        "Sponsor2Available": false,
+        "Sponsor1": "0",
+        "Sponsor2": "0",
+        "PaintWheelAvailable": true,
+        "WheelColor": "EBEBEB",
+        "AllowNumberFontChanges": true,
+        "NumberFont": "0",
+        "AllowNumberColorChanges": true,
+        "NumberColor1": "FF0000",
+        "NumberColor2": "00FF00",
+        "NumberColor3": "0000FF",
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car and sponsor."
+      },
+      "2": {
+        "PaintCarAvailable": false,
+        "Color1": "FF0000",
+        "Color2": "00FF00",
+        "Color3": "0000FF",
+        "Sponsor1Available": false,
+        "Sponsor2Available": false,
+        "Sponsor1": "0",
+        "Sponsor2": "0",
+        "PaintWheelAvailable": true,
+        "WheelColor": "EBEBEB",
+        "AllowNumberFontChanges": true,
+        "NumberFont": "0",
+        "AllowNumberColorChanges": true,
+        "NumberColor1": "FF0000",
+        "NumberColor2": "00FF00",
+        "NumberColor3": "0000FF",
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car and sponsor."
+      },
+      "3": {
+        "PaintCarAvailable": false,
+        "Color1": "FF0000",
+        "Color2": "00FF00",
+        "Color3": "0000FF",
+        "Sponsor1Available": false,
+        "Sponsor2Available": false,
+        "Sponsor1": "0",
+        "Sponsor2": "0",
+        "PaintWheelAvailable": true,
+        "WheelColor": "EBEBEB",
+        "AllowNumberFontChanges": true,
+        "NumberFont": "0",
+        "AllowNumberColorChanges": true,
+        "NumberColor1": "FF0000",
+        "NumberColor2": "00FF00",
+        "NumberColor3": "0000FF",
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car and sponsor."
+      }
+    },
+    "patterns": 26,
+    "price": 11.95,
+    "price_display": "$11.95",
+    "retired": false,
+    "search_filters": "road,sportscar,prototype",
+    "sku": 10554
+  },
+  {
+    "ai_enabled": true,
+    "allow_number_colors": true,
+    "allow_number_font": true,
+    "allow_sponsor1": true,
+    "allow_sponsor2": true,
+    "allow_wheel_color": true,
+    "award_exempt": false,
+    "car_dirpath": "porsche992rgt3",
+    "car_id": 169,
+    "car_make": "Porsche",
+    "car_model": "992 GT3 R",
+    "car_name": "Porsche 911 GT3 R (992)",
+    "car_name_abbreviated": "992R",
+    "car_types": [
+      {
+        "car_type": "road"
+      },
+      {
+        "car_type": "sportscar"
+      }
+    ],
+    "car_weight": 2756,
+    "categories": [
+      "road"
+    ],
+    "created": "2023-03-31T09:10:14Z",
+    "first_sale": "2023-06-06T00:00:00Z",
+    "forum_url": "https://forums.iracing.com/categories/porsche-911-gt3-r-%28992%29",
+    "free_with_subscription": false,
+    "has_headlights": true,
+    "has_multiple_dry_tire_types": false,
+    "hp": 565,
+    "is_ps_purchasable": true,
+    "max_power_adjust_pct": 0,
+    "max_weight_penalty_kg": 250,
+    "min_power_adjust_pct": -5,
+    "package_id": 438,
+    "paint_rules": {
+      "1": {
+        "PaintCarAvailable": false,
+        "Color1": "FF0000",
+        "Color2": "00FF00",
+        "Color3": "0000FF",
+        "Sponsor1Available": false,
+        "Sponsor2Available": false,
+        "Sponsor1": "0",
+        "Sponsor2": "0",
+        "RulesExplanation": "The currently selected car pattern doesn't allow painting the car or the car's numbers."
+      }
+    },
+    "patterns": 25,
+    "price": 11.95,
+    "price_display": "$11.95",
+    "retired": false,
+    "search_filters": "road,sportscar",
+    "sku": 10555
   }
 ]

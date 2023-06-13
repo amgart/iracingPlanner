@@ -9,15 +9,10 @@ tracks for the current season.
 ## How to install
 Just download latest release (https://github.com/amgart/iracingPlanner/releases), unzip it and put it in your favourite folder.
 Now you only need to double-click *iracing-planner.exe*
-For more information, you can see [this video](https://www.youtube.com/watch?v=dkKvZZ2X7ys)
+For more information, you can see [this video](https://www.youtube.com/watch?v=-VfMf-qy6pU&t=1s&ab_channel=Amgart)
 
 ## How to use
-When the tool starts, a login screen appears where you can introduce your iRacing credentials. At this moment this info is not used
-(as the development of this feature is in progress), but it will be used to auto refresh the dashboard with the current 
-season info, obtain your owned cars and tracks. Your credentials are stored locally.
-In the login screen you will be able to click 'Login' and use this online features, or you will be able to keep using
-the offline mode.
-After the login redirects to the *Dashboard* screen, just go to *My cars* tab and select the cars you own on *iRacing*. 
+When the tool starts the *Dashboard* screen is shown, just go to *My cars* tab and select the cars you own on *iRacing*. 
 Select too your owned tracks on *My tracks* tab.
 
 Once you have done this, you can return to the main *Dashboard* tab, and you will see the table of series 
@@ -28,8 +23,18 @@ In the *Dashboard* tab will you find the following columns:
 *   License needed for racing the series (R, D, C, B or A)
 *   Category of the series (Road, Oval, Dirt Oval or RX)
 *   Cars allowed for the series (if the cell paints green means that you own at least one car)
+*   Setup type (fixed or open)
 *   Number of tracks you can race for this series
-*   Weeks: the list of tracks per week (if the cell paints green means that you own the track)
+*   Weeks: the list of tracks per week (if the cell paints green means that you own the track). 
+Note that past weeks will be shown in grey color. Current week will be the first column in white.
+
+Moreover, you can use the upper fields to filter the results in the *Dashboard* table. You can filter by:
+*   Series name
+*   Participation credits possibility
+*   Category
+*   License needed
+*   Setup type
+*   Owned cars only
 
 ## How the data is obtained
 The schedule for the current season, cars and tracks are stored as a json files inside the tool. 
@@ -40,10 +45,11 @@ So, please, at the beginning of the season download the corresponding release
 
 ## Known issues and limitations
 *   If the serie has less than 12 races, the series is not shown, as this causes confusion about when the races happen.
-*   The json file needs to be updated every season. Please read *How to update the tool* section.
+*   The json file needs to be updated every season. Please download the version of the app corresponding to the current season.
 
 ## Future features planned
 *   Visual enhancements
+*   Possibility to filter by multiple values in same filter. For example: show series with licenses A, B and C. At the moment this is not possible.
 *   Possibility to introduce your iRacing account info.
 *   *Dashboard* is automatically calculated each season instead of manually updating the tool (if you introduce your iRacing account info).
 *   Owned cars and tracks are automatically updated with your *iRacing* account (if you introduce your iRacing account info).
