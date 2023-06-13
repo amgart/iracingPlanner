@@ -195,7 +195,7 @@ export class DashboardComponent implements OnInit {
     cars.forEach(car => {
       if (car.car_id) {
         const convertedCar = this.carService.findCarBy(car.car_id);
-        if (convertedCar) {
+        if (convertedCar && !result) {
           result = this.carService.isOwned(convertedCar);
         }
       }
