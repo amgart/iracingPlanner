@@ -34,15 +34,17 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.serieService.findSeries().then(series => {
-      let tmpSeries: Season[] = [];
-      series.forEach(serie => {
-        if (this.has12Races(serie)) {
-          tmpSeries.push(serie);
-        }
-      });
-      this.season = this.processSeries(this.utilService.sortSeries(tmpSeries));
-      this.dataSource = new MatTableDataSource(this.season);
-      this.dataSource.filterPredicate = this.createFilter();
+      if (series) {
+        let tmpSeries: Season[] = [];
+        series.forEach(serie => {
+          if (this.has12Races(serie)) {
+            tmpSeries.push(serie);
+          }
+        });
+        this.season = this.processSeries(this.utilService.sortSeries(tmpSeries));
+        this.dataSource = new MatTableDataSource(this.season);
+        this.dataSource.filterPredicate = this.createFilter();
+      }
     });
   }
 

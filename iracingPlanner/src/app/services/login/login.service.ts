@@ -21,7 +21,7 @@ export class LoginService {
     });
     const loginDTO = {
       email: user,
-      password: this.encryptPassword(user, password),
+      password: password,
       rememberMe: false
     };
     return this.httpClientService.login(loginDTO);

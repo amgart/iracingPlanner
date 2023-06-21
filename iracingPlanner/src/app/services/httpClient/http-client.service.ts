@@ -1,7 +1,9 @@
 import {Injectable} from '@angular/core';
 import {ReleaseDTO} from "../../interfaces/ReleaseDTO";
 import {LoginDTO} from "../../interfaces/LoginDTO";
-import {Client} from "./client";
+import IracingAPI from "iracing-api";
+import {LoginResponseDTO} from "../../interfaces/LoginResponseDTO";
+import {SeriesSeason} from "iracing-api/lib/types/series";
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +11,7 @@ import {Client} from "./client";
 export class HttpClientService {
 
   private GITHUB_RELEASES_URL = 'https://api.github.com/repos/amgart/iracingplanner/releases';
-  private IRACING_BASE_URL = 'https://members-ng.iracing.com'
-  private IRACING_AUTH_URL = '/auth';
-  private IRACING_GET_SEASONS = '/data/series/seasons?include_series=true';
-  private email: string = '';
-  private password: string = '';
+  private iRClient = new IracingAPI();
 
   constructor() { }
 
@@ -31,30 +29,17 @@ export class HttpClientService {
       });
   }
 
-  login(loginDTO: LoginDTO): Promise<any> {
-    return fetch(this.IRACING_BASE_URL + this.IRACING_AUTH_URL, {
-      method: 'POST',
-      headers: {'Accept': '*/*', "Content-type": "application/json"},
-      body: JSON.stringify(loginDTO)
-    }).then(res => res.json()).then(res => {
-      if (res.authCode !== 0) {
-        this.email = loginDTO.email;
-        this.password = loginDTO.password;
-      }
-      console.log('------', res);
-      return res;
+  async login(loginDTO: LoginDTO): Promise<LoginResponseDTO> {
+    const iRClient = new IracingAPI();
+    await iRClient.login(loginDTO.email, loginDTO.password);
+    await iRClient.getSeriesSeasons();
+    return iRClient.login(loginDTO.email, loginDTO.password).then(res => {
+      this.iRClient.getSeriesSeasons();
+      return res.data;
     });
   }
 
-  getSeries(): any {
-    console.log('_----eeeeo');
-    const client = new Client(this.email, this.password);
-    client.get(this.IRACING_GET_SEASONS);
-    //return fetch(this.IRACING_BASE_URL + this.IRACING_GET_SEASONS).then(res => res.json()).then(res => {
-    //  console.log('------', res);
-    //  return res.json();
-    //}).then(res => {
-    //   return res as Season[];
-    //});
+  getSeries(): Promise<Array<SeriesSeason> | undefined> {
+    return this.iRClient.getSeriesSeasons();
   }
 }
