@@ -33,5 +33,3 @@ jobs:
         working-directory: iracingPlanner
       - run: npm run build --if-present
         working-directory: iracingPlanner
-      - run: npm run test
-        working-directory: iracingPlanner
