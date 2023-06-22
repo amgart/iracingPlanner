@@ -65,8 +65,8 @@ export class TrackService {
     let tracks: Track[] = [];
     if (season.schedules) {
       season.schedules.forEach(schedule => {
-        if (schedule.track && schedule.track.track_id) {
-          const track = this.findTrackBy(schedule.track.track_id);
+        if (schedule.track && schedule.track.trackId) {
+          const track = this.findTrackBy(schedule.track.trackId);
           if (track) {
             tracks.push(track);
           }

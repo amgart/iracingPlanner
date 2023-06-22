@@ -39,9 +39,4 @@ describe('LoginService', () => {
     expect(storeServiceSpy.get).toHaveBeenCalledWith('login', -1);
     expect(result).toEqual(credentials);
   });
-
-  it('should encrypt password', () => {
-    const hashedPwd = service.encryptPassword('CLunky@iracing.Com', 'MyPassWord');
-    expect(hashedPwd).toEqual('xGKecAR27ALXNuMLsGaG0v5Q9pSs2tZTZRKNgmHMg+Q=')
-  });
 });

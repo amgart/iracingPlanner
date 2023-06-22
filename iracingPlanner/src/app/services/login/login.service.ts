@@ -31,9 +31,4 @@ export class LoginService {
     return this.storeService.get(this.objectType, -1);
   }
 
-  encryptPassword(user:string, pwd: string): string {
-    const CryptoJS = require("crypto-js");
-    const hash = CryptoJS.SHA256(pwd + user.toLowerCase());
-    return CryptoJS.enc.Base64.stringify(hash);
-  }
 }

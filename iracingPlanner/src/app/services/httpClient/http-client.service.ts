@@ -3,7 +3,7 @@ import {ReleaseDTO} from "../../interfaces/ReleaseDTO";
 import {LoginDTO} from "../../interfaces/LoginDTO";
 import IracingAPI from "iracing-api";
 import {LoginResponseDTO} from "../../interfaces/LoginResponseDTO";
-import {SeriesSeason} from "iracing-api/lib/types/series";
+import {Season} from "../../interfaces/Season";
 
 @Injectable({
   providedIn: 'root'
@@ -39,7 +39,7 @@ export class HttpClientService {
     });
   }
 
-  getSeries(): Promise<Array<SeriesSeason> | undefined> {
+  getSeries(): Promise<Array<Season> | undefined> {
     return this.iRClient.getSeriesSeasons();
   }
 }
