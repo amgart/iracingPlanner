@@ -20,8 +20,8 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-      - run: cd iracingPlanner
       - uses: actions/checkout@v3
+      - run: cd iracingPlanner
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
