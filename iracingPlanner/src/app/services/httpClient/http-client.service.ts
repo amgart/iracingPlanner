@@ -30,12 +30,10 @@ export class HttpClientService {
   }
 
   async login(loginDTO: LoginDTO): Promise<LoginResponseDTO> {
-    const iRClient = new IracingAPI();
-    await iRClient.login(loginDTO.email, loginDTO.password);
-    await iRClient.getSeriesSeasons();
-    return iRClient.login(loginDTO.email, loginDTO.password).then(res => {
-      this.iRClient.getSeriesSeasons();
-      return res.data;
+    return this.iRClient.login(loginDTO.email, loginDTO.password).then(res => {
+      if (res?.data) {
+        return res.data;
+      }
     });
   }
 
