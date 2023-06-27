@@ -24,6 +24,8 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {LoginComponent} from './components/login/login.component';
 import {MatIconModule} from "@angular/material/icon";
 import {NotificationComponent} from './components/notification/notification.component';
+import {FavoriteComponent} from './components/favorite/favorite.component';
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import {NotificationComponent} from './components/notification/notification.comp
     AboutComponent,
     TrackComponent,
     LoginComponent,
-    NotificationComponent
+    NotificationComponent,
+    FavoriteComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +48,7 @@ import {NotificationComponent} from './components/notification/notification.comp
     MatButtonModule,
     MatTabsModule,
     MatCheckboxModule,
+    FontAwesomeModule,
     FormsModule,
     MatGridListModule,
     MatFormFieldModule,

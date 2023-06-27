@@ -50,6 +50,16 @@ export class TrackService {
     return false;
   }
 
+  isFavorite(track: Track): boolean {
+    if (track.package_id) {
+      const savedTrack = this.storeService.get(this.objectType, track.package_id);
+      if (savedTrack) {
+        return savedTrack.favorite;
+      }
+    }
+    return false;
+  }
+
   findTrackBy(trackId: number): Track | undefined {
     let result;
     const trackList = this.getTracks();

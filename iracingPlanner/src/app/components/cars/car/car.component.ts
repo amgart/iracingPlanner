@@ -20,6 +20,7 @@ export class CarComponent implements OnInit {
   ngOnInit(): void {
     if (this.car.car_id) {
       this.checked = this.carService.isOwned(this.car);
+      this.car.favorite = this.carService.isFavorite(this.car);
     }
   }
 
@@ -29,6 +30,11 @@ export class CarComponent implements OnInit {
     } else {
       this.carService.save(car);
     }
+  }
+
+  favorite(favorite: boolean) {
+    this.car.favorite = favorite;
+    this.carService.save(this.car);
   }
 
 }

@@ -46,4 +46,7 @@ export interface Track {
   track_id?: number;
   track_name?: string;
   track_types?: any;
+
+  // My params
+  favorite?: boolean;
 }
