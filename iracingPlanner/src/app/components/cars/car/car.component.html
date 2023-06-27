@@ -4,3 +4,5 @@
   [(ngModel)]="car.free_with_subscription !== undefined ? (car.free_with_subscription? true : checked) : checked"
   (click)="onClick(car)">{{car.car_name}}
 </mat-checkbox>
+<app-favorite [item]="car"
+              (clickEvent)="favorite($event)"></app-favorite>

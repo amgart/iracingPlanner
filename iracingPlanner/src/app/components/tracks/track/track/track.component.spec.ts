@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { TrackComponent } from './track.component';
+import {TrackComponent} from './track.component';
 import {UtilService} from "../../../../services/util/util.service";
 import {TrackService} from "../../../../services/track/track.service";
 
@@ -53,6 +53,22 @@ describe('TrackComponent', () => {
     spyOn(trackService, 'save');
     component.track = { track_id: 1, track_name: 'Track 1' };
     component.onClick(component.track);
+    expect(trackService.save).toHaveBeenCalledWith(component.track);
+  });
+
+  it('should set track as favorite and save it', () => {
+    spyOn(trackService, 'save').and.stub();
+    component.track = { package_id: 1, favorite: false };
+    component.favorite(true);
+    expect(component.track.favorite).toBe(true);
+    expect(trackService.save).toHaveBeenCalledWith(component.track);
+  });
+
+  it('should set track as not favorite and save it', () => {
+    spyOn(trackService, 'save').and.stub();
+    component.track = { package_id: 1, favorite: true };
+    component.favorite(false);
+    expect(component.track.favorite).toBe(false);
     expect(trackService.save).toHaveBeenCalledWith(component.track);
   });
 });
