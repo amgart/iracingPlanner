@@ -10,6 +10,8 @@
 /node_modules
 npm-debug.log
 yarn-error.log
+/projects/iracing-api/dist
+/projects/iracing-api/node_modules
 
 # IDEs and editors
 .idea/
