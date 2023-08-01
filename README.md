@@ -9,7 +9,7 @@ tracks for the current season.
 ## How to install
 Just download latest release (https://github.com/amgart/iracingPlanner/releases), unzip it and put it in your favourite folder.
 Now you only need to double-click *iracing-planner.exe*
-For more information, you can see [this video](https://www.youtube.com/watch?v=-VfMf-qy6pU&t=1s&ab_channel=Amgart)
+For more information, you can see [this video](https://www.youtube.com/watch?v=N_c2TQMzfDY&ab_channel=Amgart)
 
 ## How to use
 When the tool starts the *Dashboard* screen is shown, just go to *My cars* tab and select the cars you own on *iRacing*. 
@@ -53,7 +53,6 @@ So, please, at the beginning of the season download the corresponding release
 *   Possibility to introduce your iRacing account info.
 *   *Dashboard* is automatically calculated each season instead of manually updating the tool (if you introduce your iRacing account info).
 *   Owned cars and tracks are automatically updated with your *iRacing* account (if you introduce your iRacing account info).
-*   Possibility to add favourite cars, tracks and series.
 *   Possibility to filter favourite cars and tracks in the *Dashboard* tab.
 *   Price calculator for the user to use when planning the new season and being able to know how much money he needs to spend.
 
@@ -66,7 +65,6 @@ GitHub or you can reach me by social media:
 *   [My Instagram](https://www.instagram.com/amg.art/)
 *   [If you want to register in iRacing and use me as a referred](https://www.iracing.com/membership/?refid=366160)
 *   If you want to add me as a friend, my iRacing name is: Albert Martínez
-*   [If you want to become a patron](https://www.patreon.com/amgart)
 *   If you want to buy me a coffee:
 
 [![](https://www.paypalobjects.com/es_ES/ES/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WBC5FZRDZHMSE)
@@ -79,8 +77,5 @@ really helps.
 
 Thank you so much!
 
-## Build Status
-[![Build Status](https://travis-ci.com/amgart/iracingPlanner.svg?token=fxGz683x8EKy5r4BMBoM&branch=develop)](https://travis-ci.com/amgart/iracingPlanner)
-
 ## Code quality
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/c2a6545e7f60442baca49e0d551d29a1)](https://www.codacy.com/gh/amgart/iracingPlanner/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=amgart/iracingPlanner&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/c2a6545e7f60442baca49e0d551d29a1)](https://app.codacy.com/gh/amgart/iracingPlanner/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
