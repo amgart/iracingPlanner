@@ -50,6 +50,27 @@ export class TrackService {
     return false;
   }
 
+  isFavorite(track: Track): boolean {
+    if (track.package_id) {
+      const savedTrack = this.storeService.get(this.objectType, track.package_id);
+      if (savedTrack) {
+        return savedTrack.favorite;
+      }
+    }
+    return false;
+  }
+
+  isSomeTrackFavorite(tracks: Track[]): boolean {
+    if (tracks && tracks.length > 0) {
+      let result = false;
+      tracks.forEach(track => {
+        result = result || this.isFavorite(track);
+      });
+      return result;
+    }
+    return false;
+  }
+
   findTrackBy(trackId: number): Track | undefined {
     let result;
     const trackList = this.getTracks();

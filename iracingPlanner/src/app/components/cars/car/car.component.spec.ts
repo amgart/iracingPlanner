@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CarComponent } from './car.component';
+import {CarComponent} from './car.component';
 import {UtilService} from "../../../services/util/util.service";
 import {CarService} from "../../../services/car/car.service";
 
@@ -62,4 +62,19 @@ describe('CarComponent', () => {
     expect(carService.save).toHaveBeenCalledWith(component.car);
   });
 
+  it('should set car as favorite and save it', () => {
+    spyOn(carService, 'save').and.stub();
+    component.car = { car_id: 1, favorite: false };
+    component.favorite(true);
+    expect(component.car.favorite).toBe(true);
+    expect(carService.save).toHaveBeenCalledWith(component.car);
+  });
+
+  it('should set car as not favorite and save it', () => {
+    spyOn(carService, 'save').and.stub();
+    component.car = { car_id: 1, favorite: true };
+    component.favorite(false);
+    expect(component.car.favorite).toBe(false);
+    expect(carService.save).toHaveBeenCalledWith(component.car);
+  });
 });
