@@ -69,6 +69,7 @@ GitHub or you can reach me by social media:
 *   [If you want to become a patron](https://www.patreon.com/amgart)
 *   If you want to buy me a coffee:
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2c6b043b20b4408eb4181f71a58411da)](https://app.codacy.com/gh/amgart/iracingPlanner?utm_source=github.com&utm_medium=referral&utm_content=amgart/iracingPlanner&utm_campaign=Badge_Grade)
 [![](https://www.paypalobjects.com/es_ES/ES/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WBC5FZRDZHMSE)
 
 ## Final notes
