@@ -53,7 +53,6 @@ So, please, at the beginning of the season download the corresponding release
 *   Possibility to introduce your iRacing account info.
 *   *Dashboard* is automatically calculated each season instead of manually updating the tool (if you introduce your iRacing account info).
 *   Owned cars and tracks are automatically updated with your *iRacing* account (if you introduce your iRacing account info).
-*   Possibility to filter favourite cars and tracks in the *Dashboard* tab.
 *   Price calculator for the user to use when planning the new season and being able to know how much money he needs to spend.
 
 ## About the author

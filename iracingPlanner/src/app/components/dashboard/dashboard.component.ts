@@ -186,12 +186,7 @@ export class DashboardComponent implements OnInit {
         season.setupString = this.getFixedOpenSetup(season.fixed_setup);
       }
       if (cars && tracks) {
-        const carfavorite = this.carService.isSomeCarFavorite(cars);
-        const trackfavor = this.trackService.isSomeTrackFavorite(tracks);
-        season.isSomeContentFavorite =  carfavorite || trackfavor;
-        if (season.isSomeContentFavorite) {
-          console.log('-- some content is favorite', season)
-        }
+        season.isSomeContentFavorite =  this.carService.isSomeCarFavorite(cars) || this.trackService.isSomeTrackFavorite(tracks);
       }
       newSeries.push(season);
     });
