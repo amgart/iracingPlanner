@@ -1,3 +1,11 @@
+<nav mat-tab-nav-bar>
+  <a mat-tab-link [routerLink]="'/'" [active]="false">Dashboard</a>
+  <a mat-tab-link [routerLink]="'/cars'" [active]="false">Cars</a>
+  <a mat-tab-link [routerLink]="'/tracks'" [active]="false">Tracks</a>
+  <a mat-tab-link [active]="true">Refresh</a>
+  <a mat-tab-link [routerLink]="'/about'" [active]="false">About</a>
+</nav>
+
 <div class="page-container">
   <div class="login-container">
     <form [formGroup]="form">
@@ -24,13 +32,12 @@
       </mat-form-field>
 
       <div class="button-container">
-        <button mat-button (click)="offlineMode()">Offline mode</button>
         <button mat-raised-button
                 type="button"
                 color="primary"
                 (click)="login()"
                 [disabled]="form.invalid">
-          Login
+          Login & Refresh
         </button>
       </div>
     </form>

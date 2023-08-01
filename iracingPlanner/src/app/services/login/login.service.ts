@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {StoreService} from "../store/store.service";
-import {HttpClientService} from "../httpClient/http-client.service";
 import {LoginResponseDTO} from "../../interfaces/LoginResponseDTO";
+import {HttpClientService} from "../httpClient/http-client.service";
 
 @Injectable({
   providedIn: 'root'

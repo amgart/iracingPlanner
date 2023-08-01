@@ -3,7 +3,6 @@ const Store = require("electron-store");
 
 let appWin;
 const store = new Store();
-
 if (!store.get("clicks")) {
   store.set("clicks", 0);
 }

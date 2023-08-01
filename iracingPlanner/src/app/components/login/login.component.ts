@@ -26,22 +26,16 @@ export class LoginComponent implements OnInit {
     this.form.get('password')?.setValue(credentials.password);
   }
 
-  offlineMode(): void {
-    this._router.navigate(['/dashboard']);
-  }
-
   login(): void {
     const user = this.form.controls.user.value;
     const pwd = this.form.controls.password.value;
     if (user && pwd) {
       this.loginService.login(user, pwd).then(res => {
-        if (res?.message) {
-          // TODO - show login ko notification
-          console.log(res.message);
-         } else {
+        if (res) {
           // TODO - show login ok notification
-          this._router.navigate(['/dashboard']);
-         }
+        } else {
+          // TODO - show login ko notification
+        }
       });
     }
   }

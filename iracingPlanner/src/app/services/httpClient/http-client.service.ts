@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {ReleaseDTO} from "../../interfaces/ReleaseDTO";
 import {LoginDTO} from "../../interfaces/LoginDTO";
 import IracingAPI from "iracing-api";
-import {LoginResponseDTO} from "../../interfaces/LoginResponseDTO";
 import {Season} from "../../interfaces/Season";
 
 @Injectable({
@@ -29,10 +28,13 @@ export class HttpClientService {
       });
   }
 
-  async login(loginDTO: LoginDTO): Promise<LoginResponseDTO> {
+  login(loginDTO: LoginDTO): Promise<any> {
     return this.iRClient.login(loginDTO.email, loginDTO.password).then(res => {
-      if (res?.data) {
-        return res.data;
+      console.log('----- res', res);
+      if (res?.authcode) {
+        this.iRClient.getSeriesSeasons().then(res => {
+          console.log('--------', res)
+        });
       }
     });
   }
