@@ -1,8 +1,6 @@
 # Insert your credentials here (username in lowercase)
-#$EMAIL = "clunky@iracing.com"
-#$PASSWORD = "MyPassWord"
-$EMAIL = "amg.art@icloud.com"
-$PASSWORD = "5zr.P.ZHSVE:Yrn"
+$EMAIL = "clunky@iracing.com"
+$PASSWORD = "MyPassWord"
 
 # Generate hash
 $hasher = [System.Security.Cryptography.HashAlgorithm]::Create('sha256')
