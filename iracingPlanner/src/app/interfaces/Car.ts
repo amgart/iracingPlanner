@@ -27,4 +27,7 @@ export interface Car {
   retired?: boolean;
   search_filters?: string;
   sku?: number;
+
+  // My params
+  favorite?: boolean;
 }

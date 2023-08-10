@@ -78,4 +78,5 @@ export interface Season {
   categoryString?: string;
   licenseString?: string;
   setupString?: string;
+  isSomeContentFavorite?: boolean
 }

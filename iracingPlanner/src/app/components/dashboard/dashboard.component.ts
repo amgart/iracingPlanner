@@ -22,6 +22,7 @@ export class DashboardComponent implements OnInit {
   licenseControl = new FormControl('allSeries');
   setupControl = new FormControl('allSeries');
   ownedCarsControl = new FormControl('allSeries');
+  favoriteControl = new FormControl('allSeries');
   displayedColumns: string[] = ['serieName', 'license', 'type', 'cars', 'fixedOpen', 'howMany',
     'week0', 'week1', 'week2', 'week3', 'week4', 'week5', 'week6', 'week7', 'week8', 'week9',
     'week10', 'week11'];
@@ -76,7 +77,7 @@ export class DashboardComponent implements OnInit {
   }
 
   filter() {
-    this.dataSource.filter = `${this.seriesNameControl.value}|${this.raceParticipationCreditControl.value}|${this.categoryControl.value}|${this.licenseControl.value}|${this.setupControl.value}|${this.ownedCarsControl.value}`;
+    this.dataSource.filter = `${this.seriesNameControl.value}|${this.raceParticipationCreditControl.value}|${this.categoryControl.value}|${this.licenseControl.value}|${this.setupControl.value}|${this.ownedCarsControl.value}|${this.favoriteControl.value}`;
   }
 
   getCssClassForWeek(weekNum: number): string {
@@ -119,6 +120,7 @@ export class DashboardComponent implements OnInit {
       const licenseFilter = filterSplit[3];
       const setupFilter = filterSplit[4];
       const ownedCarsFilter = filterSplit[5];
+      const favoriteFilter = filterSplit[6];
 
       // Filter by series name
       if (data.seasonName?.toLowerCase().includes(seriesNameFilter)) {
@@ -150,6 +152,11 @@ export class DashboardComponent implements OnInit {
         result = data.isSomeCarOwned !== undefined && data.isSomeCarOwned;
       }
 
+      // Filter by favoriteContent
+      if (result && favoriteFilter !== 'allSeries') {
+        result = data.isSomeContentFavorite !== undefined && data.isSomeContentFavorite;
+      }
+
       return result;
     };
   }
@@ -177,6 +184,9 @@ export class DashboardComponent implements OnInit {
       }
       if (season.fixedSetup !== undefined) {
         season.setupString = this.getFixedOpenSetup(season.fixedSetup);
+      }
+      if (cars && tracks) {
+        season.isSomeContentFavorite =  this.carService.isSomeCarFavorite(cars) || this.trackService.isSomeTrackFavorite(tracks);
       }
       newSeries.push(season);
     });

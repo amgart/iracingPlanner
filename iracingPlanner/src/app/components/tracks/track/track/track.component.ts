@@ -20,6 +20,7 @@ export class TrackComponent implements OnInit {
   ngOnInit(): void {
     if (this.track.track_id) {
       this.checked = this.trackService.isOwned(this.track);
+      this.track.favorite = this.trackService.isFavorite(this.track);
     }
   }
 
@@ -31,4 +32,8 @@ export class TrackComponent implements OnInit {
     }
   }
 
+  favorite(favorite: boolean) {
+    this.track.favorite = favorite;
+    this.trackService.save(this.track);
+  }
 }

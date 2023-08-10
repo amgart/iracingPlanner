@@ -47,6 +47,27 @@ export class CarService {
     return false;
   }
 
+  isFavorite(car: Car): boolean {
+    if (car.car_id) {
+      const savedCar = this.storeService.get(this.objectType, car.car_id);
+      if (savedCar) {
+        return savedCar.favorite;
+      }
+    }
+    return false;
+  }
+
+  isSomeCarFavorite(cars: Car[]): boolean {
+    if (cars && cars.length > 0) {
+      let result = false;
+      cars.forEach(car => {
+        result = result || this.isFavorite(car);
+      });
+      return result;
+    }
+    return false;
+  }
+
   findCarBy(carId: number): Car | undefined {
     let result;
     const carList = this.getCars();
