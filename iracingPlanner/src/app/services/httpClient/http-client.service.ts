@@ -1,8 +1,5 @@
 import {Injectable} from '@angular/core';
 import {ReleaseDTO} from "../../interfaces/ReleaseDTO";
-import {LoginDTO} from "../../interfaces/LoginDTO";
-import IracingAPI from "iracing-api";
-import {Season} from "../../interfaces/Season";
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +7,6 @@ import {Season} from "../../interfaces/Season";
 export class HttpClientService {
 
   private GITHUB_RELEASES_URL = 'https://api.github.com/repos/amgart/iracingplanner/releases';
-  private iRClient = new IracingAPI();
 
   constructor() { }
 
@@ -26,20 +22,5 @@ export class HttpClientService {
         }
         return undefined;
       });
-  }
-
-  login(loginDTO: LoginDTO): Promise<any> {
-    return this.iRClient.login(loginDTO.email, loginDTO.password).then(res => {
-      console.log('----- res', res);
-      if (res?.authcode) {
-        this.iRClient.getSeriesSeasons().then(res => {
-          console.log('--------', res)
-        });
-      }
-    });
-  }
-
-  getSeries(): Promise<Array<Season> | undefined> {
-    return this.iRClient.getSeriesSeasons();
   }
 }

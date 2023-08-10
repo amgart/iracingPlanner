@@ -21,7 +21,6 @@ import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
-import {LoginComponent} from './components/login/login.component';
 import {MatIconModule} from "@angular/material/icon";
 import {NotificationComponent} from './components/notification/notification.component';
 import {FavoriteComponent} from './components/favorite/favorite.component';
@@ -36,7 +35,6 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
     DashboardComponent,
     AboutComponent,
     TrackComponent,
-    LoginComponent,
     NotificationComponent,
     FavoriteComponent
   ],
