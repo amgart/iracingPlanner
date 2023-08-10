@@ -37,6 +37,7 @@ if ($call.Content.authcode -ne 0) {
   $result = Invoke-WebRequest -Uri $result.link -WebSession $session
   $result.Content > tracks.json
 
+  echo "Everything is up to date!"
 } else {
   echo "Login failed. Please check your credentials"
 }
