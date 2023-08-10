@@ -35,24 +35,41 @@ Moreover, you can use the upper fields to filter the results in the *Dashboard* 
 *   License needed
 *   Setup type
 *   Owned cars only
+*   Favorite content
 
 ## How the data is obtained
 The schedule for the current season, cars and tracks are stored as a json files inside the tool. 
 These json files are obtained through *iRacing* API calls and contains all the series, with the corresponding 
 tracks per week, license, categories, cars, and other information. These json files need to be updated each season.
-So, please, at the beginning of the season download the corresponding release 
-[here](https://github.com/amgart/iracingPlanner/releases).
+For updating these files, please follow these steps:
+*   Go to the folder were you have the application installed (i.e. C:/Programs/AMG's iRacing Planner)
+*   Once inside the main folder, navigate to resources/assets/
+*   Open the file updater-ps.ps1 with Notepad (or similar)
+*   In the second line, specify your iRacing email (in lower case, if not, it won't work)
+*   In the third line, specify your iRacing password
+*   Close the file
+*   Execute the file updater.bat
+
+If the process succeed, you can now open AMG's iRacing Planner and you should see the new season series, cars and tracks.
+Please, note that your email and password is only used for this updater tool. AMG's iRacing Planner does not use
+your credentials for anything.
+
+This tool uses PowerShell to get the information from iRacing. PowerShell is built in Windows 10 and upper but 
+in case you do not have installed PowerShell, please download and install it or the script won't work.
+
+Finally, I would like to mention that even it is not needed to update AMG's iRacing Planner to get the new seasons info
+anymore, I encourage you to keep downloading the newer versions of the app, as I will be adding new features :)
+You can find download latest release in [here](https://github.com/amgart/iracingPlanner/releases).
 
 ## Known issues and limitations
 *   If the serie has less than 12 races, the series is not shown, as this causes confusion about when the races happen.
-*   The json file needs to be updated every season. Please download the version of the app corresponding to the current season.
 
 ## Future features planned
 *   Visual enhancements
 *   Possibility to filter by multiple values in same filter. For example: show series with licenses A, B and C. At the moment this is not possible.
 *   Possibility to introduce your iRacing account info.
-*   *Dashboard* is automatically calculated each season instead of manually updating the tool (if you introduce your iRacing account info).
-*   Owned cars and tracks are automatically updated with your *iRacing* account (if you introduce your iRacing account info).
+*   *Dashboard* is automatically calculated each season instead of manually updating the tool.
+*   Owned cars and tracks are automatically updated with your *iRacing* account.
 *   Price calculator for the user to use when planning the new season and being able to know how much money he needs to spend.
 
 ## About the author

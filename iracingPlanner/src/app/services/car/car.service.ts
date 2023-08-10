@@ -81,9 +81,9 @@ export class CarService {
 
   findCarsForSeason(season: Season): Car[] {
     let cars: Car[] = [];
-    if (season.car_class_ids) {
-      season.car_class_ids.forEach(carClassId => {
-        const carClass = this.carClassService.findCarClassBy(carClassId);
+    if (season.carClassIds) {
+      season.carClassIds.forEach(carClassIds => {
+        const carClass = this.carClassService.findCarClassBy(carClassIds);
         if (carClass && carClass.cars_in_class) {
           carClass.cars_in_class.forEach(carInClass => {
             if (carInClass.car_id) {

@@ -5,9 +5,9 @@ import {TrackService} from '../../services/track/track.service';
 import {CarService} from '../../services/car/car.service';
 import {FormControl} from "@angular/forms";
 import {MatTableDataSource} from "@angular/material/table";
-import {Season} from "../../interfaces/Season";
 import {Car} from "../../interfaces/Car";
 import {Track} from "../../interfaces/Track";
+import {Season} from "../../interfaces/Season";
 
 @Component({
   selector: 'app-dashboard',
@@ -35,7 +35,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.season = this.serieService.findSeries();
-    this.season = this.processSeries(this.season);
+    this.season = this.processSeries(this.utilService.sortSeries(this.season));
     this.dataSource = new MatTableDataSource(this.season);
     this.dataSource.filterPredicate = this.createFilter();
   }
@@ -98,8 +98,8 @@ export class DashboardComponent implements OnInit {
   private getCurrentWeekStartDate(weekNum: number, season: Season): Date | undefined {
     if (season && season.schedules) {
       const schedule = season.schedules[weekNum];
-      if (schedule.start_date) {
-        return new Date(schedule.start_date);
+      if (schedule.startDate) {
+        return new Date(schedule.startDate);
       }
     }
     return undefined;
@@ -123,7 +123,7 @@ export class DashboardComponent implements OnInit {
       const favoriteFilter = filterSplit[6];
 
       // Filter by series name
-      if (data.season_name?.toLowerCase().includes(seriesNameFilter)) {
+      if (data.seasonName?.toLowerCase().includes(seriesNameFilter)) {
         result = true;
       }
 
@@ -179,11 +179,11 @@ export class DashboardComponent implements OnInit {
       if (tracks && tracks.length > 0 && tracks[0].category_id) {
         season.categoryString = this.getCategory(tracks[0].category_id);
       }
-      if (season.license_group) {
-        season.licenseString = this.getLicense(season.license_group);
+      if (season.licenseGroup) {
+        season.licenseString = this.getLicense(season.licenseGroup);
       }
-      if (season.fixed_setup !== undefined) {
-        season.setupString = this.getFixedOpenSetup(season.fixed_setup);
+      if (season.fixedSetup !== undefined) {
+        season.setupString = this.getFixedOpenSetup(season.fixedSetup);
       }
       if (cars && tracks) {
         season.isSomeContentFavorite =  this.carService.isSomeCarFavorite(cars) || this.trackService.isSomeTrackFavorite(tracks);

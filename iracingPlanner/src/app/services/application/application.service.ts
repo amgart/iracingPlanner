@@ -17,4 +17,5 @@ export class ApplicationService {
   getLatestVersion(): Promise<ReleaseDTO | undefined> {
     return this.httpClientService.getLatestVersion();
   }
+
 }
