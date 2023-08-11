@@ -2,3 +2,4 @@
 /build/*
 /.idea/*
 /iracingPlanner/release-builds/*
+/iracingPlanner/node_modules/*

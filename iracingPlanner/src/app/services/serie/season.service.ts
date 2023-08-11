@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
-import seasonJsonFile from '../../../assets/series.json';
 import {UtilService} from '../util/util.service';
 import {Season} from "../../interfaces/Season";
+import seasonJsonFile from "../../../assets/series.json";
+
 
 @Injectable({
   providedIn: 'root'

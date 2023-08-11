@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Season} from "../../interfaces/Season";
 
 @Injectable({
@@ -14,8 +14,8 @@ export class UtilService {
 
   sortSeries(list: Season[]): Season[]{
     return list.sort((a,b) => {
-      if (a.season_name && b.season_name) {
-        return (a.season_name > b.season_name) ? 1: (b.season_name > a.season_name) ? -1 : 0;
+      if (a.seasonName && b.seasonName) {
+        return (a.seasonName > b.seasonName) ? 1: (b.seasonName > a.seasonName) ? -1 : 0;
       }
       return -1;
     });

@@ -19,8 +19,8 @@
   white-space: nowrap;
 }
 
-.w-500 {
-  width: 35%;
+.w-250 {
+  width: 25%;
 }
 
 .m-1 {
@@ -29,6 +29,7 @@
 
 .fs-12 {
   font-size: 12px;
+  line-height: 0;
 }
 
 .mat-mdc-table .mat-mdc-header-cell, .mdc-data-table__cell {
