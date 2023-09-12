@@ -123,7 +123,7 @@ export class DashboardComponent implements OnInit {
       const favoriteFilter = filterSplit[6];
 
       // Filter by series name
-      if (data.seasonName?.toLowerCase().includes(seriesNameFilter)) {
+      if (data.season_name?.toLowerCase().includes(seriesNameFilter)) {
         result = true;
       }
 
@@ -169,6 +169,8 @@ export class DashboardComponent implements OnInit {
     let newSeries: Season[] = [];
     seasons.forEach(season => {
       const tracks = this.trackService.findTracksForSeason(season);
+      console.log(season);
+      console.log(tracks);
       if (tracks) {
         season.numOwnedTracks = this.countRaces(tracks);
       }
@@ -179,11 +181,11 @@ export class DashboardComponent implements OnInit {
       if (tracks && tracks.length > 0 && tracks[0].category_id) {
         season.categoryString = this.getCategory(tracks[0].category_id);
       }
-      if (season.licenseGroup) {
-        season.licenseString = this.getLicense(season.licenseGroup);
+      if (season.license_group) {
+        season.licenseString = this.getLicense(season.license_group);
       }
-      if (season.fixedSetup !== undefined) {
-        season.setupString = this.getFixedOpenSetup(season.fixedSetup);
+      if (season.fixed_setup !== undefined) {
+        season.setupString = this.getFixedOpenSetup(season.fixed_setup);
       }
       if (cars && tracks) {
         season.isSomeContentFavorite =  this.carService.isSomeCarFavorite(cars) || this.trackService.isSomeTrackFavorite(tracks);

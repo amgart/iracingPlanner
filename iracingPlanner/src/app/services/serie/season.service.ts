@@ -13,7 +13,8 @@ export class SeasonService {
 
   findSeries(): Season[] {
     let seasons: Season[] = [];
-    seasonJsonFile.forEach(season => {
+    // @ts-ignore
+    seasonJsonFile.forEach((season: Season) => {
       if (this.has12Races(season)) {
         seasons.push(season);
       }
