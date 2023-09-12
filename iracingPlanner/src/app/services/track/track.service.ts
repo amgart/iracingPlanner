@@ -71,11 +71,11 @@ export class TrackService {
     return false;
   }
 
-  findTrackBy(trackId: number): Track | undefined {
+  findTrackBy(track_id: number): Track | undefined {
     let result;
     const trackList = this.getTracks();
     trackList.forEach(track => {
-      if (track.track_id === trackId) {
+      if (track.track_id === track_id) {
         result = track;
       }
     });
@@ -86,8 +86,8 @@ export class TrackService {
     let tracks: Track[] = [];
     if (season.schedules) {
       season.schedules.forEach((schedule: any) => {
-        if (schedule.track && schedule.track.trackId) {
-          const track = this.findTrackBy(schedule.track.trackId);
+        if (schedule.track && schedule.track.track_id) {
+          const track = this.findTrackBy(schedule.track.track_id);
           if (track) {
             tracks.push(track);
           }
