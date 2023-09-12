@@ -23,14 +23,14 @@ describe('UtilService', () => {
 
   it('should sort series by name', () => {
     const input: Season[] = [
-      { season_id: 1, seasonName: 'Season C' },
-      { season_id: 2, seasonName: 'Season A' },
-      { season_id: 3, seasonName: 'Season B' }
+      { season_id: 1, season_name: 'Season C' },
+      { season_id: 2, season_name: 'Season A' },
+      { season_id: 3, season_name: 'Season B' }
     ];
     const expectedOutput: Season[] = [
-      { season_id: 2, seasonName: 'Season A' },
-      { season_id: 3, seasonName: 'Season B' },
-      { season_id: 1, seasonName: 'Season C' }
+      { season_id: 2, season_name: 'Season A' },
+      { season_id: 3, season_name: 'Season B' },
+      { season_id: 1, season_name: 'Season C' }
     ];
     expect(service.sortSeries(input)).toEqual(expectedOutput);
   });
