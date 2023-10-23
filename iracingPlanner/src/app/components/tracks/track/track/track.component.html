@@ -1,8 +1,0 @@
-<mat-checkbox
-  class="example-margin"
-  [disabled]="track.free_with_subscription ? track.free_with_subscription : false"
-  [(ngModel)]="track.free_with_subscription !== undefined ? (track.free_with_subscription? true : checked) : checked"
-  (click)="onClick(track)">{{track.track_name}}
-</mat-checkbox>
-<app-favorite [item]="track"
-              (clickEvent)="favorite($event)"></app-favorite>
