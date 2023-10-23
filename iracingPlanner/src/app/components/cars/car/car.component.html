@@ -1,8 +1,18 @@
-<mat-checkbox
-  class="example-margin"
-  [disabled]="car.free_with_subscription ? car.free_with_subscription : false"
-  [(ngModel)]="car.free_with_subscription !== undefined ? (car.free_with_subscription? true : checked) : checked"
-  (click)="onClick(car)">{{car.car_name}}
-</mat-checkbox>
-<app-favorite [item]="car"
-              (clickEvent)="favorite($event)"></app-favorite>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <mat-checkbox class="example-margin"
+                    [disabled]="car.free_with_subscription ? car.free_with_subscription : false"
+                    [(ngModel)]="car.free_with_subscription !== undefined ? (car.free_with_subscription? true : checked) : checked"
+                    (click)="onClick(car)">{{car.car_name}}
+      </mat-checkbox>
+      <app-favorite [item]="car"
+                    (clickEvent)="favorite($event)"></app-favorite>
+    </mat-card-title>
+  </mat-card-header>
+  <img mat-card-image
+       class="card-img"
+       src="{{getCarImageUrl()}}">
+</mat-card>
+
+

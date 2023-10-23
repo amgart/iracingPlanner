@@ -169,8 +169,6 @@ export class DashboardComponent implements OnInit {
     let newSeries: Season[] = [];
     seasons.forEach(season => {
       const tracks = this.trackService.findTracksForSeason(season);
-      console.log(season);
-      console.log(tracks);
       if (tracks) {
         season.numOwnedTracks = this.countRaces(tracks);
       }

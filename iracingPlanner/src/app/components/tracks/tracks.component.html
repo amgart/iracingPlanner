@@ -5,7 +5,7 @@
   <a mat-tab-link [routerLink]="'/about'" [active]="false">About</a>
 </nav>
 
-<mat-grid-list cols="4" rowHeight="50px">
+<mat-grid-list cols="5" rowHeight="290px">
   <mat-grid-tile *ngFor="let track of tracks">
     <app-track [track]="track"></app-track>
   </mat-grid-tile>

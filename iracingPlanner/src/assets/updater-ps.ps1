@@ -37,6 +37,18 @@ if ($call.Content.authcode -ne 0) {
   $result = Invoke-WebRequest -Uri $result.link -WebSession $session
   $result.Content > tracks.json
 
+  echo "Obtaining car assets..."
+  $call = Invoke-WebRequest -Uri 'https://members-ng.iracing.com/data/car/assets' -WebSession $session
+  $result = $call.Content | convertFrom-Json
+  $result = Invoke-WebRequest -Uri $result.link -WebSession $session
+  $result.Content > carAssets.json
+
+  echo "Obtaining track assets..."
+  $call = Invoke-WebRequest -Uri 'https://members-ng.iracing.com/data/track/assets' -WebSession $session
+  $result = $call.Content | convertFrom-Json
+  $result = Invoke-WebRequest -Uri $result.link -WebSession $session
+  $result.Content > trackAssets.json
+
   echo "Everything is up to date!"
 } else {
   echo "Login failed. Please check your credentials"

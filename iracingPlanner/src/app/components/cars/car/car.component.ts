@@ -1,7 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {UtilService} from '../../../services/util/util.service';
 import {CarService} from '../../../services/car/car.service';
 import {Car} from "../../../interfaces/Car";
+import {CarAssetService} from "../../../services/carAsset/car-asset.service";
+import {CarAsset} from "../../../interfaces/CarAsset";
 
 @Component({
   selector: 'app-car',
@@ -13,14 +14,16 @@ export class CarComponent implements OnInit {
   @Input()
   car: Car = {};
 
+  carAsset: CarAsset = {};
   checked = false;
 
-  constructor(private utilService: UtilService, private carService: CarService) { }
+  constructor(private carService: CarService, private carAssetService: CarAssetService) { }
 
   ngOnInit(): void {
     if (this.car.car_id) {
       this.checked = this.carService.isOwned(this.car);
       this.car.favorite = this.carService.isFavorite(this.car);
+      this.carAsset = this.carAssetService.getAssetFor(this.car.car_id);
     }
   }
 
@@ -37,4 +40,7 @@ export class CarComponent implements OnInit {
     this.carService.save(this.car);
   }
 
+  getCarImageUrl(): string {
+    return `https://images-static.iracing.com/${this.carAsset.folder}/${this.carAsset.small_image}`;
+  }
 }
