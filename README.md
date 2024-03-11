@@ -21,7 +21,7 @@ as you configured it.
 In the *Dashboard* tab will you find the following columns:
 *   Series name (if the cell paints green means that you have at least 8 tracks, and you can obtain race participation credits with the series)
 *   License needed for racing the series (R, D, C, B or A)
-*   Category of the series (Road, Oval, Dirt Oval or RX)
+*   Category of the series (Sports Car, Formula, Oval, Dirt Oval or RX)
 *   Cars allowed for the series (if the cell paints green means that you own at least one car)
 *   Setup type (fixed or open)
 *   Number of tracks you can race for this series
