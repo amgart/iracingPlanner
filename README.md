@@ -1,5 +1,5 @@
 # AMG's iRacingPlanner
-As an *iRacing* user I always found quite difficult to plan my season. When a new season schedule is released, 
+As an *iRacing* user I always found quite difficult to plan my season. When a new season schedule is released,
 I used to go the schedule pdf and build a table with the series, tracks and cars. Once build, I tried to identify
 which were the best options to race and what tracks and cars to buy for the season.
 
@@ -12,11 +12,12 @@ Now you only need to double-click *iracing-planner.exe*
 For more information, you can see [this video](https://www.youtube.com/watch?v=N_c2TQMzfDY&ab_channel=Amgart)
 
 ## How to use
-When the tool starts the *Dashboard* screen is shown, just go to *My cars* tab and select the cars you own on *iRacing*. 
+When the tool starts the *Dashboard* screen is shown, just go to *My cars* tab and select the cars you own on *iRacing*.
 Select too your owned tracks on *My tracks* tab.
 
-Once you have done this, you can return to the main *Dashboard* tab, and you will see the table of series 
+Once you have done this, you can return to the main *Dashboard* tab, and you will see the table of series
 as you configured it.
+You will see in green the content that you have and what you can race.
 
 In the *Dashboard* tab will you find the following columns:
 *   Series name (if the cell paints green means that you have at least 8 tracks, and you can obtain race participation credits with the series)
@@ -25,8 +26,8 @@ In the *Dashboard* tab will you find the following columns:
 *   Cars allowed for the series (if the cell paints green means that you own at least one car)
 *   Setup type (fixed or open)
 *   Number of tracks you can race for this series
-*   Weeks: the list of tracks per week (if the cell paints green means that you own the track). 
-Note that past weeks will be shown in grey color. Current week will be the first column in white.
+*   Weeks: the list of tracks per week (if the cell paints green means that you own the track).
+    Note that past weeks will be shown in grey color. Current week will be the first column in white.
 
 Moreover, you can use the upper fields to filter the results in the *Dashboard* table. You can filter by:
 *   Series name
@@ -38,8 +39,8 @@ Moreover, you can use the upper fields to filter the results in the *Dashboard* 
 *   Favorite content
 
 ## How the data is obtained
-The schedule for the current season, cars and tracks are stored as a json files inside the tool. 
-These json files are obtained through *iRacing* API calls and contains all the series, with the corresponding 
+The schedule for the current season, cars and tracks are stored as a json files inside the tool.
+These json files are obtained through *iRacing* API calls and contains all the series, with the corresponding
 tracks per week, license, categories, cars, and other information. These json files need to be updated each season.
 For updating these files, please follow these steps:
 *   Go to the folder were you have the application installed (i.e. C:/Programs/AMG's iRacing Planner)
@@ -54,7 +55,7 @@ If the process succeed, you can now open AMG's iRacing Planner and you should se
 Please, note that your email and password is only used for this updater tool. AMG's iRacing Planner does not use
 your credentials for anything.
 
-This tool uses PowerShell to get the information from iRacing. PowerShell is built in Windows 10 and upper but 
+This tool uses PowerShell to get the information from iRacing. PowerShell is built in Windows 10 and upper but
 in case you do not have installed PowerShell, please download and install it or the script won't work.
 
 Finally, I would like to mention that even it is not needed to update AMG's iRacing Planner to get the new seasons info
@@ -65,7 +66,9 @@ You can find download latest release in [here](https://github.com/amgart/iracing
 *   If the serie has less than 12 races, the series is not shown, as this causes confusion about when the races happen.
 
 ## Future features planned
-*   Visual enhancements
+*   New Series tab
+*   Showing more info about cars and tracks
+*   Recommendations about what to race
 *   Possibility to filter by multiple values in same filter. For example: show series with licenses A, B and C. At the moment this is not possible.
 *   Possibility to introduce your iRacing account info.
 *   *Dashboard* is automatically calculated each season instead of manually updating the tool.
@@ -87,11 +90,10 @@ GitHub or you can reach me by social media:
 
 ## Final notes
 Please, take into account that I coded this in my free time, but I do not have so much time. Please understand
-if the features are arriving slowly. 
-If you want to help me, proposing new features, following me in the social media or making a donation 
+if the features are arriving slowly.
+If you want to help me, proposing new features, following me in the social media or making a donation
 really helps.
 
 Thank you so much!
 
-## Code quality
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/c2a6545e7f60442baca49e0d551d29a1)](https://app.codacy.com/gh/amgart/iracingPlanner/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+Albert
