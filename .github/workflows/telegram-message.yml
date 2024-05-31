@@ -19,7 +19,4 @@ jobs:
         with:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           channel: ${{ secrets.TELEGRAM_TO }}
-          changelog: |
-            Muy buenas amigos simRacers!! 
-            Esto es una prueba de mensaje, ignorad el mensaje por favor!
-            Disculpad las molestias! :)
+          changelog: "Muy buenas amigos simRacers!! Esto es una prueba de mensaje, ignorad el mensaje por favor! Disculpad las molestias! :)"
