@@ -21,4 +21,5 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
             Muy buenas amigos simRacers!! 
-            Esto es una prueba de mensaje, ignorad el mensaje por favor! :)
+            Esto es una prueba de mensaje, ignorad el mensaje por favor!
+            Disculpad las molestias! :)
