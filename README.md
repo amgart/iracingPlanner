@@ -64,7 +64,8 @@ anymore, I encourage you to keep downloading the newer versions of the app, as I
 You can find download latest release in [here](https://github.com/amgart/iracingPlanner/releases).
 
 ## Known issues and limitations
-*   If the serie has less than 12 races, the series is not shown, as this causes confusion about when the races happen.
+*   If the series has more than 12 races, the series is not shown. I added recently the less than 12 races series but I 
+    am still looking for a way of showing more than 12 races without being confusing.
 
 ## Future features planned
 *   New Series tab
