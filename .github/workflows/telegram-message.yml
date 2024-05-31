@@ -15,8 +15,11 @@ jobs:
 
     steps:
       - name: Send Message
-        uses: tyagdit/release-telegram-action@master
+        uses: appleboy/telegram-action@master
         with:
+          to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          channel: ${{ secrets.TELEGRAM_TO }}
-          changelog: ${{ github.event.release.body }}
+          message: |
+            Muy buenas amigos simRacers!! 
+            Esto es una prueba de mensaje, ignorad el mensaje por favor!
+            Disculpad las molestias! :)
