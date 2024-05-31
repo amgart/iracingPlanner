@@ -5,8 +5,8 @@ name: Send Message to Telegram Group
 
 on:
   push:
-    branches:
-      - "master"
+    tags:
+      - "v*.*.*"
 
 jobs:
   build:
