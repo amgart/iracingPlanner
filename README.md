@@ -88,7 +88,7 @@ GitHub or you can reach me by social media:
 *   If you want to add me as a friend, my iRacing name is: Albert Martínez
 *   If you want to buy me a coffee:
 
-[![](https://www.paypalobjects.com/es_ES/ES/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WBC5FZRDZHMSE)
+[![](https://www.paypalobjects.com/es_ES/ES/i/btn/btn_donate_LG.gif)](https://paypal.me/amgart88)
 
 ## Final notes
 Please, take into account that I coded this in my free time, but I do not have so much time. Please understand
