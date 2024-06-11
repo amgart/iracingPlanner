@@ -68,7 +68,6 @@ You can find download latest release in [here](https://github.com/amgart/iracing
     am still looking for a way of showing more than 12 races without being confusing.
 
 ## Future features planned
-*   New Series tab
 *   Showing more info about cars and tracks
 *   Recommendations about what to race
 *   Possibility to filter by multiple values in same filter. For example: show series with licenses A, B and C. At the moment this is not possible.
