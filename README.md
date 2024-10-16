@@ -6,13 +6,11 @@ which were the best options to race and what tracks and cars to buy for the seas
 This was quite a pain, so I decided to code this little tool that builds a table with all the series, cars and
 tracks for the current season.
 
-## How to install
-Just download latest release (https://github.com/amgart/iracingPlanner/releases), unzip it and put it in your favourite folder.
-Now you only need to double-click *iracing-planner.exe*
-For more information, you can see [this video](https://www.youtube.com/watch?v=N_c2TQMzfDY&ab_channel=Amgart)
-
 ## How to use
-When the tool starts the *Dashboard* screen is shown, just go to *My cars* tab and select the cars you own on *iRacing*.
+Go to the following url: https://amgiracingplanner.web.app/login
+If you are not registered, introduce your desired user and password and click on 'Sign up'. After receiving the
+confirmation message you can now login.
+After login, the *Dashboard* screen is shown, just go to *My cars* tab and select the cars you own on *iRacing*.
 Select too your owned tracks on *My tracks* tab.
 
 Once you have done this, you can return to the main *Dashboard* tab, and you will see the table of series
@@ -39,40 +37,14 @@ Moreover, you can use the upper fields to filter the results in the *Dashboard* 
 *   Owned cars only
 *   Favorite content
 
-## How the data is obtained
-The schedule for the current season, cars and tracks are stored as a json files inside the tool.
-These json files are obtained through *iRacing* API calls and contains all the series, with the corresponding
-tracks per week, license, categories, cars, and other information. These json files need to be updated each season.
-For updating these files, please follow these steps:
-*   Go to the folder were you have the application installed (i.e. C:/Programs/AMG's iRacing Planner)
-*   Once inside the main folder, navigate to resources/assets/
-*   Open the file updater-ps.ps1 with Notepad (or similar)
-*   In the second line, specify your iRacing email (in lower case, if not, it won't work)
-*   In the third line, specify your iRacing password
-*   Close the file
-*   Execute the file updater.bat
-
-If the process succeed, you can now open AMG's iRacing Planner and you should see the new season series, cars and tracks.
-Please, note that your email and password is only used for this updater tool. AMG's iRacing Planner does not use
-your credentials for anything.
-
-This tool uses PowerShell to get the information from iRacing. PowerShell is built in Windows 10 and upper but
-in case you do not have installed PowerShell, please download and install it or the script won't work.
-
-Finally, I would like to mention that even it is not needed to update AMG's iRacing Planner to get the new seasons info
-anymore, I encourage you to keep downloading the newer versions of the app, as I will be adding new features :)
-You can find download latest release in [here](https://github.com/amgart/iracingPlanner/releases).
-
 ## Known issues and limitations
-*   If the series has more than 12 races, the series is not shown. I added recently the less than 12 races series but I 
-    am still looking for a way of showing more than 12 races without being confusing.
+*   If the serie has more than 12 races, the series is not shown at this moment, I am trying to find a way of showing the info without being confusing.
 
 ## Future features planned
 *   Showing more info about cars and tracks
 *   Recommendations about what to race
 *   Possibility to filter by multiple values in same filter. For example: show series with licenses A, B and C. At the moment this is not possible.
 *   Possibility to introduce your iRacing account info.
-*   *Dashboard* is automatically calculated each season instead of manually updating the tool.
 *   Owned cars and tracks are automatically updated with your *iRacing* account.
 *   Price calculator for the user to use when planning the new season and being able to know how much money he needs to spend.
 
@@ -80,6 +52,7 @@ You can find download latest release in [here](https://github.com/amgart/iracing
 If you want to report issues, give me some feedback or recommend some new features, you can do it here in
 GitHub or you can reach me by social media:
 
+*   [Telegram group](t.me/amgiRacingPlanner)
 *   [My YouTube channel](https://www.youtube.com/channel/UC5TSGSOsf1KE2zjnFFJTSfw)
 *   [My Twitch channel](https://www.twitch.tv/amgart88)
 *   [My Instagram](https://www.instagram.com/amg.art/)
