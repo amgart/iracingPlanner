@@ -7,7 +7,8 @@ This was quite a pain, so I decided to code this little tool that builds a table
 tracks for the current season.
 
 ## How to use
-Go to the following url: https://amgiracingplanner.web.app/login
+Access to the following url: https://amgiracingplanner.web.app/login
+
 If you are not registered, introduce your desired user and password and click on 'Sign up'. After receiving the
 confirmation message you can now login.
 After login, the *Dashboard* screen is shown, just go to *My cars* tab and select the cars you own on *iRacing*.
@@ -21,7 +22,7 @@ In the *Dashboard* tab will you find the following columns:
 *   Series name (if the cell paints green means that you have at least 8 tracks, and you can obtain race participation credits with the series)
 *   License needed for racing the series (R, D, C, B or A)
 *   Category of the series (Sports Car, Formula, Oval, Dirt Oval or RX)
-*   Cars allowed for the series (if the cell paints green means that you own at least one car)
+*   Cars allowed for the series (owned cars will be painted in green)
 *   Setup type (fixed or open)
 *   Number of tracks you can race for this series. If you are a PRO user you will see the duration of the race and if there is change of rain.
 *   Weeks: the list of tracks per week (if the cell paints green means that you own the track).
