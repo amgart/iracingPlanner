@@ -21,7 +21,7 @@ You will see in green the content that you have and what you can race.
 In the *Dashboard* tab will you find the following columns:
 *   Series name (if the cell paints green means that you have at least 8 tracks, and you can obtain race participation credits with the series)
 *   License needed for racing the series (R, D, C, B or A)
-*   Category of the series (Sports Car, Formula, Oval, Dirt Oval or RX)
+*   Type of the series (Sports Car, Formula, Oval, Dirt Oval or RX)
 *   Cars allowed for the series (owned cars will be painted in green)
 *   Setup type (fixed or open)
 *   Number of tracks you can race for this series. If you are a PRO user you will see the duration of the race and if there is change of rain.
@@ -37,17 +37,35 @@ Moreover, you can use the upper fields to filter the results in the *Dashboard* 
 *   Setup type
 *   Owned cars only
 *   Favorite content
+*   If rain is enabled for a serie
 
 ## Known issues and limitations
-*   If the serie has more than 12 races, the series is not shown at this moment, I am trying to find a way of showing the info without being confusing.
+*   If a series has more than 12 races, then it is not shown at this moment, I am trying to find a way of showing the info without being confusing.
+*   If a series does not follow the iRacing week pattern (from tuesday to next monday), when adding an event to the calendar, days selected are not the proper ones.
+
+## PRO members
+There are some features that only available for PRO members. The list of current available features are:
+*   See the duration of the races in the *Dashboard* tab
+*   See the % of rain chance of a race in the *Dashboard* tab
+*   Filtering in the *Series*, *Cars* and *Tracks* tabs
+*   Access to the *Calendar* tab to plan your season
+    If you want to be a PRO member, please email me to amgart88@gmail.com and I will let you know the steps to become a PRO member.
+
+## Using the Calendar tab
+If you want to create your own calendar to plan your season more in deep. You can create your events from the *Dashboard* tab.
+To do it, just click on the calendar icon in a race where you have the track and the car, select the day you want to race and click on *Add*.
+Once done this, if you go to the *Calendar* tab you will see the events in the day you selected.
 
 ## Future features planned
-*   Showing more info about cars and tracks
+*   Showing more info about cars, tracks and series
 *   Recommendations about what to race
 *   Possibility to filter by multiple values in same filter. For example: show series with licenses A, B and C. At the moment this is not possible.
 *   Possibility to introduce your iRacing account info.
 *   Owned cars and tracks are automatically updated with your *iRacing* account.
 *   Price calculator for the user to use when planning the new season and being able to know how much money he needs to spend.
+*   Create your own custom events on the *Calendar* tab
+*   Create a calendar for your drivers (if you are a team manager)
+*   Expand the tool to more competitions (LowFuelMotorsport for example)
 
 ## About the author
 If you want to report issues, give me some feedback or recommend some new features, you can do it here in
