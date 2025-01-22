@@ -56,6 +56,8 @@ If you want to create your own calendar to plan your season more in deep. You ca
 To do it, just click on the calendar icon in a race where you have the track and the car, select the day you want to race and click on *Add*.
 Once done this, if you go to the *Calendar* tab you will see the events in the day you selected.
 
+Moreover, if you want to create your own custom event, just click on the '+' button, type a description, select a date and click on 'Add'. The event will be added in the Calendar.
+
 ## Future features planned
 *   Showing more info about cars, tracks and series
 *   Recommendations about what to race
