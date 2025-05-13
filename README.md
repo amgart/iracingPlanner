@@ -24,6 +24,7 @@ In the *Dashboard* tab will you find the following columns:
 *   Type of the series (Sports Car, Formula, Oval, Dirt Oval or RX)
 *   Cars allowed for the series (owned cars will be painted in green)
 *   Setup type (fixed or open)
+*   If the series is a team racing series or not.
 *   Number of tracks you can race for this series. If you are a PRO user you will see the duration of the race and if there is change of rain.
 *   Weeks: the list of tracks per week (if the cell paints green means that you own the track).
     Note that past weeks will be shown in grey color. Current week will be the first column in white.
@@ -38,6 +39,7 @@ Moreover, you can use the upper fields to filter the results in the *Dashboard* 
 *   Owned cars only
 *   Favorite content
 *   If rain is enabled for a serie
+*   If the series is a team racing series or not
 
 ## Known issues and limitations
 *   If a series has more than 12 races, then it is not shown at this moment, I am trying to find a way of showing the info without being confusing.
