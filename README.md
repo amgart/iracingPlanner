@@ -24,7 +24,7 @@ In the *Dashboard* tab will you find the following columns:
 *   Type of the series (Sports Car, Formula, Oval, Dirt Oval or RX)
 *   Cars allowed for the series (owned cars will be painted in green)
 *   Setup type (fixed or open)
-*   If the series is a team racing series or not.
+*   If the serie is team Racing or not
 *   Number of tracks you can race for this series. If you are a PRO user you will see the duration of the race and if there is change of rain.
 *   Weeks: the list of tracks per week (if the cell paints green means that you own the track).
     Note that past weeks will be shown in grey color. Current week will be the first column in white.
@@ -39,7 +39,7 @@ Moreover, you can use the upper fields to filter the results in the *Dashboard* 
 *   Owned cars only
 *   Favorite content
 *   If rain is enabled for a serie
-*   If the series is a team racing series or not
+*   If the serie is team racing or not
 
 ## Known issues and limitations
 *   If a series has more than 12 races, then it is not shown at this moment, I am trying to find a way of showing the info without being confusing.
@@ -51,6 +51,7 @@ There are some features that only available for PRO members. The list of current
 *   See the % of rain chance of a race in the *Dashboard* tab
 *   Filtering in the *Series*, *Cars* and *Tracks* tabs
 *   Access to the *Calendar* tab to plan your season
+*   View the number of times a track is used in the current season directly in the *Track* tab (free users can see it too, but in the track detail)
     If you want to be a PRO member, please email me to amgart88@gmail.com and I will let you know the steps to become a PRO member.
 
 ## Using the Calendar tab
@@ -59,6 +60,11 @@ To do it, just click on the calendar icon in a race where you have the track and
 Once done this, if you go to the *Calendar* tab you will see the events in the day you selected.
 
 Moreover, if you want to create your own custom event, just click on the '+' button, type a description, select a date and click on 'Add'. The event will be added in the Calendar.
+
+## Using the Settings tab
+In the *Settings* tab you can customize your experience in the app. The following settings at this moment are:
+*   Configure if you want to see the % chance of rain for all weeks in the *Dashboard* tab.
+*   Configure if you want to see the % chance of rain only for past weeks in the *Dashboard* tab.
 
 ## Future features planned
 *   Showing more info about cars, tracks and series
