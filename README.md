@@ -56,10 +56,10 @@ There are some features that only available for PRO members. The list of current
 
 ## Using the Calendar tab
 If you want to create your own calendar to plan your season more in deep. You can create your events from the *Dashboard* tab.
-To do it, just click on the calendar icon in a race where you have the track and the car, select the day you want to race and click on *Add*.
+To do it, just click on the calendar icon in a race where you have the track and the car, select the day and time you want to race and click on *Add*.
 Once done this, if you go to the *Calendar* tab you will see the events in the day you selected.
 
-Moreover, if you want to create your own custom event, just click on the '+' button, type a description, select a date and click on 'Add'. The event will be added in the Calendar.
+Moreover, if you want to create your own custom event, just click on the '+' button, type a description, select a date and time and click on 'Add'. The event will be added in the Calendar.
 
 ## Using the Settings tab
 In the *Settings* tab you can customize your experience in the app. The following settings at this moment are:
@@ -73,7 +73,6 @@ In the *Settings* tab you can customize your experience in the app. The followin
 *   Possibility to introduce your iRacing account info.
 *   Owned cars and tracks are automatically updated with your *iRacing* account.
 *   Price calculator for the user to use when planning the new season and being able to know how much money he needs to spend.
-*   Create your own custom events on the *Calendar* tab
 *   Create a calendar for your drivers (if you are a team manager)
 *   Expand the tool to more competitions (LowFuelMotorsport for example)
 
