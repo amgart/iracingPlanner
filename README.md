@@ -65,6 +65,7 @@ Moreover, if you want to create your own custom event, just click on the '+' but
 In the *Settings* tab you can customize your experience in the app. The following settings at this moment are:
 *   Configure if you want to see the % chance of rain for all weeks in the *Dashboard* tab.
 *   Configure if you want to see the % chance of rain only for past weeks in the *Dashboard* tab.
+*   Language: English or Spanish
 
 ## Future features planned
 *   Showing more info about cars, tracks and series
